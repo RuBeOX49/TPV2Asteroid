@@ -8,7 +8,7 @@ void GameState::handleEvents(SDL_Event event)
 	while (SDL_PollEvent(&event))
 	{
 		if (event.type == SDL_QUIT) {
-			game->setExit(true);
+			app->setExit(true);
 		}
 		for each (auto var in sceneObjects)
 		{
