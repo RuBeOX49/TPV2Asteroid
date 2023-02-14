@@ -10,9 +10,9 @@ void GameState::handleEvents(SDL_Event event)
 		if (event.type == SDL_QUIT) {
 			app->setExit(true);
 		}
-		for each (auto var in sceneObjects)
+		for (auto var : sceneObjects)
 		{
-			var->handleEvents(event);
+			var->handleEvents();
 		}
 	}
 }
@@ -20,7 +20,7 @@ void GameState::handleEvents(SDL_Event event)
 //Destructora
 GameState::~GameState()
 {
-	for each (auto var in sceneObjects)
+	for (auto var : sceneObjects)
 	{
 		delete var;
 	}
@@ -33,7 +33,7 @@ void GameState::update()
 //Render estándar
 void GameState::render()
 {
-	for each (auto var in sceneObjects)
+	for (auto var : sceneObjects)
 	{
 		var->render();
 	}
