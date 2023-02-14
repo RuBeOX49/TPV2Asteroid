@@ -4,7 +4,6 @@
 #include <array>
 #include "src/utils/Vector2D.h"
 #include "Component.h"	
-#include "ecs.h"
 class GameObject
 {
 	std::vector<Component*> currentComponents;

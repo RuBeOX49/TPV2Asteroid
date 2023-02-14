@@ -1,7 +1,7 @@
 #include "Image.h"
 
 void Image::initComponent() {
-	transform = gameObject->addComponent<Transfrom>();;
+	transform = gameObject->addComponent<Transform>();;
 }
 
 void Image::render() {
