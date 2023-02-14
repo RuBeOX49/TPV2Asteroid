@@ -1,7 +1,7 @@
 #pragma once
 #include <cstdint>
 #ifndef ecs
-
+#define ecs
 using cmpId_type = uint8_t;
 enum cmpId : cmpId_type {
 	_TRANSFORM = 0,
