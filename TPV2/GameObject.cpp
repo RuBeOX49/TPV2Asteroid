@@ -19,9 +19,5 @@ void GameObject::handleEvents()
 		component->handleEvents(this);
 }
 
-inline void GameObject::addComponent(Component* newComponent)
-{
-
-}
 
 
