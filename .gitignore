@@ -2,3 +2,8 @@
 TPV2/TPV2.vcxproj
 TPV2/TPV2.vcxproj.filters
 TPV2/TPV2.vcxproj.user
+*.obj
+*.log
+*.tlog
+*.lastbuildstate
+*.pdb
