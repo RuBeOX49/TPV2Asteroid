@@ -18,7 +18,7 @@ public:
 		manager = mngr;
 	}
 
-	virtual int initComponent();
+	virtual void initComponent();
 	virtual void render();
 	virtual void update();
 	virtual void handleEvents();

@@ -1,7 +1,7 @@
 #pragma once
 #include "GameObject.h"
-#include "Texture.h"
-#include "Vector2D.h"
+#include "../TPV2/src/sdlutils/Texture.h"
+#include "../TPV2/src/utils/Vector2D.h"
 #include <fstream>
 #include <iostream>
 #include <list>

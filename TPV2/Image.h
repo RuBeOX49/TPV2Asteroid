@@ -12,7 +12,7 @@ private:
 public:
 	static const int id = _IMAGE;
 	Image(Texture* texture) :texture(texture), transform(nullptr) {};
-	void initComponent() override;
-	void render() override;
+	void initComponent();
+	void render();
 };
 

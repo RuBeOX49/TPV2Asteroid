@@ -1,4 +1,5 @@
 #pragma once 
+
 #include <SDL_events.h>
 #include <vector>
 #include <array>
@@ -7,7 +8,7 @@ class GameObject
 {
 	Manager* manager;
 	std::vector<Component*> currentComponents;
-	std::array<Component*, maxComponentID> components;
+	std::array<Component*, _LAST_CMP_ID> components;
 	bool alive = true;
 
 
@@ -27,7 +28,7 @@ public:
 		removeComponent<T>();
 		currentComponents.push_back(c);
 		components[T::id] = c;
-		c->setContext(this, mngr);
+		c->setContext(this, manager);
 		c->initComponent();
 		return c;
 	}
@@ -36,19 +37,19 @@ public:
 	inline void removeComponent() {
 		constexpr cmpId_type cId = T::id;
 
-		if (cmps[cId] != nullptr) {
-			auto iter = std::find(currCmps.begin(),
-				currCmps.end(),
-				cmps[cId]);
-			currCmps.erase(iter);
-			delete cmps[cId];
-			cmps[cId] = nullptr;
+		if (components[cId] != nullptr) {
+			auto iter = std::find(currentComponents.begin(),
+				currentComponents.end(),
+				components[cId]);
+			currentComponents.erase(iter);
+			delete components[cId];
+			components[cId] = nullptr;
 		}
 	}
 
 	template<typename T>
 	inline bool hasComponent() {
-		return cmps[T::id] != nullptr;
+		return components[T::id] != nullptr;
 	}
 
 };

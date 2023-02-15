@@ -2,7 +2,7 @@
 #include <cstdint>
 #ifndef ecs
 #define ecs
-using cmpId_type = uint8_t;
+using cmpId_type = int;
 enum cmpId : cmpId_type {
 	_TRANSFORM = 0,
 	_IMAGE,
@@ -10,6 +10,5 @@ enum cmpId : cmpId_type {
 	// do not remove this
 	_LAST_CMP_ID
 };
-constexpr cmpId_type maxComponentId = _LAST_CMP_ID;
 
 #endif // !ecs
