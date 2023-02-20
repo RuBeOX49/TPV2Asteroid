@@ -31,6 +31,30 @@
     <Filter Include="Source Files\json">
       <UniqueIdentifier>{f050c7fb-d995-4366-9eaf-e78d399a13f9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\src">
+      <UniqueIdentifier>{1d908183-ea69-4b86-973a-a4a945ed0413}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src">
+      <UniqueIdentifier>{a29c5b04-edbb-47bb-8766-4ec268fa58a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\components">
+      <UniqueIdentifier>{064c3098-6402-4b5d-b895-6d07789c92c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\ecs">
+      <UniqueIdentifier>{f304430b-ee99-4a2a-9ec1-3a729dda5a39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\game">
+      <UniqueIdentifier>{ccd63af1-b67c-4388-8715-fbaa08dc85db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\src\components">
+      <UniqueIdentifier>{b15933fb-547a-4db3-a2f6-2db57073b06b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\src\ecs">
+      <UniqueIdentifier>{9d491928-a00a-43c7-b9d2-407935439f71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\src\game">
+      <UniqueIdentifier>{3a7a316f-46dc-450f-99f6-7055f5dbd420}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\json\JSONValue.h">
@@ -87,6 +111,57 @@
     <ClInclude Include="src\sdlutils\SDLNetUtils.h">
       <Filter>Header Files\sdlutil</Filter>
     </ClInclude>
+    <ClInclude Include="src\game\ecs_def.h">
+      <Filter>Header Files\src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Game.h">
+      <Filter>Header Files\src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ecs\Component.h">
+      <Filter>Header Files\src\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ecs\Entity.h">
+      <Filter>Header Files\src\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ecs\Manager.h">
+      <Filter>Header Files\src\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Transform.h">
+      <Filter>Header Files\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\DeAcceleration.h">
+      <Filter>Header Files\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Image.h">
+      <Filter>Header Files\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\FighterCtrl.h">
+      <Filter>Header Files\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Gun.h">
+      <Filter>Header Files\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\ShowAtOppositeSide.h">
+      <Filter>Header Files\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\FramedImage.h">
+      <Filter>Header Files\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Generations.h">
+      <Filter>Header Files\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Follow.h">
+      <Filter>Header Files\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\DisableOnExit.h">
+      <Filter>Header Files\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\AsteroidsManager.h">
+      <Filter>Header Files\src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\CollisionsManager.h">
+      <Filter>Header Files\src\game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\json\JSONValue.cpp">
@@ -118,6 +193,9 @@
     </ClCompile>
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Game.cpp">
+      <Filter>Source Files\src\game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
