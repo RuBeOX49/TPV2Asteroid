@@ -1,2 +1,9 @@
 
 TPV2/.vs/TPV2/v17/Browse.VC.db
+*.vsidx
+*.db-wal
+*.opendb
+*.lock
+*.db
+*.db-shm
+*.sqlite
