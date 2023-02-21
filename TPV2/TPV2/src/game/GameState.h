@@ -22,18 +22,4 @@ public:
     virtual void render() const;
     // Maneja el evento actual
     virtual void handleInput();
-    // Borra todos los Entity no vivos
-
-    void addEntity(Entity* object);
-    void refresh();
-    //Inserta un nuevo Entity a la escena
-    template<typename T = Entity, typename ...Ts>
-    T* addEntity(Ts&& ...args) {
-        T* e = new T();
-        e->setAlive(true);
-        e->setContext(this);
-        e->initEntity(std::forward<Ts>(args)...);
-        gObjs.push_back(e);
-        return e;
-    }
 };

@@ -1,12 +1,13 @@
 // This file is part of the course TPV2@UCM - Samir Genaim
 
 #include <iostream>
-
+#include "game/Game.h"
 #include "sdlutils/sdlutils_demo.h"
 
 int main(int ac, char **av) {
+	Game* game = nullptr;
 	try {
-		sdlutils_basic_demo();
+		game = new Game();
 	} catch (const std::string &e) { // catch exceptions thrown as strings
 		std::cerr << e << std::endl;
 	} catch (const char *e) { // catch exceptions thrown as char*

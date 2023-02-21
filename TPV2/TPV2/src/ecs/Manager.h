@@ -2,9 +2,9 @@
 
 
 #include <list>
-#include "../ecs/Entity.h"
-
-
+#include <vector>
+using namespace std;
+class Entity;
 class Manager {
 protected:
     vector<Entity*> entities;

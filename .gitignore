@@ -7,3 +7,10 @@ TPV2/.vs/TPV2/v17/Browse.VC.db
 *.db
 *.db-shm
 *.sqlite
+*.obj
+*.tlog
+*.ipch
+TPV2/bin/TPV2Debug.exe
+*.exe
+*.exp
+

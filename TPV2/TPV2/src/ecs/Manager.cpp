@@ -1,6 +1,5 @@
 #include "Manager.h"
-#include "../core/SDLApplication.h"
-
+#include "Entity.h"
 // Constructor
 Manager::Manager() : entities() {
     entities.reserve(100);

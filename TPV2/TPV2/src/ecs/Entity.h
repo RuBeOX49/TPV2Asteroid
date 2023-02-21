@@ -14,12 +14,12 @@ using namespace std;
 class Entity {
 protected:
 	bool alive;
-	Manager* gStt;
+	Manager* mngr;
 	std::vector<Component*> currCmps;
 	std::array<Component*, maxComponentId> cmps;
 public:
 	// Constructor
-	Entity() : gStt(nullptr), cmps(), currCmps(), alive(true) {
+	Entity() : mngr(nullptr), cmps(), currCmps(), alive(true) {
 		currCmps.reserve(maxComponentId);
 	}
 	// Destructor
@@ -33,7 +33,7 @@ public:
 		}
 	}
 	// Asigna el Manager del GameObject
-	inline void setContext(Manager* _gStt) { gStt = _gStt; }
+	inline void setContext(Manager* _gStt) { mngr = _gStt; }
 	// Inicializa el GameObject tras tener el contexto
 	virtual void initGameObject() {}
 	// Devuelve si el GameObject está vivo
@@ -47,7 +47,7 @@ public:
 		removeComponent<T>();
 		currCmps.push_back(c);
 		cmps[T::id] = c;
-		c->setContext(this, gStt);
+		c->setContext(this, mngr);
 		c->initComponent();
 		return c;
 	}
