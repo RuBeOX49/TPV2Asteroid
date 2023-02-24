@@ -1,5 +1,5 @@
-#include "src/components/FighterCtrl.h"
-#include "src/sdlutils/InputHandler.h"
+#include "FighterCtrl.h"
+#include "../sdlutils/InputHandler.h"
 
 FighterCtrl::FighterCtrl():transform(nullptr){}
 

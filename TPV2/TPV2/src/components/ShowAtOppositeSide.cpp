@@ -1,4 +1,4 @@
-#include "src/components/ShowAtOppositeSide.h"
+#include "ShowAtOppositeSide.h"
 
 ShowAtOppositeSide::ShowAtOppositeSide(): transform(nullptr){}
 
