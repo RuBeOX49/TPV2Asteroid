@@ -7,7 +7,8 @@
 int main(int ac, char **av) {
 	Game* game = nullptr;
 	try {
-		game = new Game();
+		Game::init();
+		Game::instance()->run();
 	} catch (const std::string &e) { // catch exceptions thrown as strings
 		std::cerr << e << std::endl;
 	} catch (const char *e) { // catch exceptions thrown as char*
