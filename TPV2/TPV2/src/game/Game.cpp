@@ -1,5 +1,6 @@
 #pragma once
 #include "Game.h"
+#include "BattleState.h"
 
 // Constructora
 Game::Game() {
@@ -15,6 +16,7 @@ Game::Game() {
 	// Maquina de estados
 	gameStateMachine = new GameStateMachine();
 	exit = false;
+	gameStateMachine->pushState(new BattleState());
 }
 
 // Destructora
