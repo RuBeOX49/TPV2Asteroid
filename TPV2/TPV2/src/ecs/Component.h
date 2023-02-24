@@ -1,26 +1,27 @@
 #pragma once
+#include <SDL.h>
 #ifndef COMPONENT_H_
 #define COMPONENT_H_
-#include <SDL.h>
 #include "../game/constants.h"
 #include "../game/ecs_def.h"
+#include "../game/GameState.h"
 
 class Entity;
-class Entity;
+class Manager;
 
 class Component {
 protected:
 	Entity* ent;
-	Entity* gStt;
+	Manager* mngr;
 public:
 	// Constructora
-	Component() : ent(nullptr), gStt(nullptr) {}
+	Component() : ent(nullptr), mngr(nullptr) {}
 	// Destructora
 	virtual ~Component() {}
 	// Asigna el GameObject y el Manager del Component
-	inline void setContext(Entity* _ent, Entity* _gStt) {
+	inline void setContext(Entity* _ent, Manager* _mngr) {
 		ent = _ent;
-		gStt = _gStt;
+		mngr = _mngr;
 	}
 	// Inicializa el Component si es necesario
 	virtual void initComponent() {}

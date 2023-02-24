@@ -10,6 +10,8 @@ private:
 	Transform* transform;
 
 public:
+	static const int id = _SHOWATOPPOSITESIDE;
+
 	ShowAtOppositeSide();
 	~ShowAtOppositeSide();
 

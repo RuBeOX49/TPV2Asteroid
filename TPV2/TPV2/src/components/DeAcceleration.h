@@ -6,6 +6,9 @@ private:
 
 
 public:
+
+	static const int id = _DEACCELERATION;
+
 	DeAcceleration() {}
 	~DeAcceleration() {}
 
