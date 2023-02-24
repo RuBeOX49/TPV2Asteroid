@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\allComponents.h" />
     <ClInclude Include="src\components\DeAcceleration.h" />
     <ClInclude Include="src\components\DisableOnExit.h" />
     <ClInclude Include="src\components\FighterCtrl.h" />
@@ -26,6 +27,7 @@
     <ClInclude Include="src\components\FramedImage.h" />
     <ClInclude Include="src\components\Generations.h" />
     <ClInclude Include="src\components\Gun.h" />
+    <ClInclude Include="src\components\Health.h" />
     <ClInclude Include="src\components\Image.h" />
     <ClInclude Include="src\components\ShowAtOppositeSide.h" />
     <ClInclude Include="src\components\Transform.h" />
@@ -33,6 +35,7 @@
     <ClInclude Include="src\ecs\Entity.h" />
     <ClInclude Include="src\ecs\Manager.h" />
     <ClInclude Include="src\game\AsteroidsManager.h" />
+    <ClInclude Include="src\game\BattleState.h" />
     <ClInclude Include="src\game\CollisionsManager.h" />
     <ClInclude Include="src\game\constants.h" />
     <ClInclude Include="src\game\ecs_def.h" />
@@ -59,8 +62,11 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FighterCtrl.cpp" />
+    <ClCompile Include="src\components\DeAcceleration.cpp" />
+    <ClCompile Include="src\components\Health.cpp" />
+    <ClCompile Include="src\components\Transform.cpp" />
     <ClCompile Include="src\ecs\Manager.cpp" />
+    <ClCompile Include="src\game\BattleState.cpp" />
     <ClCompile Include="src\game\Game.cpp" />
     <ClCompile Include="src\game\Gamestate.cpp" />
     <ClCompile Include="src\game\GameStateMachine.cpp" />
