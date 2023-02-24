@@ -33,7 +33,7 @@ public:
 		}
 	}
 	// Asigna el Manager del GameObject
-	inline void setContext(Manager* _gStt) { mngr = _gStt; }
+	inline void setContext(Manager* _mngr) { mngr = _mngr; }
 	// Inicializa el GameObject tras tener el contexto
 	virtual void initGameObject() {}
 	// Devuelve si el GameObject está vivo

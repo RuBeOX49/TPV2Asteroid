@@ -1,7 +1,7 @@
 #pragma once
 #include "../ecs/Component.h"
 #include "../utils/Vector2D.h"
-#include "../data/constants.h"
+#include "../game/constants.h"
 
 /*
 	Clase que implementa el transform de los objetos del juego
