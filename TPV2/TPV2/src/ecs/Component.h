@@ -2,7 +2,9 @@
 #ifndef COMPONENT_H_
 #define COMPONENT_H_
 #include <SDL.h>
+#include "../game/constants.h"
 #include "../game/ecs_def.h"
+
 class Entity;
 class Entity;
 
