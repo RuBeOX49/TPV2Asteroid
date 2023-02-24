@@ -9,7 +9,9 @@ const uint WIN_HEIGHT = 600;
 const double FRAME_TIME = 30;
 const int DELAY_TIME = 17;
 
+// PLAYER VALUES
 
+const int STARTING_HEALTH = 3;
 
 
 
