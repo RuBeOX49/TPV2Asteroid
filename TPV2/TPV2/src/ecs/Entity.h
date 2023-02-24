@@ -35,7 +35,7 @@ public:
 	// Asigna el Manager del GameObject
 	inline void setContext(Manager* _mngr) { mngr = _mngr; }
 	// Inicializa el GameObject tras tener el contexto
-	virtual void initGameObject() {}
+	virtual void initEntity() {}
 	// Devuelve si el GameObject está vivo
 	inline bool isAlive() { return alive; }
 	// Asigna si el GameObject está vivo o no

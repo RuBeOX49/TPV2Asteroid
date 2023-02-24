@@ -12,7 +12,7 @@ public:
 	static const int id = _FIGHTERCTRL;
 
 	FighterCtrl();
-	~FighterCtrl();
+	~FighterCtrl() {}
 
 	void initComponent();
 

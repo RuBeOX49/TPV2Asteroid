@@ -13,7 +13,7 @@ public:
 	static const int id = _SHOWATOPPOSITESIDE;
 
 	ShowAtOppositeSide();
-	~ShowAtOppositeSide();
+	~ShowAtOppositeSide() {}
 
 	void initComponent();
 	void update();
