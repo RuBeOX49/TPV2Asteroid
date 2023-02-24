@@ -64,6 +64,7 @@
   <ItemGroup>
     <ClCompile Include="src\components\DeAcceleration.cpp" />
     <ClCompile Include="src\components\Health.cpp" />
+    <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\Transform.cpp" />
     <ClCompile Include="src\ecs\Manager.cpp" />
     <ClCompile Include="src\game\BattleState.cpp" />
