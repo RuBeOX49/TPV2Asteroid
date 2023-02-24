@@ -11,8 +11,8 @@ BattleState::BattleState()
 	Entity* ship = mngr->addEntity();
 	ship->addComponent<Transform>();
 	ship->addComponent<HealthComponent>();
-	/*
 	ship->addComponent<DeAcceleration>();
+	/*
 	ship->addComponent<Image>();
 	ship->addComponent<FighterCtrl>();
 	ship->addComponent<Gun>();
