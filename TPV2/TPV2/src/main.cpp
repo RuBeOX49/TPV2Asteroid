@@ -5,7 +5,6 @@
 #include "sdlutils/sdlutils_demo.h"
 
 int main(int ac, char **av) {
-	Game* game = nullptr;
 	try {
 		Game::init();
 		Game::instance()->run();
