@@ -6,7 +6,7 @@
 Game::Game() {
 
 	// Creacion de la ventana
-	SDLUtils::init("Timeless Deck - Es tiempo", WIN_WIDTH, WIN_HEIGHT);
+	SDLUtils::init("quaso", WIN_WIDTH, WIN_HEIGHT, "src/game/game.resources.json");
 	utils = SDLUtils::instance();
 	window = utils->window();
 	renderer = utils->renderer();
