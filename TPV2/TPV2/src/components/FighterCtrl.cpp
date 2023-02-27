@@ -8,7 +8,7 @@ void FighterCtrl::initComponent() {
 }
 
 void FighterCtrl::handleInput() {
-	Vector2D vel;
+	Vector2D vel=Vector2D();
 	if (InputHandler::instance()->isKeyDown(SDLK_a)) {
 		vel = vel + Vector2D(-1, 0);
 	}
@@ -21,7 +21,7 @@ void FighterCtrl::handleInput() {
 	if (InputHandler::instance()->isKeyDown(SDLK_s)) {
 		vel = vel + Vector2D(0, 1);
 	}
-
+	if(vel.getX()!=0||vel.getY()!=0)
 	vel = vel.normalize();
 	vel = vel * shipSpeed;
 	transform->setVel(vel);
