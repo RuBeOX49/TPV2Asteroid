@@ -13,11 +13,11 @@
   ],
 
   "sounds": [
-    {"id": "Thrust", "file": "resources/sounds/thrust.wav"},
-    {"id": "Explosion", "file": "resources/sounds/explosion.wav"},
-    {"id": "GunShot", "file": "resources/sounds/gunshot.wav"},
-    {"id": "BangSmall", "file": "resources/sounds/bangSmall.wav"},
-    {"id": "Navesitas", "file": "resources/sounds/Navesitas.wav"}
+    {"id": "Thrust", "file": "resources/sound/thrust.wav"},
+    {"id": "Explosion", "file": "resources/sound/explosion.wav"},
+    {"id": "GunShot", "file": "resources/sound/gunshot.wav"},
+    {"id": "BangSmall", "file": "resources/sound/bangSmall.wav"},
+    {"id": "Navesitas", "file": "resources/sound/Navesitas.wav"}
 
   ]
 }
