@@ -4,6 +4,11 @@
   ],
 
   "images": [
+    {"id": "Ship", "file":  "resources/images/fighter.png"},
+    {"id": "Bullet", "file":  "resources/images/fire.png"},
+    {"id": "Heart", "file":  "resources/images/heart.png"},
+    {"id": "Asteroid", "file":  "resources/images/asteroid.png"},
+    {"id": "AsteroidG", "file":  "resources/images/asteroid_gold.png"}
 
   ],
 
