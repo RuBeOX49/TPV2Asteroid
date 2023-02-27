@@ -17,9 +17,7 @@
     {"id": "Explosion", "file": "resources/sounds/explosion.wav"},
     {"id": "GunShot", "file": "resources/sounds/gunshot.wav"},
     {"id": "BangSmall", "file": "resources/sounds/bangSmall.wav"},
-    {"id": "BackGroundMusic", "file": "resources/sounds/Navesitas.wav"}
-
-
+    {"id": "Navesitas", "file": "resources/sounds/Navesitas.wav"}
 
   ]
 }
