@@ -38,10 +38,10 @@ BattleState::BattleState()
 	Entity* testAsteroid = mngr->addEntity();
 
 
-	testAsteroid->addComponent<Transform>();
+	testAsteroid->addComponent<Transform>(Vector2D(100, 100), Vector2D(), 50, 50, 0);
 	testAsteroid->addComponent<ShowAtOppositeSide>();
+	testAsteroid->addComponent<FramedImage>(Game::getTexture("Asteroid"), 50, 6, 5);
 	/*
-	testAsteroid->addComponent<FramedImage>();
 	testAsteroid->addComponent<Generations>();
 	testAsteroid->addComponent<Follow>();
 	*/

@@ -18,6 +18,7 @@ void Gun::handleEvents()
 		{
 			//spawnea una bala nueva
 			// shotSound->play(1);
+			std::cout << "pium" << std::endl;
 		}
 	}
 }

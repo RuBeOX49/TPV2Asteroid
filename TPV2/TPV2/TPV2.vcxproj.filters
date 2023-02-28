@@ -245,6 +245,12 @@
     <ClCompile Include="src\game\AsteroidsManager.cpp">
       <Filter>Source Files\src\game</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\Gun.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\FramedImage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\game\game.resources.json">
