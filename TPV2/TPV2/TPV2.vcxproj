@@ -68,6 +68,7 @@
     <ClCompile Include="src\components\ShowAtOppositeSide.cpp" />
     <ClCompile Include="src\components\Transform.cpp" />
     <ClCompile Include="src\ecs\Manager.cpp" />
+    <ClCompile Include="src\game\AsteroidsManager.cpp" />
     <ClCompile Include="src\game\BattleState.cpp" />
     <ClCompile Include="src\game\Game.cpp" />
     <ClCompile Include="src\game\Gamestate.cpp" />

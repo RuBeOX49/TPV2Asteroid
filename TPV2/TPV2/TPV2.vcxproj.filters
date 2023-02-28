@@ -242,6 +242,9 @@
     <ClCompile Include="src\components\ShowAtOppositeSide.cpp">
       <Filter>Source Files\src\components</Filter>
     </ClCompile>
+    <ClCompile Include="src\game\AsteroidsManager.cpp">
+      <Filter>Source Files\src\game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\game\game.resources.json">

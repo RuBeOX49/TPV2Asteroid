@@ -3,7 +3,7 @@
 
 // Constructor
 GameState::GameState(){
-    
+    mngr = new Manager();
 }
 
 // Destructor

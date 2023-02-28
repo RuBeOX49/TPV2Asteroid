@@ -20,27 +20,32 @@
 
 BattleState::BattleState()
 {
-	mngr = new Manager();
-
 	//LA NAVE
-
 	Entity* ship = mngr->addEntity();
-	ship->addComponent<Transform>(
-		Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / 2),
-		Vector2D(),
-		100,
-		100,
-		0
-		);
-	
+	ship->addComponent<Transform>(Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / 2), Vector2D(), 100, 100, 0);
 	ship->addComponent<HealthComponent>();
 	ship->addComponent<DeAcceleration>();
 	ship->addComponent<Image>(Game::getTexture("Ship"));
 	ship->addComponent<FighterCtrl>();
+	ship->addComponent<ShowAtOppositeSide>();
 	/*
 	ship->addComponent<Gun>();
-	ship->addComponent<ShowAtOppositeSide>();
 	*/
+
+
+	//ASTEROIDE DE PRUEBA
+
+	Entity* testAsteroid = mngr->addEntity();
+
+
+	testAsteroid->addComponent<Transform>();
+	testAsteroid->addComponent<ShowAtOppositeSide>();
+	/*
+	testAsteroid->addComponent<FramedImage>();
+	testAsteroid->addComponent<Generations>();
+	testAsteroid->addComponent<Follow>();
+	*/
+
 }
 
 BattleState::~BattleState()
