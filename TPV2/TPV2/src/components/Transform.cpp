@@ -1,4 +1,5 @@
 #include "Transform.h"
+#include "../game/Game.h"
 #include <iostream>
 
 //Constructora por defecto
@@ -38,10 +39,10 @@ void Transform::unrotate() {
 
 //Actualiza la posicion con el vector de velocidad
 void Transform::move() {
-	position_ = position_ + velocity_;
+	position_ = position_ + (velocity_ * Game::instance()->getDeltaTimeSeconds());
 }
 
 //Actualiza constantemente la posicion con respecto la velocidad
 void Transform::update() {
-	position_ = position_ + velocity_;
+	position_ = position_ + (velocity_ * Game::instance()->getDeltaTimeSeconds());
 }

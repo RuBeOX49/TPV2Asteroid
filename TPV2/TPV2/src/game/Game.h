@@ -26,8 +26,12 @@ private:
 	SDL_Renderer* renderer = nullptr;
 	GameStateMachine* gameStateMachine = nullptr;
 	bool exit;
+	double deltaTime;
+
 
 public:
+
+
 	// Constructora
 	Game();
 	// Destructora
@@ -48,6 +52,9 @@ public:
 		T* scene = new T(std::forward<Ts>(args)...);
 		Game::instance()->gameStateMachine->changeState(scene);
 	}
+
+	double getDeltaTime() { return deltaTime; }
+	double getDeltaTimeSeconds() { return deltaTime / 1000.0; }
 
 	// Pausa el juego
 	static void pauseGame();

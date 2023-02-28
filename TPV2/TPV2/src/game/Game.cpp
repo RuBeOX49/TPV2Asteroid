@@ -34,10 +34,19 @@ void Game::run() {
 	uint32_t startTime, frameTime;
 	startTime = SDL_GetTicks();
 
+	Uint64 NOW = SDL_GetPerformanceCounter();
+	Uint64 LAST = 0;
+
 	while (!exit) {
 		InputHandler::instance()->refresh();
 		frameTime = SDL_GetTicks() - startTime;
 		update();
+
+		LAST = NOW;
+		NOW = SDL_GetPerformanceCounter();
+
+		deltaTime = (double)((NOW - LAST) * 1000 / (double)SDL_GetPerformanceFrequency());
+
 		if (frameTime >= DELAY_TIME) {
 			startTime = SDL_GetTicks();
 			render();
