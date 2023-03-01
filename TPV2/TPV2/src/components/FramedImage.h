@@ -9,8 +9,10 @@ private:
 
 	Texture* texture;
 
-	Uint32 stepDuration;
-	Uint32 lastFrameShift = 0;
+	double timer = 0.0;
+
+	double stepDuration;
+	
 
 	int frameColumn = 0;
 	int frameRow = 0;
@@ -22,7 +24,7 @@ public:
 
 	static const int id = _IMAGE;
 
-	FramedImage(Texture* texture, Uint32 stepDuration, int columns, int rows);
+	FramedImage(Texture* texture, double stepDuration, int columns, int rows);
 	~FramedImage();
 
 	virtual void update();

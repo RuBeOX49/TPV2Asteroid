@@ -2,21 +2,17 @@
 #include "../ecs/Entity.h"
 #include "Transform.h"
 #include "../sdlutils/SDLUtils.h"
+#include "../game/Game.h"
 
-FramedImage::FramedImage(Texture* texture, Uint32 stepDuration, int columns, int rows):
-	texture(texture), stepDuration(stepDuration), columns(columns), rows(rows)
-{
-	lastFrameShift = sdlutils().currRealTime();
-}
+FramedImage::FramedImage(Texture* texture, double stepDuration, int columns, int rows):
+	texture(texture), stepDuration(stepDuration), columns(columns), rows(rows) {}
 
-FramedImage::~FramedImage()
-{
-}
+FramedImage::~FramedImage() {}
 
 void FramedImage::update()
 {
-	if (sdlutils().currRealTime() - lastFrameShift <= stepDuration) {
-		lastFrameShift += stepDuration;
+	if (timer >= stepDuration) {
+		timer -= stepDuration;
 
 		frameColumn++;
 
@@ -27,6 +23,7 @@ void FramedImage::update()
 			frameRow %= rows;
 		}
 	}
+	timer += Game::instance()->getDeltaTime();
 }
 void FramedImage::render() const
 {

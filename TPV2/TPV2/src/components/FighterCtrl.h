@@ -6,7 +6,8 @@
 class FighterCtrl : public Component {
 private:
 	Transform* transform;
-	float shipSpeed=2;
+	int rotationFactor = 5;
+	float shipSpeed = 200;
 
 public:
 	static const int id = _FIGHTERCTRL;
