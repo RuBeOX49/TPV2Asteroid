@@ -3,6 +3,8 @@
 #define ECS_H_
 
 using cmpId_type = int;
+using grpId_type = int;
+
 enum cmpId : cmpId_type {
 	_TRANSFORM = 0,
 	_DEACCELERATION,
@@ -20,6 +22,19 @@ enum cmpId : cmpId_type {
 	// do not remove this
 	_LAST_CMP_ID
 };
+
+enum grpId : grpId_type {
+
+	_grp_ASTEROIDS = 0,
+	_grp_BULLETS,
+	_grp_FIGHTER,
+	_grp_UI,
+
+	_grp_NONE
+
+};
+
+
 constexpr cmpId_type maxComponentId = _LAST_CMP_ID;
 
 #endif // !ECS_H_

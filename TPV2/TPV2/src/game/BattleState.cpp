@@ -22,6 +22,7 @@ BattleState::BattleState()
 {
 	//LA NAVE
 	Entity* ship = mngr->addEntity();
+	ship->setGroup(_grp_FIGHTER);
 	ship->addComponent<Transform>(Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / 2), Vector2D(), 100, 100, 0);
 	ship->addComponent<HealthComponent>();
 	ship->addComponent<DeAcceleration>();
@@ -36,7 +37,7 @@ BattleState::BattleState()
 	//ASTEROIDE DE PRUEBA
 
 	Entity* testAsteroid = mngr->addEntity();
-
+	testAsteroid->setGroup(_grp_ASTEROIDS);
 	
 	testAsteroid->addComponent<Transform>(Vector2D(100, 100), Vector2D(sdlutils().rand().nextInt(-1,1), sdlutils().rand().nextInt(-1, 1)) * 50, 50, 50, 0);
 	testAsteroid->addComponent<ShowAtOppositeSide>();

@@ -13,13 +13,14 @@ using namespace std;
 
 class Entity {
 protected:
+	grpId_type group;
 	bool alive;
 	Manager* mngr;
 	std::vector<Component*> currCmps;
 	std::array<Component*, maxComponentId> cmps;
 public:
 	// Constructor
-	Entity() : mngr(nullptr), cmps(), currCmps(), alive(true) {
+	Entity() : mngr(nullptr), cmps(), currCmps(), alive(true), group(_grp_NONE) {
 		currCmps.reserve(maxComponentId);
 	}
 	// Destructor
@@ -32,6 +33,7 @@ public:
 			cpm = nullptr;
 		}
 	}
+	inline void setGroup(grpId_type group) { this->group = group; }
 	// Asigna el Manager del GameObject
 	inline void setContext(Manager* _mngr) { mngr = _mngr; }
 	// Inicializa el GameObject tras tener el contexto
