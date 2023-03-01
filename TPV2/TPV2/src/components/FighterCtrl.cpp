@@ -20,9 +20,9 @@ void FighterCtrl::handleInput() {
 	}
 	
 	vel = vel * shipSpeed;
-	Vector2D nVel = vel.rotate(transform->getRotation());
+	vel = vel.rotate(transform->getRotation());
 	if(vel.getX()!=0||vel.getY()!=0)
-	transform->setVel(nVel+transform->getVel());
+	transform->setVel(vel+transform->getVel());
 
 }
 
