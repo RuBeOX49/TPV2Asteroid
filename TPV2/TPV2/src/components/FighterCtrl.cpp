@@ -18,22 +18,11 @@ void FighterCtrl::handleInput() {
 	if (InputHandler::instance()->isKeyDown(SDLK_w)) {
 		vel = vel + Vector2D(0, -1);
 	}
-	if (InputHandler::instance()->isKeyDown(SDLK_s)) {
-		vel = vel + Vector2D(0, 1);
-	}
-	//if(vel.getX()!=0||vel.getY()!=0)
-	// vel = vel.normalize();
-	vel = vel * shipSpeed;
-	vel = vel.rotate(transform->getRotation());
 	
-	Vector2D newVel = transform->getVel() + vel;
-
-	if(newVel.magnitude() > shipSpeed)
-	{
-		newVel = newVel.normalize() * shipSpeed;
-	}
-
-	transform->setVel(newVel);
+	vel = vel * shipSpeed;
+	Vector2D nVel = vel.rotate(transform->getRotation());
+	if(vel.getX()!=0||vel.getY()!=0)
+	transform->setVel(nVel+transform->getVel());
 
 }
 
