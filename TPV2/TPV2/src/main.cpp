@@ -2,9 +2,9 @@
 
 #include <iostream>
 #include "game/Game.h"
-#include "sdlutils/sdlutils_demo.h"
 
 int main(int ac, char **av) {
+	//CrtSetDbgFlag(CRTDBG ALLOC MEM DF | CRTDBG LEAK CHECK DF);
 	try {
 		Game::init();
 		Game::instance()->run();
