@@ -31,3 +31,6 @@ void FramedImage::render() const
 	SDL_Rect destRect = ent->getComponent<Transform>()->getRect();
 	texture->render(sourceRect, destRect);
 }
+
+
+
