@@ -30,10 +30,16 @@ void Gun::handleInput()
 			// shotSound->play(1);
 			Entity* bullet = mngr->addEntity();
 			bullet->setGroup(_grp_BULLETS);
-			bullet->addComponent<Transform>(shipData->getPos(), Vector2D(0,-1).rotate(shipData->getRotation())*100+shipData->getVel(), 1, 1, 0);
+			//Position
+			bullet->addComponent<Transform>(shipData->getPos()+Vector2D(shipData->getWidth() / 2.0f, shipData->getHeight() / 2.0f)
+				- Vector2D(0.0f, shipData->getHeight() / 2.0f + 5.0f + 12.0f).rotate(shipData->getRotation())
+				- Vector2D(2.0f, 10.0f),
+				//Velocity
+				Vector2D(0.0f, -1.0f).rotate(shipData->getRotation()) * (shipData->getVel().magnitude() + 5.0f),
+				5, 20, shipData->getRotation());
 			bullet->addComponent<Image>(Game::getTexture("Bullet"));
-			//bullet->addComponent<DisableOnExit>();
-			lastTimeShot = 250;
+			bullet->addComponent<DisableOnExit>();
+			lastTimeShot = 0;
 		}
 		
 	}
@@ -41,5 +47,5 @@ void Gun::handleInput()
 }
 
 void Gun::update() {
-	lastTimeShot++;
+	lastTimeShot+=Game::instance()->getDeltaTime();
 }

@@ -266,6 +266,9 @@
     <ClCompile Include="src\game\PauseState.cpp">
       <Filter>Source Files\src\game</Filter>
     </ClCompile>
+    <ClCompile Include="DisableOnExit.cpp">
+      <Filter>Source Files\src\components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\game\game.resources.json">

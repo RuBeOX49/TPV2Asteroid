@@ -7,7 +7,7 @@ class Gun: public Component
 private:
 
 	//Music* shotSound;
-	Uint32 lastTimeShot=250;
+	float lastTimeShot=250;
 	Transform* shipData;
 
 public:
