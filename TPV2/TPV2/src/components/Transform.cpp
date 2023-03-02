@@ -3,11 +3,11 @@
 #include <iostream>
 
 //Constructora por defecto
-Transform::Transform() : initialPosition_(Vector2D()), position_(Vector2D()), velocity_(Vector2D()), width_(0), height_(0), rotation_(0) {}
+Transform::Transform() : position_(Vector2D()), velocity_(Vector2D()), width_(0), height_(0), rotation_(0) {}
 
 //Constructora normal
 Transform::Transform(Vector2D pos, Vector2D vel, float w, float h, float r)
-	: initialPosition_(pos), position_(pos), velocity_(vel), width_(w), height_(h), rotation_(r) {}
+	: position_(pos), velocity_(vel), width_(w), height_(h), rotation_(r) {}
 
 Transform::~Transform() {}
 

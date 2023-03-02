@@ -32,9 +32,8 @@ BattleState::BattleState()
 	ship->addComponent<Image>(Game::getTexture("Ship"));
 	ship->addComponent<FighterCtrl>();
 	ship->addComponent<ShowAtOppositeSide>();
-	/*
-	ship->addComponent<Gun>();
-	*/
+	ship->addComponent<Gun>()->setContext(ship,mngr);
+	
 
 
 	//ASTEROIDE DE PRUEBA

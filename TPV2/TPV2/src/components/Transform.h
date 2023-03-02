@@ -15,7 +15,7 @@
 
 class Transform : public Component {
 private:
-	Vector2D initialPosition_;
+
 	Vector2D position_;
 	Vector2D velocity_;
 	float width_;
@@ -84,9 +84,6 @@ public:
 	inline float getWidth() {
 		return width_;
 	}
-
-	//Devuelve la posicion inicial
-	inline Vector2D getInitialPosition() { return initialPosition_; }
 
 	//Devuele un rectangulo SDL
 	inline SDL_Rect getRect() {

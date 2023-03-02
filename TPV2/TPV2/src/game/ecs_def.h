@@ -6,7 +6,7 @@ using cmpId_type = int;
 using grpId_type = int;
 
 enum cmpId : cmpId_type {
-	_TRANSFORM = 0,
+	_TRANSFORM,
 	_DEACCELERATION,
 	_IMAGE,
 	_HEALTH,
@@ -25,7 +25,7 @@ enum cmpId : cmpId_type {
 
 enum grpId : grpId_type {
 
-	_grp_ASTEROIDS = 0,
+	_grp_ASTEROIDS,
 	_grp_BULLETS,
 	_grp_FIGHTER,
 	_grp_UI,
