@@ -1,5 +1,6 @@
 #pragma once
 #include "BattleState.h"
+#include "PauseState.h"
 #include "../ecs/Entity.h"
 #include "Game.h"
 #pragma region allComponents
@@ -20,6 +21,8 @@
 
 BattleState::BattleState()
 {
+	collMngr = new CollisonsManager(mngr);
+
 	//LA NAVE
 	Entity* ship = mngr->addEntity();
 	ship->setGroup(_grp_FIGHTER);
@@ -48,9 +51,16 @@ BattleState::BattleState()
 	*/
 
 
-	Game::pauseGame();
+	//Game::instance()->pauseGame();
+	//lmao, will try later
 }
 
 BattleState::~BattleState()
 {
+}
+
+void BattleState::update()
+{
+	GameState::update();
+	collMngr->handlePhysics();
 }

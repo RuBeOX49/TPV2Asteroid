@@ -31,6 +31,7 @@ void CollisonsManager::handlePhysics()
 					if (Collisions::collidesWithRotation(eTr->getPos(), eTr->getWidth(), eTr->getHeight(), eTr->getRotation(),
 						cTr->getPos(), cTr->getWidth(), cTr->getHeight(), cTr->getRotation())) {
 						//hay colisión, c desaparece
+						std::cout << "funca";
 					}
 
 				}

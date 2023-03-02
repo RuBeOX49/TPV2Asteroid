@@ -9,7 +9,7 @@ void PauseState::handleInput()
 {
 	if (InputHandler::instance()->isKeyDown(SDLK_SPACE))
 	{
-		Game::resumeGame();
+		Game::instance()->resumeGame();
 	}
 }
 

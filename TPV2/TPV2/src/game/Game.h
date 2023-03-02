@@ -26,7 +26,7 @@ private:
 	SDL_Renderer* renderer = nullptr;
 	GameStateMachine* gameStateMachine = nullptr;
 	bool exit;
-	double deltaTime;
+	double deltaTime = 0.0;
 
 
 public:
@@ -53,15 +53,21 @@ public:
 		Game::instance()->gameStateMachine->changeState(scene);
 	}
 
+	template<typename T, typename ...Ts>
+	static void stackScene(Ts&& ...args) {
+		T* scene = new T(std::forward<Ts>(args)...);
+		Game::instance()->gameStateMachine->pushState(scene);
+	}
+
 	double getDeltaTime() { return deltaTime; }
 	double getDeltaTimeSeconds() { return deltaTime / 1000.0; }
 
 	// Pausa el juego
-	static void pauseGame();
+	void pauseGame();
 	// Reanuda el juego
-	static void resumeGame();
+	void resumeGame();
 	// Elimina el estado en la cima de la pila
-	static void popGameState();
+	void popGameState();
 	// Inicia el estado de derrota
 	static void loseGame();
 	// Cierra el juego

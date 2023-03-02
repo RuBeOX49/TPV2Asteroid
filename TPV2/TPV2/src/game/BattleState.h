@@ -1,12 +1,16 @@
 #pragma once
- #include "GameState.h"
-
+#include "GameState.h"
+#include "CollisionsManager.h"
 class BattleState : public GameState
 {
 public:
+
 	BattleState();
 	~BattleState();
 
 private:
 
+	CollisonsManager* collMngr;
+
+	virtual void update();
 };
