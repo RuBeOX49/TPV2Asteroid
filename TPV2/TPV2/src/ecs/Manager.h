@@ -20,9 +20,11 @@ public:
     virtual void render() const;
     // Maneja el evento actual
     virtual void handleInput();
-    // Borra todos los Entity no vivos
-
     void addEntity(Entity* object);
+
+    vector<Entity*> getEntities() { return entities; }
+
+    // Borra todos los Entity no vivos
     void refresh();
     //Inserta un nuevo Entity a la escena
     template<typename T = Entity, typename ...Ts>
@@ -35,7 +37,7 @@ public:
         return e;
     }
 
-
+    
 
 };
 

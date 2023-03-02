@@ -12,6 +12,10 @@
 
   ],
 
+  "messages": [
+    {"id" :  "HitMSG" , "text" : "Te han pegado! Pulsa SPACE para continuar", "font" : "ARIAL", "color" :  "0x000000ff", "bg" :  "0xffffffff"}
+  ],
+
   "sounds": [
     {"id": "Thrust", "file": "resources/sound/thrust.wav"},
     {"id": "Explosion", "file": "resources/sound/explosion.wav"},

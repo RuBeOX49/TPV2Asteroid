@@ -1,14 +1,6 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(496,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
-  FramedImage.cpp
-C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(94,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(95,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(96,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(97,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\FramedImage.cpp(34,162): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\FramedImage.cpp(34,134): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\FramedImage.cpp(34,109): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\FramedImage.cpp(34,69): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-     Creando biblioteca C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\bin\TPV2Debug.lib y objeto C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\bin\TPV2Debug.exp
-  TPV2.vcxproj -> C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\bin\TPV2Debug.exe
+﻿D:\Visual Studio 2022\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(520,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
+  PauseState.cpp
+C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
+C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(192): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+  TPV2.vcxproj -> C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\bin\TPV2Debug.exe

@@ -62,6 +62,8 @@ public:
 	static void resumeGame();
 	// Elimina el estado en la cima de la pila
 	static void popGameState();
+	// Inicia el estado de derrota
+	static void loseGame();
 	// Cierra el juego
 	static void quitGame();
 };

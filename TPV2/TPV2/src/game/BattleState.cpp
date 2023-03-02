@@ -47,6 +47,8 @@ BattleState::BattleState()
 	testAsteroid->addComponent<Generations>();
 	*/
 
+
+	Game::pauseGame();
 }
 
 BattleState::~BattleState()

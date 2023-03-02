@@ -33,6 +33,10 @@ public:
 			cpm = nullptr;
 		}
 	}
+
+	//Devuelve el grupo de la Entity
+	inline grpId_type getGroup() { return group; }
+	//Asigna el grupo del GameObject
 	inline void setGroup(grpId_type group) { this->group = group; }
 	// Asigna el Manager del GameObject
 	inline void setContext(Manager* _mngr) { mngr = _mngr; }

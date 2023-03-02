@@ -1,6 +1,7 @@
 #pragma once
 #include "Game.h"
 #include "BattleState.h"
+#include "PauseState.h"
 
 // Constructora
 Game::Game() {
@@ -78,13 +79,19 @@ void Game::handleInput() {
 Texture* Game::getTexture(TextureName texture) { return &SDLUtils::instance()->images().at(texture); }
 
 // Pausa el juego
-void Game::pauseGame() { /*_game->gameStateMachine->pushState(new PauseMenuState(_game));*/ }
+void Game::pauseGame() { Game::instance()->gameStateMachine->pushState(new PauseState()); }
 
 // Reanuda el juego
 void Game::resumeGame() { Game::popGameState(); }
 
 // Elimina el estado en la cima de la pila
 void Game::popGameState() { Game::instance()->gameStateMachine->popState(); }
+
+void Game::loseGame()
+{
+	Game::instance()->gameStateMachine->popState();
+	// Game::instance()->gameStateMachine->pushState(new LoseState());
+}
 
 // Cierra el juego
 void Game::quitGame() { Game::instance()->exit = true; }
