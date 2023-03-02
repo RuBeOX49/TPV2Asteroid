@@ -32,7 +32,7 @@ BattleState::BattleState()
 	ship->addComponent<Image>(Game::getTexture("Ship"));
 	ship->addComponent<FighterCtrl>();
 	ship->addComponent<ShowAtOppositeSide>();
-	ship->addComponent<Gun>()->setContext(ship,mngr);
+	ship->addComponent<Gun>();
 	
 
 

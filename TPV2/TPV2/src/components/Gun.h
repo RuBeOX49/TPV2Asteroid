@@ -7,7 +7,7 @@ class Gun: public Component
 private:
 
 	//Music* shotSound;
-	Uint32 lastTimeShot;
+	Uint32 lastTimeShot=250;
 	Transform* shipData;
 
 public:
@@ -16,6 +16,8 @@ public:
 	Gun();
 	~Gun();
 
-	virtual void handleEvents();
+	virtual void initComponent();
+	virtual void handleInput();
+	virtual void update();
 };
 

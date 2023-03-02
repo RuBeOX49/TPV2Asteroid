@@ -10,7 +10,7 @@
 
 Gun::Gun()
 {
-	shipData=ent->getComponent<Transform>();
+	
 }
 
 Gun::~Gun()
@@ -18,19 +18,28 @@ Gun::~Gun()
 	
 }
 
+void Gun::initComponent() {
+	shipData = ent->getComponent<Transform>();
+}
 
-
-void Gun::handleEvents()
+void Gun::handleInput()
 {
 	if (InputHandler::instance()->isKeyDown(SDLK_s)) {
-		if (sdlutils().currRealTime() - lastTimeShot <= 250)
+		if (lastTimeShot > 250)
 		{
 			// shotSound->play(1);
 			Entity* bullet = mngr->addEntity();
 			bullet->setGroup(_grp_BULLETS);
-			bullet->addComponent<Transform>(shipData->getPos(), Vector2D(0,-1).rotate(shipData->getRotation()), 1,1 ,0);
+			bullet->addComponent<Transform>(shipData->getPos(), Vector2D(0,-1).rotate(shipData->getRotation())*100+shipData->getVel(), 1, 1, 0);
 			bullet->addComponent<Image>(Game::getTexture("Bullet"));
 			//bullet->addComponent<DisableOnExit>();
+			lastTimeShot = 250;
 		}
+		
 	}
+	
+}
+
+void Gun::update() {
+	lastTimeShot++;
 }
