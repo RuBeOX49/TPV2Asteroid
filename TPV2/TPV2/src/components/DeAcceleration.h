@@ -6,6 +6,7 @@ class DeAcceleration : public Component
 private:
 
 	Transform* transform;
+	double deAccTimer=0;
 
 public:
 

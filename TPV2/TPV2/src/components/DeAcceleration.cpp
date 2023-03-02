@@ -1,6 +1,7 @@
 #include "DeAcceleration.h"
 #include "../ecs/Entity.h"
 #include "Transform.h"
+#include "../game/Game.h"
 
 
 void DeAcceleration::initComponent() {
@@ -9,11 +10,14 @@ void DeAcceleration::initComponent() {
 
 
 void DeAcceleration::update()
-{
-	if (transform->getVel().magnitude() > 0.05) {
-		transform->setVel(transform->getVel() * 0.995);
+{	
+	deAccTimer += Game::instance()->getDeltaTime();
+	if (transform->getVel().magnitude() > 0.05&&deAccTimer>1000) {
+		transform->setVel(transform->getVel() * 0.9);
+		deAccTimer = 0;
 	}
-	else {
+	else if(deAccTimer>1000){
 		transform->setVel(Vector2D(0, 0));
+		deAccTimer = 0;
 	}
 }
