@@ -19,9 +19,8 @@ public:
 
 	inline int getLives() { return currLives; }
 	inline void resetLives() { currLives = STARTING_HEALTH; }
-	inline void damage(int damage) {
-		currLives -= damage;
-	}
+	inline void damage(int damage) { currLives -= damage; }
+
 };
 
 

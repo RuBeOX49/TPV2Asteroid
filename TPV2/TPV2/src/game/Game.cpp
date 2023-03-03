@@ -71,17 +71,10 @@ void Game::update() {
 
 // Actualiza el juego en función al evento actual
 void Game::handleInput() {
-	
 
-	/*
-	while (SDL_PollEvent(&event))
-	{
-		if (event.type == SDL_QUIT)
-		{
-			exit = true;
-		}
+	if (InputHandler::instance()->closeWindowEvent()) {
+		exit = true;
 	}
-	*/
 
 	gameStateMachine->currentState()->handleInput();
 }
