@@ -52,7 +52,7 @@ void AsteroidsManager::onCollision(Entity* asteroid) {
 	asteroid->setAlive(false);
 	int pGen = asteroid->getComponent<Generations>()->getGen();
 	
-	if (pGen <= 3) {
+	if (pGen < 3) {
 		Transform* asteroidData = asteroid->getComponent<Transform>();
 		for (int i = 0; i < 2 && asteroidsAlive <= 30; i++) {
 			if (sdlutils().rand().nextInt(0, 10) > 3)
