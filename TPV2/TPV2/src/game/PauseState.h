@@ -14,5 +14,4 @@ public:
 	~PauseState() {}
 
 	virtual void handleInput();
-	virtual void render() const;
 };

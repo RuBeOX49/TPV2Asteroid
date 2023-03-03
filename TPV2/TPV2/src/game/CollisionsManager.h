@@ -10,7 +10,7 @@ private:
 
 public:
 
-	CollisonsManager(Manager* mngrRef) : mngrRef(mngrRef) {}
+	CollisonsManager(Manager* mngrRef, AsteroidsManager* astMngrRef) : mngrRef(mngrRef), astMngrRef(astMngrRef) {}
 	~CollisonsManager() {};
 
 	void handlePhysics();

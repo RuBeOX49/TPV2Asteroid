@@ -5,13 +5,17 @@
 #include "../components/Health.h"
 #include "../game/GameStateMachine.h"
 #include "../game/PauseState.h"
+#include "../game/DamagedState.h"
+#include "../game/DeathState.h"
+
+
 
 void CollisonsManager::handlePhysics()
 {
-	for ( auto e : mngrRef->getEntities())
+	for ( auto e : mngr->getEntities())
 	{
 		if (e->getGroup() == _grp_ASTEROIDS) {
-			for (auto c : mngrRef->getEntities())
+			for (auto c : mngr->getEntities())
 			{
 
 				if(c->getGroup() == _grp_BULLETS)
@@ -22,6 +26,8 @@ void CollisonsManager::handlePhysics()
 					if(Collisions::collidesWithRotation(eTr->getPos(), eTr->getWidth(), eTr->getHeight(), eTr->getRotation(),
 						cTr->getPos(), cTr->getWidth(), cTr->getHeight(), cTr->getRotation() )) {
 						//hay colisión, e desaparece
+
+						astMngr->onCollision(e);
 					}
 					
 				}
@@ -33,17 +39,22 @@ void CollisonsManager::handlePhysics()
 
 					if (Collisions::collidesWithRotation(eTr->getPos(), eTr->getWidth(), eTr->getHeight(), eTr->getRotation(),
 						cTr->getPos(), cTr->getWidth(), cTr->getHeight(), cTr->getRotation())) {
-						//hay colisión, c desaparece
+						//hay colisión, e y c desaparecen ()
 						std::cout << "funca\n";
+
+						e->setAlive(false);
+
+
 						auto hComponent = c->getComponent<HealthComponent>();
 						
 						hComponent->damage(1);
 
 						if (hComponent->getLives() == 0) {
-							//se muere
+							astMngr->destroyAllAsteroids();
+							GameStateMachine::instance()->pushState(new DeathState());
 						}
 						else {
-						GameStateMachine::instance()->pushState(new PauseState());
+						GameStateMachine::instance()->pushState(new DamagedState());
 						}
 						
 					}
