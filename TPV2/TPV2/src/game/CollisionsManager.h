@@ -1,16 +1,16 @@
 #pragma once
-#include "../ecs/Manager.h"
-#include "AsteroidsManager.h"
+class Manager;
+class AsteroidsManager;
 class CollisonsManager {
 
 private:
 
-	Manager* mngrRef;
-	AsteroidsManager* astMngrRef;
+	Manager* mngr;
+	AsteroidsManager* astMngr;
 
 public:
 
-	CollisonsManager(Manager* mngrRef, AsteroidsManager* astMngrRef) : mngrRef(mngrRef), astMngrRef(astMngrRef) {}
+	CollisonsManager(Manager* mngr, AsteroidsManager* astMngr) : mngr(mngr), astMngr(astMngr) {}
 	~CollisonsManager() {};
 
 	void handlePhysics();

@@ -10,6 +10,9 @@ private:
 
 
 public:
+
+	static const int id = _GENERATIONS;
+
 	Generations();
 
 };

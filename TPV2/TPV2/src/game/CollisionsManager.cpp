@@ -7,6 +7,8 @@
 #include "../game/PauseState.h"
 #include "../game/DamagedState.h"
 #include "../game/DeathState.h"
+#include "AsteroidsManager.h"
+#include "../ecs/Manager.h"
 
 
 

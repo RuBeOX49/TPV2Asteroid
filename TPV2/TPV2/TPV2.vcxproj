@@ -37,6 +37,8 @@
     <ClInclude Include="src\game\BattleState.h" />
     <ClInclude Include="src\game\CollisionsManager.h" />
     <ClInclude Include="src\game\constants.h" />
+    <ClInclude Include="src\game\DamagedState.h" />
+    <ClInclude Include="src\game\DeathState.h" />
     <ClInclude Include="src\game\ecs_def.h" />
     <ClInclude Include="src\game\Game.h" />
     <ClInclude Include="src\game\GameState.h" />
@@ -78,6 +80,8 @@
     <ClCompile Include="src\game\AsteroidsManager.cpp" />
     <ClCompile Include="src\game\BattleState.cpp" />
     <ClCompile Include="src\game\CollisionsManager.cpp" />
+    <ClCompile Include="src\game\DamagedState.cpp" />
+    <ClCompile Include="src\game\DeathState.cpp" />
     <ClCompile Include="src\game\Game.cpp" />
     <ClCompile Include="src\game\Gamestate.cpp" />
     <ClCompile Include="src\game\GameStateMachine.cpp" />

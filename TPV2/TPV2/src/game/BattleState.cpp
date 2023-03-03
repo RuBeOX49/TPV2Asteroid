@@ -21,7 +21,6 @@
 
 BattleState::BattleState()
 {
-	collMngr = new CollisonsManager(mngr);
 	//LA NAVE
 	Entity* ship = mngr->addEntity();
 	ship->setGroup(_grp_FIGHTER);
@@ -34,6 +33,7 @@ BattleState::BattleState()
 	ship->addComponent<Gun>();
 	
 	astMngr = new AsteroidsManager(mngr, ship);
+	collMngr = new CollisonsManager(mngr, astMngr);
 
 }
 
