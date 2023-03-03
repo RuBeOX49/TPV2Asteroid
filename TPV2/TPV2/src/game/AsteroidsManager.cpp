@@ -8,12 +8,40 @@ void AsteroidsManager::createAsteroid(int n)
 	{
 		if (sdlutils().rand().nextInt(0, 10) > 3)
 		{
-			//Tipo A
+			Entity* asteroidA = mngr->addEntity();
+			asteroidA->addComponent<Transform>(Vector2D(100, 100), Vector2D(sdlutils().rand().nextInt(-1, 1), sdlutils().rand().nextInt(-1, 1)) * 50, 50, 50, 0);
+			asteroidA->addComponent<ShowAtOppositeSide>();
+			asteroidA->addComponent<FramedImage>(Game::getTexture("Asteroid"), 50, 6, 5);
+			asteroidA->setGroup(_grp_ASTEROIDS);
 		}
 		else
 		{
-			//Tipo B
+			Entity* asteroidB = mngr->addEntity();
+			asteroidB->addComponent<Transform>(Vector2D(100, 100), Vector2D(sdlutils().rand().nextInt(-1, 1), sdlutils().rand().nextInt(-1, 1)) * 50, 50, 50, 0);
+			asteroidB->addComponent<ShowAtOppositeSide>();
+			asteroidB->addComponent<FramedImage>(Game::getTexture("AsteroidG"), 50, 6, 5);
+			asteroidB->addComponent<Follow>(ship->getComponent<Transform>());
+			asteroidB->setGroup(_grp_ASTEROIDS);
+		}
+		asteroidsAlive++;
+	}
+}
+
+void AsteroidsManager::addAsteroidFrequently() {
+	timer += Game::instance()->getDeltaTime();
+	if (timer > 5000&&asteroidsAlive<=30) {
+		createAsteroid(1);
+		timer = 0;
+	}
+}
+
+void AsteroidsManager::destroyAllAsteroids() {
+	for (auto e : mngr->getEntities())
+	{
+		if (e->getGroup() == _grp_ASTEROIDS) {
+			e->setAlive(false);
 		}
 	}
 }
+
 
