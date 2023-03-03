@@ -4,6 +4,7 @@
 #include "../components/Transform.h"
 #include "../components/FramedImage.h"
 #include "../components/ShowAtOppositeSide.h"
+#include "../components/Generations.h"
 #include "../game/Game.h"
 
 class AsteroidsManager
