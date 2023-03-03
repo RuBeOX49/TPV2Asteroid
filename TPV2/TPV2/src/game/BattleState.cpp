@@ -56,6 +56,7 @@ BattleState::BattleState()
 
 BattleState::~BattleState()
 {
+	delete collMngr;
 }
 
 void BattleState::update()

@@ -2,11 +2,11 @@
 
 #include <iostream>
 #include "game/Game.h"
-//#include "checkML.h"
+#include "utils/checkML.h"
 
 int main(int ac, char **av) {
 	
-	//CrtSetDbgFlag(CRTDBG ALLOC MEM DF | CRTDBG LEAK CHECK DF);
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 	
 	try {
 		Game::init();

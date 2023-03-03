@@ -76,6 +76,8 @@ public:
 	// Cierra el juego
 	static void quitGame();
 
+	void setExit(bool toWhat);
+
 	void signal(sig_type signal);
 };
 #endif

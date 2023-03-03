@@ -22,7 +22,6 @@ Game::Game() {
 
 // Destructora
 Game::~Game() {
-	delete(gameStateMachine);
 
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
@@ -72,6 +71,16 @@ void Game::update() {
 
 // Actualiza el juego en función al evento actual
 void Game::handleInput() {
+	SDL_Event event;
+
+	while (SDL_PollEvent(&event))
+	{
+		if (event.type == SDL_QUIT)
+		{
+			exit = true;
+		}
+	}
+
 	gameStateMachine->currentState()->handleInput();
 }
 
@@ -95,6 +104,13 @@ void Game::loseGame()
 
 // Cierra el juego
 void Game::quitGame() { Game::instance()->exit = true; }
+
+void Game::setExit(bool toWhat)
+{
+	exit = toWhat;
+}
+
+
 
 void Game::signal(sig_type signal)
 {
