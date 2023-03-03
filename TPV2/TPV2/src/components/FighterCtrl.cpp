@@ -17,12 +17,12 @@ void FighterCtrl::handleInput() {
 	}
 	if (InputHandler::instance()->isKeyDown(SDLK_w)) {
 		vel = vel + Vector2D(0, -1);
+		vel = vel.rotate(transform->getRotation()) * shipSpeed;
+		if (vel.magnitude() != 0&&transform->getVel().magnitude() < 50)
+			transform->setVel(vel + transform->getVel());
 	}
+
 	
-	vel = vel * shipSpeed;
-	vel = vel.rotate(transform->getRotation());
-	if(vel.getX()!=0||vel.getY()!=0)
-	transform->setVel(vel+transform->getVel());
 
 }
 
