@@ -2,9 +2,13 @@
 #define GAME_STATE_MACHINE_H_
 #include <stack>
 #include "GameState.h"
+#include "../utils/Singleton.h"
 using namespace std;
 
-class GameStateMachine {
+class GameStateMachine : public Singleton<GameStateMachine>{
+
+    friend Singleton<GameStateMachine>;
+
 private:
     stack<GameState*> gameStates;
     stack<GameState*> gameStatesToErase;

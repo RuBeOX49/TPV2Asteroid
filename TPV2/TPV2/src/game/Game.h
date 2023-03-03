@@ -20,6 +20,9 @@ using namespace std;
 using TextureName = string;
 
 class Game : public Singleton<Game> {
+
+	friend Singleton<Game>;
+
 private:
 	SDLUtils* utils = nullptr;
 	SDL_Window* window = nullptr;
@@ -28,12 +31,12 @@ private:
 	bool exit;
 	double deltaTime = 0.0;
 
+	// Constructora
+	Game();
 
 public:
 
 
-	// Constructora
-	Game();
 	// Destructora
 	~Game();
 	// Ejecuta el juego
@@ -72,5 +75,7 @@ public:
 	static void loseGame();
 	// Cierra el juego
 	static void quitGame();
+
+	void signal(sig_type signal);
 };
 #endif

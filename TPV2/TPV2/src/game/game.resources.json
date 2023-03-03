@@ -1,6 +1,6 @@
 {
   "fonts": [
-    {"id": "ARIAL", "file": "resources/fonts/ARIAL.ttf", "size": "16"}
+    {"id": "ARIAL", "file": "resources/fonts/ARIAL.ttf", "size": "7200"}
   ],
 
   "images": [
@@ -13,7 +13,7 @@
   ],
 
   "messages": [
-    {"id" :  "HitMSG" , "text" : "Te han pegado! Pulsa SPACE para continuar", "font" : "ARIAL", "color" :  "0x000000ff", "bg" :  "0xffffffff"}
+    {"id" :  "HitMSG" , "text" : "mikimikimiki", "font" : "ARIAL", "color" :  "0xffffffff", "bg" :  "0x000000ff"}
   ],
 
   "sounds": [

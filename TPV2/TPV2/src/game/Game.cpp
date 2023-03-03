@@ -15,7 +15,7 @@ Game::Game() {
 
 
 	// Maquina de estados
-	gameStateMachine = new GameStateMachine();
+	gameStateMachine = GameStateMachine::instance();
 	exit = false;
 	gameStateMachine->pushState(new BattleState());
 }
@@ -95,3 +95,20 @@ void Game::loseGame()
 
 // Cierra el juego
 void Game::quitGame() { Game::instance()->exit = true; }
+
+void Game::signal(sig_type signal)
+{
+	switch (signal)
+	{
+	case _SIG_PAUSE:
+		gameStateMachine->pushState(new PauseState());
+		break;
+	case _SIG_RESUME:
+		gameStateMachine->popState();
+		break;
+	
+
+	default:
+		break;
+	}
+}

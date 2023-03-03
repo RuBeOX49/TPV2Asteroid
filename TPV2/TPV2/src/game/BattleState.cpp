@@ -50,7 +50,7 @@ BattleState::BattleState()
 	*/
 
 
-	//Game::instance()->pauseGame();
+	
 	//lmao, will try later
 }
 
@@ -62,4 +62,15 @@ void BattleState::update()
 {
 	GameState::update();
 	collMngr->handlePhysics();
+}
+
+void BattleState::handleInput()
+{
+	GameState::handleInput();
+	if (InputHandler::instance()->isKeyDown(SDLK_SPACE)) {
+		std::cout << "se llama\n";
+		GameStateMachine::instance()->pushState(new PauseState());
+	}
+
+
 }

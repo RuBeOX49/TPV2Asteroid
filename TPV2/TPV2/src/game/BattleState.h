@@ -13,4 +13,6 @@ private:
 	CollisonsManager* collMngr;
 
 	virtual void update();
+
+	virtual void handleInput();
 };
