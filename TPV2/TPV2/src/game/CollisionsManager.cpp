@@ -53,7 +53,7 @@ void CollisonsManager::handlePhysics()
 
 						if (hComponent->getLives() == 0) {
 							astMngr->destroyAllAsteroids();
-							GameStateMachine::instance()->pushState(new DeathState());
+							GameStateMachine::instance()->changeState(new DeathState());
 						}
 						else {
 						GameStateMachine::instance()->pushState(new DamagedState());

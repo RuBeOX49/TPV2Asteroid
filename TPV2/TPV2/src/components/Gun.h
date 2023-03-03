@@ -1,14 +1,16 @@
 #pragma once
 #include "../ecs/Component.h"
 #include "Transform.h"
+#include "../sdlutils/SDLUtils.h"
 
 class Gun: public Component
 {
 private:
 
-	//Music* shotSound;
+	SoundEffect* shotSound;
 	float lastTimeShot=250;
 	Transform* shipData;
+	
 
 public:
 	static const int id = _GUN;

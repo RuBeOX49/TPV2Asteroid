@@ -10,7 +10,6 @@
 
 Gun::Gun()
 {
-	
 }
 
 Gun::~Gun()
@@ -19,6 +18,7 @@ Gun::~Gun()
 }
 
 void Gun::initComponent() {
+	shotSound = &sdlutils().soundEffects().at("GunShot");
 	shipData = ent->getComponent<Transform>();
 }
 
@@ -27,7 +27,7 @@ void Gun::handleInput()
 	if (InputHandler::instance()->isKeyDown(SDLK_s)) {
 		if (lastTimeShot > 250)
 		{
-			// shotSound->play(1);
+			shotSound->play();
 			Entity* bullet = mngr->addEntity();
 			bullet->setGroup(_grp_BULLETS);
 			//Position

@@ -1,4 +1,5 @@
 #include "DeathState.h"
+#include "BattleState.h"
 
 DeathState::DeathState()
 {
@@ -11,6 +12,6 @@ void DeathState::handleInput()
 
 	if (InputHandler::instance()->isKeyDown(SDLK_SPACE))
 	{
-		Game::instance()->resumeGame();
+		GameStateMachine::instance()->changeState(new BattleState());
 	}
 }

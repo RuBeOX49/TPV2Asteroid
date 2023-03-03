@@ -42,6 +42,7 @@ BattleState::BattleState()
 BattleState::~BattleState()
 {
 	delete collMngr;
+	delete astMngr;
 }
 
 void BattleState::update()

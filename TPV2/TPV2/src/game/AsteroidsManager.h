@@ -19,7 +19,7 @@ private:
 public:
 
 	AsteroidsManager(Manager* mngr, Entity* ship) : mngr(mngr), ship(ship) {};
-	~AsteroidsManager();
+	~AsteroidsManager() {};
 
 
 	void createAsteroid(int n);

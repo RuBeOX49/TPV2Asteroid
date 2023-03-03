@@ -11,7 +11,10 @@ private:
 public:
 
 	PauseState();
-	~PauseState() {}
+	~PauseState() {
+		delete hitText;
+	}
 
 	virtual void handleInput();
+	virtual void render() const;
 };
