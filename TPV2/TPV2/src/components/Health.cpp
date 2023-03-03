@@ -21,12 +21,4 @@ void HealthComponent::render() const
 	}
 }
 
-inline void HealthComponent::damage(int damage)
-{
-	currLives -= damage;
 
-	if(currLives < 0)
-	{
-		//gameover
-	}
-}

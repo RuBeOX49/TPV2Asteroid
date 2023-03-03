@@ -2,6 +2,9 @@
 #include "../ecs/Entity.h"
 #include "../utils/Collisions.h"
 #include "../components/Transform.h"
+#include "../components/Health.h"
+#include "../game/GameStateMachine.h"
+#include "../game/PauseState.h"
 
 void CollisonsManager::handlePhysics()
 {
@@ -31,7 +34,18 @@ void CollisonsManager::handlePhysics()
 					if (Collisions::collidesWithRotation(eTr->getPos(), eTr->getWidth(), eTr->getHeight(), eTr->getRotation(),
 						cTr->getPos(), cTr->getWidth(), cTr->getHeight(), cTr->getRotation())) {
 						//hay colisión, c desaparece
-						std::cout << "funca";
+						std::cout << "funca\n";
+						auto hComponent = c->getComponent<HealthComponent>();
+						
+						hComponent->damage(1);
+
+						if (hComponent->getLives() == 0) {
+							//se muere
+						}
+						else {
+						GameStateMachine::instance()->pushState(new PauseState());
+						}
+						
 					}
 
 				}

@@ -71,8 +71,9 @@ void Game::update() {
 
 // Actualiza el juego en función al evento actual
 void Game::handleInput() {
-	SDL_Event event;
+	
 
+	/*
 	while (SDL_PollEvent(&event))
 	{
 		if (event.type == SDL_QUIT)
@@ -80,6 +81,7 @@ void Game::handleInput() {
 			exit = true;
 		}
 	}
+	*/
 
 	gameStateMachine->currentState()->handleInput();
 }
