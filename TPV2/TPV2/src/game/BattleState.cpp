@@ -22,7 +22,6 @@
 BattleState::BattleState()
 {
 	collMngr = new CollisonsManager(mngr);
-
 	//LA NAVE
 	Entity* ship = mngr->addEntity();
 	ship->setGroup(_grp_FIGHTER);
@@ -34,24 +33,8 @@ BattleState::BattleState()
 	ship->addComponent<ShowAtOppositeSide>();
 	ship->addComponent<Gun>();
 	
+	astMngr = new AsteroidsManager(mngr, ship);
 
-
-	//ASTEROIDE DE PRUEBA
-
-	Entity* testAsteroid = mngr->addEntity();
-	testAsteroid->setGroup(_grp_ASTEROIDS);
-	
-	testAsteroid->addComponent<Transform>(Vector2D(100, 100), Vector2D(sdlutils().rand().nextInt(-1,1), sdlutils().rand().nextInt(-1, 1)) * 50, 50, 50, 0);
-	testAsteroid->addComponent<ShowAtOppositeSide>();
-	testAsteroid->addComponent<FramedImage>(Game::getTexture("AsteroidG"), 50, 6, 5);
-	testAsteroid->addComponent<Follow>(ship->getComponent<Transform>());
-	/*
-	testAsteroid->addComponent<Generations>();
-	*/
-
-
-	
-	//lmao, will try later
 }
 
 BattleState::~BattleState()
@@ -63,6 +46,7 @@ void BattleState::update()
 {
 	GameState::update();
 	collMngr->handlePhysics();
+	astMngr->addAsteroidFrequently();
 }
 
 void BattleState::handleInput()
