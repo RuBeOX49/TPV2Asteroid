@@ -35,6 +35,8 @@ BattleState::BattleState()
 	astMngr = new AsteroidsManager(mngr, ship);
 	collMngr = new CollisonsManager(mngr, astMngr);
 
+	astMngr->createAsteroid(10);
+
 }
 
 BattleState::~BattleState()

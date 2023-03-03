@@ -5,7 +5,7 @@ class Generations : public Component {
 private:
 
 
-
+	int generation;
 
 
 
@@ -13,6 +13,9 @@ public:
 
 	static const int id = _GENERATIONS;
 
-	Generations();
+	Generations(int generation): generation(generation) {}
 
+	inline int getGen() { return generation; }
+
+	inline void increaseGen() { generation++; }
 };
