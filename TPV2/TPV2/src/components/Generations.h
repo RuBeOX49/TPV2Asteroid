@@ -15,7 +15,9 @@ public:
 
 	Generations(int generation): generation(generation) {}
 
+	//Devuelve el número de generaciones
 	inline int getGen() { return generation; }
 
+	//Aumenta la generación
 	inline void increaseGen() { generation++; }
 };

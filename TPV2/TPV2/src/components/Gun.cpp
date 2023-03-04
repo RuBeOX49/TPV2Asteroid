@@ -8,10 +8,7 @@
 #include "DisableOnExit.h"
 
 
-Gun::Gun()
-{
-	
-}
+
 
 Gun::~Gun()
 {
@@ -22,6 +19,7 @@ void Gun::initComponent() {
 	shipData = ent->getComponent<Transform>();
 }
 
+//Si se pulsa la s y hace más de 0,25s desde la última se crea una nueva bala 
 void Gun::handleInput()
 {
 	if (InputHandler::instance()->isKeyDown(SDLK_s)) {
@@ -30,12 +28,15 @@ void Gun::handleInput()
 			// shotSound->play(1);
 			Entity* bullet = mngr->addEntity();
 			bullet->setGroup(_grp_BULLETS);
-			//Position
-			bullet->addComponent<Transform>(shipData->getPos()+Vector2D(shipData->getWidth() / 2.0f, shipData->getHeight() / 2.0f)
+			
+			bullet->addComponent<Transform>(
+				//Posición
+				shipData->getPos()+Vector2D(shipData->getWidth() / 2.0f, shipData->getHeight() / 2.0f)
 				- Vector2D(0.0f, shipData->getHeight() / 2.0f + 5.0f + 12.0f).rotate(shipData->getRotation())
 				- Vector2D(2.0f, 10.0f),
-				//Velocity
-				Vector2D(0.0f, -1.0f).rotate(shipData->getRotation()) * (shipData->getVel().magnitude() + 5.0f),
+				//Velocidad
+				Vector2D(0.0f, -1.0f).rotate(shipData->getRotation()) * (shipData->getVel().magnitude() + 5.0f)*bSpeed,
+				//Ancho, alto y rotación
 				5, 20, shipData->getRotation());
 			bullet->addComponent<Image>(Game::getTexture("Bullet"));
 			bullet->addComponent<DisableOnExit>();
@@ -46,6 +47,8 @@ void Gun::handleInput()
 	
 }
 
+
+//Incrementa el contador que controla el cooldown del disparo
 void Gun::update() {
 	lastTimeShot+=Game::instance()->getDeltaTime();
 }

@@ -5,6 +5,7 @@ void DisableOnExit::initComponent() {
 	bulletData = ent->getComponent<Transform>();
 }
 
+//Si se sale de la pantalla es destruida
 void DisableOnExit::update() {
 	Vector2D currentPos=bulletData->getPos();
 	if (currentPos.getX() > WIN_WIDTH || currentPos.getY() > WIN_HEIGHT ||

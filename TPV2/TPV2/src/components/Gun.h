@@ -7,13 +7,14 @@ class Gun: public Component
 private:
 
 	//Music* shotSound;
+	int bSpeed=10;
 	float lastTimeShot=250;
 	Transform* shipData;
 
 public:
 	static const int id = _GUN;
 
-	Gun();
+	Gun() {};
 	~Gun();
 
 	virtual void initComponent();
