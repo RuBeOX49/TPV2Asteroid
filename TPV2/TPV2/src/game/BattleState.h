@@ -11,6 +11,7 @@ public:
 
 private:
 
+	SoundEffect* soundTrack;
 	CollisonsManager* collMngr;
 	AsteroidsManager* astMngr;
 

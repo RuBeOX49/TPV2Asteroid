@@ -21,6 +21,8 @@
 
 BattleState::BattleState()
 {
+	soundTrack = &sdlutils().soundEffects().at("Navesitas");
+	soundTrack->play();
 	//LA NAVE
 	Entity* ship = mngr->addEntity();
 	ship->setGroup(_grp_FIGHTER);
@@ -41,6 +43,7 @@ BattleState::BattleState()
 
 BattleState::~BattleState()
 {
+	soundTrack->haltChannel();
 	delete collMngr;
 	delete astMngr;
 }

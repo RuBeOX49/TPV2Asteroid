@@ -4,6 +4,7 @@
 FighterCtrl::FighterCtrl():transform(nullptr){}
 
 void FighterCtrl::initComponent() {
+	thrust = &sdlutils().soundEffects().at("Thrust");
 	transform = ent->getComponent<Transform>();
 }
 
@@ -17,6 +18,7 @@ void FighterCtrl::handleInput() {
 		transform->rotate(rotationFactor);
 	}
 	if (InputHandler::instance()->isKeyDown(SDLK_w)) {
+		thrust->play();
 		vel = vel + Vector2D(0, -1);
 		vel = vel.rotate(transform->getRotation()) * shipSpeed;
 		if (vel.magnitude() != 0&&transform->getVel().magnitude() < 50)

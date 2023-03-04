@@ -8,7 +8,6 @@ class Gun: public Component
 private:
 
 	SoundEffect* shotSound;
-	//Music* shotSound;
 	int bSpeed=10;
 	float lastTimeShot=250;
 	Transform* shipData;
