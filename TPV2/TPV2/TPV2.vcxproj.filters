@@ -192,6 +192,9 @@
     <ClInclude Include="src\game\DeathState.h">
       <Filter>Header Files\src\game</Filter>
     </ClInclude>
+    <ClInclude Include="src\game\WinState.h">
+      <Filter>Header Files\src\game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\json\JSONValue.cpp">
@@ -283,6 +286,9 @@
     </ClCompile>
     <ClCompile Include="src\game\DeathState.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\WinState.cpp">
+      <Filter>Source Files\src\game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

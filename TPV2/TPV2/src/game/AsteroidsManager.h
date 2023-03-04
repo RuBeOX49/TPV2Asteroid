@@ -31,6 +31,8 @@ public:
 	void destroyAllAsteroids();
 	void onCollision(Entity* a);
 
+	inline int getAsteroids() { return asteroidsAlive; }
+
 
 
 };

@@ -1,6 +1,7 @@
 #pragma once
 #include "BattleState.h"
 #include "PauseState.h"
+#include "WinState.h"
 #include "../ecs/Entity.h"
 #include "Game.h"
 #pragma region allComponents
@@ -53,6 +54,8 @@ void BattleState::update()
 	GameState::update();
 	collMngr->handlePhysics();
 	astMngr->addAsteroidFrequently();
+	if (astMngr->getAsteroids() == 0)
+		GameStateMachine::instance()->changeState(new WinState());
 }
 
 void BattleState::handleInput()
