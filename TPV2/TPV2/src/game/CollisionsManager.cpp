@@ -36,11 +36,13 @@ void CollisonsManager::handlePhysics()
 
 				if (c->getGroup() == _grp_FIGHTER)
 				{
+					
 					Transform* eTr = e->getComponent<Transform>();
 					Transform* cTr = c->getComponent<Transform>();
 
 					if (Collisions::collidesWithRotation(eTr->getPos(), eTr->getWidth(), eTr->getHeight(), eTr->getRotation(),
 						cTr->getPos(), cTr->getWidth(), cTr->getHeight(), cTr->getRotation())) {
+						explosion->play();
 						//hay colisión, e y c desaparecen ()
 						std::cout << "funca\n";
 

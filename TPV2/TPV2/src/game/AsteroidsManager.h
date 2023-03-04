@@ -10,7 +10,7 @@
 class AsteroidsManager
 {
 private:
-
+	SoundEffect* brokenAsteroid;
 	Manager* mngr;
 	Entity* ship;
 	int asteroidsAlive = 0;
@@ -19,7 +19,10 @@ private:
 
 public:
 
-	AsteroidsManager(Manager* mngr, Entity* ship) : mngr(mngr), ship(ship) {};
+	AsteroidsManager(Manager* mngr, Entity* ship) : mngr(mngr), ship(ship) {
+		brokenAsteroid = &sdlutils().soundEffects().at("Explosion");
+		brokenAsteroid->setVolume(10);
+	};
 	~AsteroidsManager() {};
 
 

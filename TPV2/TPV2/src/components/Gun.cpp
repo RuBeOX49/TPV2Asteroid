@@ -8,10 +8,6 @@
 #include "DisableOnExit.h"
 
 
-Gun::Gun()
-{
-}
-
 
 Gun::~Gun()
 {
@@ -20,6 +16,7 @@ Gun::~Gun()
 
 void Gun::initComponent() {
 	shotSound = &sdlutils().soundEffects().at("GunShot");
+	shotSound->setVolume(10);
 	shipData = ent->getComponent<Transform>();
 }
 

@@ -76,6 +76,7 @@ void AsteroidsManager::destroyAllAsteroids() {
 
 //Al colisionar 
 void AsteroidsManager::onCollision(Entity* asteroid) {
+	brokenAsteroid->play();
 	asteroid->setAlive(false);
 	int pGen = asteroid->getComponent<Generations>()->getGen();
 	//Si la generación es menor que 3 se genera un nuevo asteroide
