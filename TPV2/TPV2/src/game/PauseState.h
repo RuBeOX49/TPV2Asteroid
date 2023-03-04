@@ -9,12 +9,11 @@ private:
 	Texture* TextTexture;
 
 public:
-
+	
 	PauseState();
 	~PauseState() {
 		delete TextTexture;
 	}
 
 	virtual void handleInput();
-	//virtual void render() const;
 };

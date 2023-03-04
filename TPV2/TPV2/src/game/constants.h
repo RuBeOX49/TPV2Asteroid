@@ -13,18 +13,5 @@ const int DELAY_TIME = 17;
 
 const int STARTING_HEALTH = 3;
 
-// GAME SIGNALS
-
-using sig_type = int;
-
-enum sig : sig_type {
-
-	_SIG_PAUSE,
-	_SIG_RESUME,
-	_SIG_DEATH,
-	_SIG_DAMAGE,
-	_SIG_START
-
-};
 
 #endif // !CONSTANTS_H

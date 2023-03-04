@@ -9,6 +9,7 @@ FramedImage::FramedImage(Texture* texture, double stepDuration, int columns, int
 
 FramedImage::~FramedImage() {}
 
+//Calcula el tiempo pasado desde la ultima vez que se cambio el frame, y determina si es hora de volverlo a cambiar
 void FramedImage::update()
 {
 	if (timer >= stepDuration) {

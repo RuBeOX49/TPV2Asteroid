@@ -24,7 +24,12 @@ BattleState::BattleState()
 {
 	soundTrack = &sdlutils().soundEffects().at("Navesitas");
 	soundTrack->play();
-	//LA NAVE
+
+	Entity* background = mngr->addEntity();
+	background->addComponent<Transform>(Vector2D(0, 0), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
+	background->addComponent<Image>(Game::getTexture("Background"));
+
+	//La Nave
 	Entity* ship = mngr->addEntity();
 	ship->setGroup(_grp_FIGHTER);
 	ship->addComponent<Transform>(Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / 2), Vector2D(), 100, 100, 0);
@@ -62,7 +67,6 @@ void BattleState::handleInput()
 {
 	GameState::handleInput();
 	if (InputHandler::instance()->isKeyDown(SDLK_SPACE)) {
-		std::cout << "se llama\n";
 		GameStateMachine::instance()->pushState(new PauseState());
 	}
 

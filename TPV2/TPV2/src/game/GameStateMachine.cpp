@@ -9,30 +9,30 @@ GameStateMachine::~GameStateMachine() {
     clearStatesToErase();
 }
 
-// Adds state
+// Añade un estado nuevo
 void GameStateMachine::pushState(GameState* newState) { gameStates.push(newState); }
 
-// Erases state
+// Borra el estado en el tope
 void GameStateMachine::popState() {
     gameStatesToErase.push(gameStates.top());
     gameStates.pop();
 }
 
-// Erases every state on the stack
+// Erases todos los estados de la pila
 void GameStateMachine::clearStates() {
     while (!gameStates.empty()) popState();
 }
 
-// Return current state
+// Devuelve el estado del tope
 GameState* GameStateMachine::currentState() { return gameStates.top(); }
 
-// Changes the current state
+// Cambia el estado actual
 void GameStateMachine::changeState(GameState* newState) {
     clearStates();
     pushState(newState);
 }
 
-// Clears the game states to erase stack
+// Borra los estados de la pila de borrado
 void GameStateMachine::clearStatesToErase() {
     while (!gameStatesToErase.empty()) {
         delete(gameStatesToErase.top());

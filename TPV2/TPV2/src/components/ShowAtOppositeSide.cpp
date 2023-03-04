@@ -6,6 +6,8 @@ void ShowAtOppositeSide::initComponent() {
 	transform = ent->getComponent<Transform>();
 }
 
+
+//Si la entidad sale del marco de la ventana, aparece al otro lado de la ventana
 void ShowAtOppositeSide::update() {
 	Vector2D pos = transform->getPos();
 

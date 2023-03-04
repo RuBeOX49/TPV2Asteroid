@@ -19,55 +19,56 @@ void CollisonsManager::handlePhysics()
 		if (e->getGroup() == _grp_ASTEROIDS) {
 			for (auto c : mngr->getEntities())
 			{
-
 				if(c->getGroup() == _grp_BULLETS)
 				{
-					Transform* eTr = e->getComponent<Transform>();
-					Transform* cTr = c->getComponent<Transform>();
-
-					if(Collisions::collidesWithRotation(eTr->getPos(), eTr->getWidth(), eTr->getHeight(), eTr->getRotation(),
-						cTr->getPos(), cTr->getWidth(), cTr->getHeight(), cTr->getRotation() )) {
-						//hay colisión, e desaparece
-
-						astMngr->onCollision(e);
-					}
-					
+					handleBulletCollision(e, c);
 				}
 
 				if (c->getGroup() == _grp_FIGHTER)
 				{
 					
-					Transform* eTr = e->getComponent<Transform>();
-					Transform* cTr = c->getComponent<Transform>();
-
-					if (Collisions::collidesWithRotation(eTr->getPos(), eTr->getWidth(), eTr->getHeight(), eTr->getRotation(),
-						cTr->getPos(), cTr->getWidth(), cTr->getHeight(), cTr->getRotation())) {
-						explosion->play();
-						//hay colisión, e y c desaparecen ()
-						std::cout << "funca\n";
-
-						e->setAlive(false);
-
-
-						auto hComponent = c->getComponent<HealthComponent>();
-						
-						hComponent->damage(1);
-
-						if (hComponent->getLives() == 0) {
-							astMngr->destroyAllAsteroids();
-							GameStateMachine::instance()->changeState(new DeathState());
-						}
-						else {
-						GameStateMachine::instance()->pushState(new DamagedState());
-						}
-						
-					}
-
+					handleFighterCollision(e, c);
 				}
-
-
-
 			}
+		}
+	}
+}
+
+void CollisonsManager::handleBulletCollision( Entity* e,  Entity* c)
+{
+	Transform* eTr = e->getComponent<Transform>();
+	Transform* cTr = c->getComponent<Transform>();
+
+	if (Collisions::collidesWithRotation(eTr->getPos(), eTr->getWidth(), eTr->getHeight(), eTr->getRotation(),
+		cTr->getPos(), cTr->getWidth(), cTr->getHeight(), cTr->getRotation())) {
+		//hay colisión, e desaparece
+
+		astMngr->onCollision(e);
+	}
+}
+
+void CollisonsManager::handleFighterCollision( Entity* e,  Entity* c)
+{
+	Transform* eTr = e->getComponent<Transform>();
+	Transform* cTr = c->getComponent<Transform>();
+
+	if (Collisions::collidesWithRotation(eTr->getPos(), eTr->getWidth(), eTr->getHeight(), eTr->getRotation(),
+		cTr->getPos(), cTr->getWidth(), cTr->getHeight(), cTr->getRotation())) {
+		explosion->play();
+		//hay colisión, e y c desaparecen ()
+
+		e->setAlive(false);
+
+		auto hComponent = c->getComponent<HealthComponent>();
+
+		hComponent->damage(1);
+
+		if (hComponent->getLives() == 0) {
+			astMngr->destroyAllAsteroids();
+			GameStateMachine::instance()->changeState(new DeathState());
+		}
+		else {
+			GameStateMachine::instance()->pushState(new DamagedState());
 		}
 	}
 }

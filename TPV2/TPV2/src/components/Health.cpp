@@ -17,7 +17,6 @@ void HealthComponent::render() const
 	{
 		SDL_Rect rect = build_sdlrect(20 + i * (20 + 10), 20, 20, 20);
 		healthTexture->render(rect);
-		//renderizar 1 corazon o algo en x = 20 + i * (textureSize + 10) , y = 20 
 	}
 }
 

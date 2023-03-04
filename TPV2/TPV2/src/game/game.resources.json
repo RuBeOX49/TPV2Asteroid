@@ -8,8 +8,9 @@
     {"id": "Bullet", "file":  "resources/images/fire.png"},
     {"id": "Heart", "file":  "resources/images/heart.png"},
     {"id": "Asteroid", "file":  "resources/images/asteroid.png"},
-    {"id": "AsteroidG", "file":  "resources/images/asteroid_gold.png"}
-
+    {"id": "AsteroidG", "file":  "resources/images/asteroid_gold.png"},
+    {"id": "Background", "file":  "resources/images/BG.jpg"}
+    
   ],
 
   "messages": [
