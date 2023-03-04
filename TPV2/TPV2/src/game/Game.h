@@ -31,6 +31,8 @@ private:
 	bool exit;
 	double deltaTime = 0.0;
 
+	Font* gameFont;
+
 	// Constructora
 	Game();
 
@@ -49,6 +51,8 @@ public:
 	void handleInput();
 	// Devuelve la Texture pedida
 	static Texture* getTexture(TextureName texture);
+
+	Font* getGameFont();
 
 	template<typename T, typename ...Ts>
 	static void newScene(Ts&& ...args) {

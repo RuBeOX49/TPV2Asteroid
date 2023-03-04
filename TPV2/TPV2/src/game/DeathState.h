@@ -6,11 +6,18 @@
 class DeathState : public GameState {
 private:
 
+	Texture* textTexture1;
+	Texture* textTexture2;
 
 public:
 
 	DeathState();
-	~DeathState() {}
+	~DeathState() {
+	
+		delete textTexture1;
+		delete textTexture2;
+
+	}
 
 	virtual void handleInput();
 };

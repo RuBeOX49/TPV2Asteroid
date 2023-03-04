@@ -6,11 +6,19 @@
 class DamagedState : public GameState {
 private:
 
+	Texture* textTexture1;
+	Texture* textTexture2;
+
 
 public:
 
 	DamagedState();
-	~DamagedState() {}
+	~DamagedState() {
+	
+		delete textTexture1;
+		delete textTexture2;
+
+	}
 
 	virtual void handleInput();
 };

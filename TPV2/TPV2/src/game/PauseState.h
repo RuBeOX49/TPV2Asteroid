@@ -6,13 +6,13 @@
 class PauseState : public GameState {
 private:
 
-	Texture* hitText;
+	Texture* TextTexture;
 
 public:
 
 	PauseState();
 	~PauseState() {
-		delete hitText;
+		delete TextTexture;
 	}
 
 	virtual void handleInput();

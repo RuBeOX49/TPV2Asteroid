@@ -2,7 +2,7 @@
 #include "Game.h"
 #include "BattleState.h"
 #include "PauseState.h"
-
+#include "../sdlutils/SDLUtils.h"
 // Constructora
 Game::Game() {
 
@@ -12,7 +12,7 @@ Game::Game() {
 	window = utils->window();
 	renderer = utils->renderer();
 	//utils->toggleFullScreen();
-
+	gameFont = new Font("resources/fonts/NES-Chimera.ttf", 20);
 
 	// Maquina de estados
 	gameStateMachine = GameStateMachine::instance();
@@ -22,6 +22,8 @@ Game::Game() {
 
 // Destructora
 Game::~Game() {
+
+	delete gameFont;
 
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
@@ -81,6 +83,11 @@ void Game::handleInput() {
 
 // Devuelve la Texture pedida
 Texture* Game::getTexture(TextureName texture) { return &SDLUtils::instance()->images().at(texture); }
+
+Font* Game::getGameFont()
+{
+	return gameFont;
+}
 
 // Pausa el juego
 void Game::pauseGame() { Game::instance()->gameStateMachine->pushState(new PauseState()); }
