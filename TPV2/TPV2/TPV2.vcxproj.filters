@@ -263,12 +263,6 @@
     <ClCompile Include="src\game\AsteroidsManager.cpp">
       <Filter>Source Files\src\game</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\Gun.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\FramedImage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\components\Follow.cpp">
       <Filter>Source Files\src\components</Filter>
     </ClCompile>
@@ -284,11 +278,17 @@
     <ClCompile Include="src\game\DamagedState.cpp">
       <Filter>Source Files\src\game</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\DeathState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\game\WinState.cpp">
       <Filter>Source Files\src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\DeathState.cpp">
+      <Filter>Source Files\src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\FramedImage.cpp">
+      <Filter>Source Files\src\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Gun.cpp">
+      <Filter>Source Files\src\components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

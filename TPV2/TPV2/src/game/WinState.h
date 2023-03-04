@@ -6,10 +6,13 @@
 class WinState: public GameState
 {
 private:
-
+	Texture* textTexture1;
+	Texture* textTexture2;
 
 public:
 	WinState();
+	~WinState();
+
 
 	virtual void handleInput();
 };
