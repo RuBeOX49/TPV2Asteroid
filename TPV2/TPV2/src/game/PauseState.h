@@ -16,5 +16,5 @@ public:
 	}
 
 	virtual void handleInput();
-	virtual void render() const;
+	//virtual void render() const;
 };

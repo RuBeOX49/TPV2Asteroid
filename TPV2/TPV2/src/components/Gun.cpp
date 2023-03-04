@@ -8,9 +8,6 @@
 #include "DisableOnExit.h"
 
 
-Gun::Gun()
-{
-}
 
 
 Gun::~Gun()

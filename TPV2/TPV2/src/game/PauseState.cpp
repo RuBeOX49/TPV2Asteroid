@@ -3,22 +3,25 @@
 #include "../components/Image.h"
 #include "../components/Transform.h"
 #include "Game.h"
+#include "../sdlutils/SDLUtils.h"
 
 PauseState::PauseState()
 {
 	std::cout << "Esta es la zona de pausa\n";
+
+	auto textSource = Font("resources/fonts/NES-Chimera.ttf", 20);
 	auto color = SDL_Color();
-	color.r = 0;
-	color.g = 255;
+	color.r = 255;
+	color.g = 0;
 	color.b = 0;
 	color.a = 255;
 
-	hitText = new Texture(SDLUtils::instance()->renderer(), "mikmikmikmik", sdlutils().fonts().at("ARIAL"), color);
+	hitText = new Texture(SDLUtils::instance()->renderer(), "mikmikmikmik", textSource, build_sdlcolor("0xff00ffff"));
 
 	
 	auto text = mngr->addEntity();
-	text->addComponent<Transform>(Vector2D(WIN_WIDTH/2, WIN_HEIGHT/2), Vector2D(0,0), sdlutils().msgs().at("HitMSG").width(), sdlutils().msgs().at("HitMSG").height());
-	text->addComponent<Image>(&sdlutils().msgs().at("HitMSG"));
+	text->addComponent<Transform>(Vector2D(WIN_WIDTH/2, WIN_HEIGHT/2), Vector2D(0,0), hitText->width(), hitText->height());
+	text->addComponent<Image>(hitText);
 
 
 }
@@ -33,10 +36,6 @@ void PauseState::handleInput()
 	}
 }
 
-void PauseState::render() const
-{
-	GameState::render();
-	hitText->render(0, 0);
-}
+
 
 
