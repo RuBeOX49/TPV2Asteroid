@@ -11,6 +11,7 @@ HealthComponent::~HealthComponent()
 {
 }
 
+// Por cada vida que tenga el jugador, renderiza un icono
 void HealthComponent::render() const
 {
 	for (int i = 0; i < currLives; i++)

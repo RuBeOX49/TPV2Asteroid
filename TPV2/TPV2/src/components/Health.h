@@ -16,9 +16,11 @@ public:
 	virtual ~HealthComponent();
 
 	virtual void render() const;
-
+	//Devuelve las vidas restantes
 	inline int getLives() { return currLives; }
+	//Reinicia las vidas al valor por defecto
 	inline void resetLives() { currLives = STARTING_HEALTH; }
+	//Reduce "damage" vidas del total
 	inline void damage(int damage) { currLives -= damage; }
 
 };

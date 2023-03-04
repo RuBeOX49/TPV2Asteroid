@@ -26,6 +26,8 @@ void FramedImage::update()
 	}
 	timer += Game::instance()->getDeltaTime();
 }
+
+//Renderiza el frame determinado
 void FramedImage::render() const
 {
 	SDL_Rect sourceRect = build_sdlrect(frameColumn * texture->width() / columns, frameRow * texture->height() / rows, texture->width() / columns,texture->height() / rows);

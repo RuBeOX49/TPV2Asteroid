@@ -82,6 +82,6 @@ public:
 
 	void setExit(bool toWhat);
 
-	void signal(sig_type signal);
+
 };
 #endif

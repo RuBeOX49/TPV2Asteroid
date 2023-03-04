@@ -43,7 +43,6 @@
     <ClInclude Include="src\game\Game.h" />
     <ClInclude Include="src\game\GameState.h" />
     <ClInclude Include="src\game\GameStateMachine.h" />
-    <ClInclude Include="src\game\LoseState.h" />
     <ClInclude Include="src\game\PauseState.h" />
     <ClInclude Include="src\game\WinState.h" />
     <ClInclude Include="src\json\JSON.h" />
