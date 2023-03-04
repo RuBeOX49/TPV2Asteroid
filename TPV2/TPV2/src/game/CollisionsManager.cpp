@@ -41,7 +41,7 @@ void CollisonsManager::handleBulletCollision( Entity* e,  Entity* c)
 
 	if (Collisions::collidesWithRotation(eTr->getPos(), eTr->getWidth(), eTr->getHeight(), eTr->getRotation(),
 		cTr->getPos(), cTr->getWidth(), cTr->getHeight(), cTr->getRotation())) {
-		//hay colisión, e desaparece
+		//hay colisiï¿½n, e desaparece
 
 		astMngr->onCollision(e);
 	}
@@ -55,7 +55,7 @@ void CollisonsManager::handleFighterCollision( Entity* e,  Entity* c)
 	if (Collisions::collidesWithRotation(eTr->getPos(), eTr->getWidth(), eTr->getHeight(), eTr->getRotation(),
 		cTr->getPos(), cTr->getWidth(), cTr->getHeight(), cTr->getRotation())) {
 		explosion->play();
-		//hay colisión, e y c desaparecen ()
+		//hay colisiï¿½n, e y c desaparecen ()
 
 		e->setAlive(false);
 
