@@ -7,6 +7,7 @@ void FighterCtrl::initComponent() {
 	transform = ent->getComponent<Transform>();
 }
 
+//Rota e incrementa la velocdad de la nave a empujones
 void FighterCtrl::handleInput() {
 	Vector2D vel=Vector2D();
 	if (InputHandler::instance()->isKeyDown(SDLK_a)) {
@@ -22,10 +23,9 @@ void FighterCtrl::handleInput() {
 			transform->setVel(vel + transform->getVel());
 	}
 
-	
-
 }
 
+//Setter de velocidad
 void FighterCtrl::setVel(int newSpeed) {
 	shipSpeed = newSpeed;
 }

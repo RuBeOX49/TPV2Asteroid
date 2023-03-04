@@ -15,6 +15,7 @@ private:
 	Entity* ship;
 	int asteroidsAlive = 0;
 	float timer = 0;
+	float astSpeed = 50;
 
 public:
 
