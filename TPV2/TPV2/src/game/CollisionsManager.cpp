@@ -42,7 +42,7 @@ void CollisonsManager::handleBulletCollision( Entity* e,  Entity* c)
 	if (Collisions::collidesWithRotation(eTr->getPos(), eTr->getWidth(), eTr->getHeight(), eTr->getRotation(),
 		cTr->getPos(), cTr->getWidth(), cTr->getHeight(), cTr->getRotation())) {
 		//hay colisi�n, e desaparece
-
+		c->setAlive(false);
 		astMngr->onCollision(e);
 	}
 }
