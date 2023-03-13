@@ -4,6 +4,7 @@
 
 using cmpId_type = int;
 using grpId_type = int;
+using sysId_type = int;
 
 enum cmpId : cmpId_type {
 	_TRANSFORM,
@@ -34,6 +35,18 @@ enum grpId : grpId_type {
 
 };
 
+enum sysId : sysId_type {
+	sys_ASTEROIDS,
+	sys_BULLET,
+	sys_COLLISION,
+	sys_FIGHTER,
+	sys_GAMECTRL,
+	sys_RENDER,
+
+	//DO NOT DELETE FOR THE LOVE OF THAT WOMAN
+	sys_LAST_SYSTEM_ID
+};
+constexpr sysId_type maxSystemId = sys_LAST_SYSTEM_ID;
 
 constexpr cmpId_type maxComponentId = _LAST_CMP_ID;
 

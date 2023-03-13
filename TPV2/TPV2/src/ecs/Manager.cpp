@@ -51,6 +51,11 @@ void Manager::refresh() {
         entities.end());
 }
 
+void Manager::send(const Message& m)
+{
+
+}
+
 void Manager::addEntity(Entity* object) {
     entities.push_back(object);
 };

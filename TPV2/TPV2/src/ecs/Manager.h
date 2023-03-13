@@ -1,13 +1,17 @@
 #pragma once
-
+#include "Message.h"
 
 #include <list>
 #include <vector>
+#include "System.h"
+
 using namespace std;
 class Entity;
 class Manager {
 protected:
+
     vector<Entity*> entities;
+    vector<System*> systems;
    
 public:
     // Constructor
@@ -37,7 +41,7 @@ public:
         return e;
     }
 
-    
+    virtual void send(const Message& m);
 
 };
 
