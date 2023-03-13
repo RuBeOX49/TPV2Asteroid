@@ -6,6 +6,25 @@ using cmpId_type = int;
 using grpId_type = int;
 using sysId_type = int;
 
+#include "ecs_def.h"
+using msgId_type = uint8_t;
+enum msgId : msgId_type {
+	_m_DESTROY_ASTEROID,
+	_m_SPAWN_ASTEROIDS
+};
+
+struct Message {
+	msgId_type id;
+	// _m_DESTROY_ASTEROID
+	struct {
+		Entity* e;
+	} destroy_asteroid_data;
+	// _m_SPAWN_ASTEROID
+	struct {
+		unsigned int n;
+	} add_stars_data;
+};
+
 enum cmpId : cmpId_type {
 	_TRANSFORM,
 	_DEACCELERATION,
