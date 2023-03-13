@@ -5,9 +5,9 @@
 using cmpId_type = int;
 using grpId_type = int;
 using sysId_type = int;
+using msgId_type = int;
 
-#include "ecs_def.h"
-using msgId_type = uint8_t;
+class Entity;
 enum msgId : msgId_type {
 	_m_DESTROY_ASTEROID,
 	_m_SPAWN_ASTEROIDS

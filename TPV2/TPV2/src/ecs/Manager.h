@@ -1,8 +1,9 @@
 #pragma once
-#include "Message.h"
 
+#include "../game/ecs_def.h"
 #include <list>
 #include <vector>
+#include <array>
 #include "System.h"
 
 using namespace std;
@@ -11,7 +12,7 @@ class Manager {
 protected:
 
     vector<Entity*> entities;
-    vector<System*> systems;
+    std::array<System*, maxSystemId> _sys;
    
 public:
     // Constructor
@@ -41,7 +42,31 @@ public:
         return e;
     }
 
-    virtual void send(const Message& m);
+    template<typename T, typename ...Ts>
+    inline T* addSystem(Ts &&... args) {
+        constexpr sysId_type sId = T::id;
+        removeSystem<T>();
+        System* s = new T(std::forward(args)...);
+        s->setContext(this);
+        s->initSystem();
+        _sys[sId] = s;
+        return static_cast<T*>(s);
+    }
+
+    template<typename T>
+    inline T* getSystem() {
+        constexpr sysId_type sId = T::id;
+        return static_cast<T*>(_sys[sId]);
+    }
+
+    template<typename T>
+    inline void removeSystem() {
+        constexpr sysId_type sId = T::id;
+        if( _sys[sId] != nullptr ) {
+            delete _sys[sId];
+            _sys[sId] = nullptr;
+        }
+    }
 
 };
 

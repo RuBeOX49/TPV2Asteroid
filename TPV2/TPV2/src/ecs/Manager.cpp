@@ -11,6 +11,8 @@ Manager::~Manager() {
         delete(gObj);
         gObj = nullptr;
     }
+
+    
 }
 
 // Actualiza los objetos de la escena
@@ -51,10 +53,7 @@ void Manager::refresh() {
         entities.end());
 }
 
-void Manager::send(const Message& m)
-{
 
-}
 
 void Manager::addEntity(Entity* object) {
     entities.push_back(object);

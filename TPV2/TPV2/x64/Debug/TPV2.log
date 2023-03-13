@@ -1,5 +1,21 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(496,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
-  PauseState.cpp
+  DisableOnExit.cpp
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(91,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(92,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(93,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(94,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  DeAcceleration.cpp
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(91,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(92,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(93,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(94,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\DeAcceleration.cpp(14,46): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\DeAcceleration.cpp(16,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+  FighterCtrl.cpp
 C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(91,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -7,16 +23,253 @@ C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Tran
 C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(93,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(94,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
-C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
-C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(192): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "SoundEffect &SDLUtils::map_access_wrapper<SoundEffect>::at(std::string)"
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(194): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\FighterCtrl.cpp(15,21): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\FighterCtrl.cpp(18,21): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\FighterCtrl.cpp(32,14): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  Follow.cpp
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(91,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(92,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(93,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(94,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  FramedImage.cpp
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(91,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(92,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(93,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(94,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\FramedImage.cpp(33,162): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\FramedImage.cpp(33,134): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\FramedImage.cpp(33,109): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\FramedImage.cpp(33,69): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Gun.cpp
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(91,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(92,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(93,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(94,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "SoundEffect &SDLUtils::map_access_wrapper<SoundEffect>::at(std::string)"
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(194): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Gun.cpp(40,101): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Gun.cpp(55,46): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
 C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\ecs\Entity.h(52,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
           with
           [
               _Ty=int
           ]
-C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\PauseState.cpp(11): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D,Vector2D,int,int>(Vector2D &&,Vector2D &&,int &&,int &&)" que se está compilando
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Gun.cpp(42): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D,Vector2D,int,int,float>(Vector2D &&,Vector2D &&,int &&,int &&,float &&)" que se está compilando
           with
           [
               T=Transform
           ]
+  Health.cpp
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Health.cpp(19,36): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Image.cpp
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(91,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(92,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(93,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(94,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  ShowAtOppositeSide.cpp
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(91,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(92,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(93,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(94,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\ShowAtOppositeSide.cpp(19,21): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\ShowAtOppositeSide.cpp(26,21): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+  Transform.cpp
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(91,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(92,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(93,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(94,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.cpp(42,76): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.cpp(47,76): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+  Manager.cpp
+  System.cpp
+  AsteroidsManager.cpp
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(91,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(92,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(93,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(94,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "SoundEffect &SDLUtils::map_access_wrapper<SoundEffect>::at(std::string)"
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(194): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\AsteroidsManager.cpp(15,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\AsteroidsManager.cpp(18,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\AsteroidsManager.cpp(21,57): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\AsteroidsManager.cpp(24,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\AsteroidsManager.cpp(27,126): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\AsteroidsManager.cpp(27,88): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\AsteroidsManager.cpp(28,47): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\AsteroidsManager.cpp(28,15): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\AsteroidsManager.cpp(58,41): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\AsteroidsManager.cpp(88,127): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\AsteroidsManager.cpp(88,89): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\AsteroidsManager.cpp(89,48): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\AsteroidsManager.cpp(89,16): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\ecs\Entity.h(52,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\AsteroidsManager.cpp(35): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,Vector2D&,int,int,int>(Vector2D &,Vector2D &,int &&,int &&,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  BattleState.cpp
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "SoundEffect &SDLUtils::map_access_wrapper<SoundEffect>::at(std::string)"
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(194): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(91,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(92,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(93,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(94,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\ecs\Entity.h(52,32): warning C4244: 'argumento': conversión de 'const uint' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\BattleState.cpp(29): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D,Vector2D,const uint&,const uint&>(Vector2D &&,Vector2D &&,const uint &,const uint &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\ecs\Entity.h(52,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\BattleState.cpp(35): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D,Vector2D,int,int,int>(Vector2D &&,Vector2D &&,int &&,int &&,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  CollisionsManager.cpp
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "SoundEffect &SDLUtils::map_access_wrapper<SoundEffect>::at(std::string)"
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(194): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(91,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(92,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(93,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(94,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  DamagedState.cpp
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(91,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(92,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(93,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(94,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\DamagedState.cpp(16,100): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\DamagedState.cpp(16,56): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\DamagedState.cpp(21,129): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\DamagedState.cpp(21,56): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\ecs\Entity.h(52,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\DamagedState.cpp(16): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D,Vector2D,int,int>(Vector2D &&,Vector2D &&,int &&,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  DeathState.cpp
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "SoundEffect &SDLUtils::map_access_wrapper<SoundEffect>::at(std::string)"
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(194): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(91,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(92,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(93,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(94,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\DeathState.cpp(16,100): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\DeathState.cpp(16,56): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\DeathState.cpp(21,129): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\DeathState.cpp(21,56): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\ecs\Entity.h(52,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\DeathState.cpp(16): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D,Vector2D,int,int>(Vector2D &&,Vector2D &&,int &&,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  Game.cpp
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "SoundEffect &SDLUtils::map_access_wrapper<SoundEffect>::at(std::string)"
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(194): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(91,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(92,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(93,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(94,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Gamestate.cpp
+  GameStateMachine.cpp
+  Generando código...
+  Compilando...
+  PauseState.cpp
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(91,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(92,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(93,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(94,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\PauseState.cpp(14,92): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\PauseState.cpp(14,53): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\ecs\Entity.h(52,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\PauseState.cpp(14): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D,Vector2D,int,int>(Vector2D &&,Vector2D &&,int &&,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  WinState.cpp
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "SoundEffect &SDLUtils::map_access_wrapper<SoundEffect>::at(std::string)"
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(194): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(91,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(92,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(93,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(94,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\WinState.cpp(15,100): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\WinState.cpp(15,56): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\WinState.cpp(20,129): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\WinState.cpp(20,56): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\ecs\Entity.h(52,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\game\WinState.cpp(15): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D,Vector2D,int,int>(Vector2D &&,Vector2D &&,int &&,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  main.cpp
+  Generando código...
+  LINK : no se encontró C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\bin\TPV2Debug.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
+     Creando biblioteca C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\bin\TPV2Debug.lib y objeto C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\bin\TPV2Debug.exp
   TPV2.vcxproj -> C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\bin\TPV2Debug.exe
