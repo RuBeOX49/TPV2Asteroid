@@ -1,9 +1,5 @@
 #include "../ecs/System.h"
 
-
-
-
-
 class GameCtrlSystem : public System {
 public:
 	// Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
