@@ -58,6 +58,9 @@
     <Filter Include="Header Files\systems">
       <UniqueIdentifier>{489c4b6a-79c5-4db1-86a8-ff131b77af49}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\src\systems">
+      <UniqueIdentifier>{dc039657-cd58-4c6b-b2d5-a158d4fbf212}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\json\JSONValue.h">
@@ -313,6 +316,12 @@
     </ClCompile>
     <ClCompile Include="src\ecs\System.cpp">
       <Filter>Source Files\src\ecs</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systems\RenderSystem.cpp">
+      <Filter>Source Files\src\systems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
