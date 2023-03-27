@@ -74,7 +74,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DisableOnExit.cpp" />
-    <ClCompile Include="RenderSystem.cpp" />
     <ClCompile Include="src\components\DeAcceleration.cpp" />
     <ClCompile Include="src\components\FighterCtrl.cpp" />
     <ClCompile Include="src\components\Follow.cpp" />
@@ -104,6 +103,11 @@
     <ClCompile Include="src\sdlutils\sdlutils_demo.cpp" />
     <ClCompile Include="src\sdlutils\SoundEffect.cpp" />
     <ClCompile Include="src\sdlutils\Texture.cpp" />
+    <ClCompile Include="src\systems\AsteroidsSystem.cpp" />
+    <ClCompile Include="src\systems\BulletSystem .cpp" />
+    <ClCompile Include="src\systems\CollisionSystem.cpp" />
+    <ClCompile Include="src\systems\FighterSystem.cpp" />
+    <ClCompile Include="src\systems\GameCtrlSystem.cpp" />
     <ClCompile Include="src\systems\RenderSystem.cpp" />
     <ClCompile Include="src\utils\Collisions.cpp" />
     <ClCompile Include="src\utils\Vector2D.cpp" />
