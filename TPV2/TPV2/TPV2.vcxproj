@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DisableOnExit.cpp" />
+    <ClCompile Include="RenderSystem.cpp" />
     <ClCompile Include="src\components\DeAcceleration.cpp" />
     <ClCompile Include="src\components\FighterCtrl.cpp" />
     <ClCompile Include="src\components\Follow.cpp" />
