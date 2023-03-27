@@ -4,6 +4,11 @@
 #include "PauseState.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../systems/RenderSystem.h"
+#include "../systems/AsteroidsSystem.h"
+#include "../systems/BulletSystem.h"
+#include "../systems/CollisionSystem.h"
+#include "../systems/FighterSystem.h"
+#include "../systems/GameCtrlSystem.h"
 // Constructora
 Game::Game() {
 
@@ -23,7 +28,12 @@ Game::Game() {
 
 	//Sistemas
 
-
+	addSystem<RenderSystem>();
+	addSystem<GameCtrlSystem>();
+	addSystem<AsteroidsSystem>();
+	addSystem<CollisionsSystem>();
+	addSystem<FighterSystem>();
+	addSystem<BulletsSystem>();
 	
 
 
@@ -119,6 +129,14 @@ void Game::quitGame() { Game::instance()->exit = true; }
 void Game::setExit(bool toWhat)
 {
 	exit = toWhat;
+}
+
+void Game::setAllSystemsContext()
+{
+	for(auto &var : _sys)
+	{
+		var->setContext(gameStateMachine->getCurrentManager());
+	}
 }
 
 

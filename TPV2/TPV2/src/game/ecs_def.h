@@ -6,7 +6,6 @@ using cmpId_type = int;
 using grpId_type = int;
 using sysId_type = int;
 using msgId_type = int;
-using Uint8 = unsigned int;
 
 class Entity;
 enum msgId : msgId_type {

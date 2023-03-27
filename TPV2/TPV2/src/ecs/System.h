@@ -1,8 +1,8 @@
 #include "../game/ecs_def.h"
-
-
-
 class Manager;
+
+
+
 class System {
 
 protected:
