@@ -10,7 +10,7 @@ protected:
 
 public:
 
-	System(){}
+	System() {}
 
 	virtual ~System() {
 
