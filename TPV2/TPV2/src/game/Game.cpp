@@ -3,12 +3,11 @@
 #include "BattleState.h"
 #include "PauseState.h"
 #include "../sdlutils/SDLUtils.h"
-//#include "../systems/RenderSystem.h"
-//#include "../systems/AsteroidsSystem.h"
-//#include "../systems/BulletSystem.h"
-//#include "../systems/CollisionSystem.h"
-//#include "../systems/FighterSystem.h"
-//#include "../systems/GameCtrlSystem.h"
+#include "../systems/RenderSystem.h"
+#include "../systems/AsteroidsSystem.h"
+#include "../systems/BulletSystem.h"
+#include "../systems/CollisionSystem.h"
+#include "../systems/FighterSystem.h"
 // Constructora
 Game::Game() {
 
@@ -28,13 +27,12 @@ Game::Game() {
 
 	//Sistemas
 
-	/*addSystem<RenderSystem>();
-	addSystem<GameCtrlSystem>();
+	addSystem<RenderSystem>();
 	addSystem<AsteroidsSystem>();
 	addSystem<CollisionsSystem>();
 	addSystem<FighterSystem>();
 	addSystem<BulletsSystem>();
-	*/
+	
 
 
 }
