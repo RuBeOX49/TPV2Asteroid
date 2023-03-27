@@ -12,7 +12,7 @@ class Manager {
 protected:
 
     vector<Entity*> entities;
-    std::array<System*, maxSystemId> _sys;
+   
    
 public:
     // Constructor

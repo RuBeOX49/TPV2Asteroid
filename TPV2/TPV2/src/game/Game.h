@@ -11,6 +11,7 @@
 #include "GameStateMachine.h"
 #include "../sdlutils/InputHandler.h"
 #include "constants.h"
+#include "../ecs/System.h"
 
 
 
@@ -30,6 +31,8 @@ private:
 	GameStateMachine* gameStateMachine = nullptr;
 	bool exit;
 	double deltaTime = 0.0;
+
+	std::array<System*, maxSystemId> _sys;
 
 	Font* gameFont;
 

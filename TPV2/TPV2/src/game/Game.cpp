@@ -3,6 +3,7 @@
 #include "BattleState.h"
 #include "PauseState.h"
 #include "../sdlutils/SDLUtils.h"
+#include "../systems/RenderSystem.h"
 // Constructora
 Game::Game() {
 
@@ -18,6 +19,14 @@ Game::Game() {
 	gameStateMachine = GameStateMachine::instance();
 	exit = false;
 	gameStateMachine->pushState(new BattleState());
+
+
+	//Sistemas
+
+
+	
+
+
 }
 
 // Destructora

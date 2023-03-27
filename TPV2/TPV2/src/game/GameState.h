@@ -22,4 +22,6 @@ public:
     virtual void render() const;
     // Maneja el evento actual
     virtual void handleInput();
+    // Devuelve el manager de la escena
+    inline Manager* getManager() { return mngr; }
 };

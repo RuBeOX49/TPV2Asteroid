@@ -29,5 +29,10 @@ public:
     void changeState(GameState* newState);
     // Clears the game states to erase stack
     void clearStatesToErase();
+
+    //Devuelve el Manager de la escena activa
+    inline Manager* getCurrentManager() {
+        return currentState()->getManager();
+    }
 };
 #endif
