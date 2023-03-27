@@ -1,4 +1,6 @@
+#pragma once
 #include "../ecs/System.h"
+#include "../game/constants.h"
 
 
 class AsteroidsSystem : public System {
@@ -24,7 +26,7 @@ private:
 	void onRoundStart();
 		// El número actual de asteroides en el juego (recuerda que no puede superar un
 		// límite)
-	Uint8 numOfAsteroids_;
+	uint numOfAsteroids_;
 	// Indica si el sistema está activo o no (modificar el valor en onRoundOver y
 	// onRoundStart, y en update no hacer nada si no está activo)
 	bool active_;

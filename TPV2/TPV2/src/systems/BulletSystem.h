@@ -1,5 +1,7 @@
+#pragma once
 #include "../ecs/System.h"
 #include "../utils/Vector2D.h"
+#include "../game/constants.h"
 
 
 class BulletsSystem : public System {
@@ -18,7 +20,6 @@ private:
 	void shoot(Vector2D pos, Vector2D vel, double width, double height);
 	// Para gestionar el mensaje de que ha habido un choque entre una bala y un
 	// asteroide. Desactivar la bala “b”.
-	void onCollision_BulletAsteroid(Entity* b);
 	// Para gestionar el mensaje de que ha acabado la ronda. Desactivar todas las
 	// balas, y desactivar el sistema.
 	void onRoundOver();

@@ -1,15 +1,16 @@
+#pragma once
 #include "../game/ecs_def.h"
-class Manager;
-
-
+#include "Manager.h"
 
 class System {
 
 protected:
 
-	Manager* mngr_;
+	Manager* mngr_{ nullptr };
 
 public:
+
+	System(){}
 
 	virtual ~System() {
 

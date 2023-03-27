@@ -1,3 +1,5 @@
+#pragma once
+#include "../game/constants.h"
 #include "../ecs/System.h"
 
 class RenderSystem : public System {
@@ -15,9 +17,10 @@ private:
 	// Para gestionar los mensajes correspondientes y actualizar los atributos
 	// winner_ y state_.
 	void onRoundStart();
-		void onRoundOver();
+	void onRoundOver();
 	void onGameStart();
 	void onGameOver();
-		Uint8 winner_; // 0 - None, 1 - Asteroid, 2- Fighter
-	Uint8 state_; // El estado actual de juego (como en GameCtrlSystem)
+	
+	uint winner_; // 0 - None, 1 - Asteroid, 2- Fighter
+	uint state_; // El estado actual de juego (como en GameCtrlSystem)
 };

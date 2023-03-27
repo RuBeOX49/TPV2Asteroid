@@ -1,4 +1,6 @@
+#pragma once
 #include "../ecs/System.h"
+#include "../game/constants.h"
 
 class GameCtrlSystem : public System {
 public:
@@ -19,5 +21,5 @@ private:
 	// Para gestionar el mensaje de que no hay más asteroides. Tiene que avisar que
 	// ha acabado la ronda y además que ha acabado el juego (y quien es el ganador)
 	void onAsteroidsExtinction();
-	Uint8 winner_; // 0 - None, 1 - Asteroids, 2- Fighter
-	Uint8 state_; // El estado actual del juego (en lugar del componente State)};
+	uint winner_; // 0 - None, 1 - Asteroids, 2- Fighter
+	uint state_; // El estado actual del juego (en lugar del componente State)};
