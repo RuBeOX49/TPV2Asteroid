@@ -13,6 +13,11 @@ public:
 		// - Dibujar los mensajes correspondientes: si el juego está parado, etc (como en
 		// la práctica 1)
 	void update() override;
+
+	void render() const;
+
+	constexpr static sysId_type id = sys_RENDER;
+
 private:
 	// Para gestionar los mensajes correspondientes y actualizar los atributos
 	// winner_ y state_.

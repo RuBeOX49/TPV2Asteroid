@@ -13,6 +13,9 @@ public:
 		// en la práctica 1 y generar 1 asteroide nuevo cada 5 segundos (aparte
 		// de los 10 al principio de cada ronda).
 		void update() override;
+
+		constexpr static sysId_type id = sys_ASTEROIDS;
+
 private:
 	// Para gestionar el mensaje de que ha habido un choque de un asteroide con una
 	// bala. Desactivar el asteroide “a” y crear 2 asteroides como en la práctica 1,

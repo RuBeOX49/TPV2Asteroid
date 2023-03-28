@@ -25,7 +25,7 @@ public:
     virtual void handleInput();
     void addEntity(Entity* object);
 
-    vector<Entity*> getEntities() { return entities; }
+    vector<Entity*>& getEntities() { return entities; }
 
     // Borra todos los Entity no vivos
     void refresh();

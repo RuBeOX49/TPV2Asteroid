@@ -34,7 +34,7 @@ void AsteroidsManager::createAsteroid(int n)
 			Entity* asteroidA = mngr->addEntity();
 			asteroidA->addComponent<Transform>(nPos, v, 50, 50, 0);
 			asteroidA->addComponent<ShowAtOppositeSide>();
-			asteroidA->addComponent<FramedImage>(Game::getTexture("Asteroid"), 50, 6, 5);
+			asteroidA->addComponent<FramedImage>(Game::getTexture("Asteroid"), 50.0, 6, 5, true);
 			asteroidA->addComponent<Generations>(1);
 			asteroidA->setGroup(_grp_ASTEROIDS);
 		}
@@ -43,7 +43,7 @@ void AsteroidsManager::createAsteroid(int n)
 			Entity* asteroidB = mngr->addEntity();
 			asteroidB->addComponent<Transform>(nPos, v , 50, 50, 0);
 			asteroidB->addComponent<ShowAtOppositeSide>();
-			asteroidB->addComponent<FramedImage>(Game::getTexture("AsteroidG"), 50, 6, 5);
+			asteroidB->addComponent<FramedImage>(Game::getTexture("AsteroidG"), 50.0, 6, 5, true);
 			asteroidB->addComponent<Generations>(1);
 			asteroidB->addComponent<Follow>(ship->getComponent<Transform>());
 			asteroidB->setGroup(_grp_ASTEROIDS);
@@ -56,7 +56,7 @@ void AsteroidsManager::createAsteroid(int n)
 //Cada 5 segundos se crea un nuevo asteroide
 void AsteroidsManager::addAsteroidFrequently() {
 	timer += Game::instance()->getDeltaTime();
-	if (timer > 5000&&asteroidsAlive<=30) {
+	if (timer > 5000 && asteroidsAlive<=30) {
 		createAsteroid(1);
 		timer = 0;
 	}
@@ -95,7 +95,7 @@ void AsteroidsManager::onCollision(Entity* asteroid) {
 				Entity* asteroidA = mngr->addEntity();
 				asteroidA->addComponent<Transform>(asteroidData->getPos(), v, asteroidData->getWidth()/2, asteroidData->getHeight()/2, 0);
 				asteroidA->addComponent<ShowAtOppositeSide>();
-				asteroidA->addComponent<FramedImage>(Game::getTexture("Asteroid"), 50, 6, 5);
+				asteroidA->addComponent<FramedImage>(Game::getTexture("Asteroid"), 50.0, 6, 5, true);
 				asteroidA->addComponent<Generations>(pGen+1);
 				asteroidA->setGroup(_grp_ASTEROIDS);
 			}
@@ -104,7 +104,7 @@ void AsteroidsManager::onCollision(Entity* asteroid) {
 				Entity* asteroidB = mngr->addEntity();
 				asteroidB->addComponent<Transform>(asteroidData->getPos(), v, asteroidData->getWidth()/2, asteroidData->getHeight()/2, 0);
 				asteroidB->addComponent<ShowAtOppositeSide>();
-				asteroidB->addComponent<FramedImage>(Game::getTexture("AsteroidG"), 50, 6, 5);
+				asteroidB->addComponent<FramedImage>(Game::getTexture("AsteroidG"), 50.0, 6, 5, true);
 				asteroidB->addComponent<Generations>(pGen+1);
 				asteroidB->addComponent<Follow>(ship->getComponent<Transform>());
 				asteroidB->setGroup(_grp_ASTEROIDS);

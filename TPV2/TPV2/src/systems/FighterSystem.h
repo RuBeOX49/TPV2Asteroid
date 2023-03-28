@@ -14,6 +14,9 @@ public:
 	// mensaje con las características físicas de la bala. Recuerda que se puede disparar
 	// sólo una bala cada 0.25sec.
 	void update() override;
+
+	constexpr static sysId_type id = sys_FIGHTER;
+
 private:
 	// Para reaccionar al mensaje de que ha habido un choque entre el fighter y un
 	// un asteroide. Poner el caza en el centro con velocidad (0,0) y rotación 0. No

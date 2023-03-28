@@ -3,9 +3,11 @@
 #include "../sdlutils/Texture.h"
 
 
-class FramedImage : public Component
+struct FramedImage : public Component
 {
-private:
+public:
+
+	bool animated;
 
 	Texture* texture;
 
@@ -20,13 +22,10 @@ private:
 	int columns;
 	int rows;
 
-public:
 
 	static const int id = _IMAGE;
 
-	FramedImage(Texture* texture, double stepDuration, int columns, int rows);
+	FramedImage(Texture* texture, double stepDuration = 1.0, int columns = 1, int rows = 1, bool animated = false);
 	~FramedImage();
 
-	virtual void update();
-	virtual void render() const;
 };

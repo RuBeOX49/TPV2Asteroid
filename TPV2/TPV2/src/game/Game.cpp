@@ -34,13 +34,18 @@ Game::Game() {
 	addSystem<BulletsSystem>();
 	
 
-
+	setAllSystemsContext();
 }
 
 // Destructora
 Game::~Game() {
 
 	delete gameFont;
+
+	for(auto var : _sys)
+	{
+		delete var;
+	}
 
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
@@ -78,13 +83,21 @@ void Game::run() {
 // Dibuja el juego en pantalla
 void Game::render() const {
 	SDL_RenderClear(renderer);
+	dynamic_cast<RenderSystem*>(_sys[sys_RENDER])->render();
 	gameStateMachine->currentState()->render();
 	SDL_RenderPresent(renderer);
 }
 
 // Actualiza todas las entidades del juego
 void Game::update() {
-	gameStateMachine->currentState()->update();
+	
+	//actualiza los sistemas
+
+	for(auto var : _sys){
+		if(var != nullptr)
+			var->update();
+	}
+
 	gameStateMachine->clearStatesToErase();
 }
 
@@ -133,7 +146,8 @@ void Game::setAllSystemsContext()
 {
 	for(auto &var : _sys)
 	{
-		var->setContext(gameStateMachine->getCurrentManager());
+		if(var != nullptr)
+			var->setContext(gameStateMachine->getCurrentManager());
 	}
 }
 

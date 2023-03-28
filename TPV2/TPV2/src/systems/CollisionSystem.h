@@ -10,6 +10,9 @@ public:
 		// Si el juego está parado no hacer nada, en otro caso comprobar colisiones como
 		// en la práctica 1 y enviar mensajes correspondientes.
 	void update() override;
+
+	constexpr static sysId_type id = sys_COLLISION;
+
 private:
 	// Para gestionar el mensaje de que ha acabado una ronda. Desactivar el sistema.
 	void onRoundOver();

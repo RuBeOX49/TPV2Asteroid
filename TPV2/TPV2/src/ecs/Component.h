@@ -9,7 +9,7 @@
 class Entity;
 class Manager;
 
-class Component {
+struct Component {
 protected:
 	Entity* ent;
 	Manager* mngr;
@@ -26,7 +26,7 @@ public:
 	// Inicializa el Component si es necesario
 	virtual void initComponent() {}
 	// Actualiza el Component
-	virtual void update() {}
+	virtual void update() {}	
 	// Dibuja el Component en pantalla
 	virtual void render() const {}
 	// Maneja los eventos del Component

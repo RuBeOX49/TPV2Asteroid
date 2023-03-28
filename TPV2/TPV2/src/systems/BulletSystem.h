@@ -2,6 +2,7 @@
 #include "../ecs/System.h"
 #include "../utils/Vector2D.h"
 #include "../game/constants.h"
+#include "../game/ecs_def.h"
 
 
 class BulletsSystem : public System {
@@ -13,6 +14,8 @@ public:
 	// Si el juego está parado no hacer nada, en otro caso mover las balas y
 	// desactivar las que salen de la ventana como en la práctica 1.
 	void update() override;
+
+	constexpr static sysId_type id = sys_BULLET;
 private:
 	// Para gestionar el mensaje de que el jugador ha disparado. Añadir una bala al
 	// juego, como en la práctica 1. Recuerda que la rotación de la bala sería

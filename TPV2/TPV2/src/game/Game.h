@@ -91,7 +91,7 @@ public:
 		constexpr sysId_type sId = T::id;
 		removeSystem<T>();
 		System* s = new T(std::forward(args)...);
-		s->setContext(this);
+		s->setContext(gameStateMachine->getCurrentManager());
 		s->initSystem();
 		_sys[sId] = s;
 		return static_cast<T*>(s);

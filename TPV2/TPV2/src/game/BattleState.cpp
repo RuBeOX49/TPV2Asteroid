@@ -24,10 +24,9 @@ BattleState::BattleState()
 {
 	soundTrack = &sdlutils().soundEffects().at("Navesitas");
 	soundTrack->play();
-
 	Entity* background = mngr->addEntity();
 	background->addComponent<Transform>(Vector2D(0, 0), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
-	background->addComponent<Image>(Game::getTexture("Background"));
+	background->addComponent<FramedImage>(Game::getTexture("Background"));
 
 	//La Nave
 	Entity* ship = mngr->addEntity();
@@ -35,7 +34,7 @@ BattleState::BattleState()
 	ship->addComponent<Transform>(Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / 2), Vector2D(), 100, 100, 0);
 	ship->addComponent<HealthComponent>();
 	ship->addComponent<DeAcceleration>();
-	ship->addComponent<Image>(Game::getTexture("Ship"));
+	ship->addComponent<FramedImage>(Game::getTexture("Ship"));
 	ship->addComponent<FighterCtrl>();
 	ship->addComponent<ShowAtOppositeSide>();
 	ship->addComponent<Gun>();
