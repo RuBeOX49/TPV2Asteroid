@@ -15,6 +15,8 @@ public:
 	// sólo una bala cada 0.25sec.
 	void update() override;
 
+	void handleInput() override;
+
 	constexpr static sysId_type id = sys_FIGHTER;
 
 private:

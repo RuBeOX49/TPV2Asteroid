@@ -22,6 +22,10 @@ public:
 
 	virtual void update() {}
 
+	virtual void render() const {}
+
+	virtual void handleInput() {}
+
 	virtual void receive (const Message &msg) {}
 
 };

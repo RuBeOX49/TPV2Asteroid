@@ -10,6 +10,12 @@ void FighterCtrl::initComponent() {
 
 //Rota e incrementa la velocdad de la nave a empujones
 void FighterCtrl::handleInput() {
+
+
+
+
+
+
 	Vector2D vel=Vector2D();
 	if (InputHandler::instance()->isKeyDown(SDLK_a)) {
 		transform->rotate(-rotationFactor);

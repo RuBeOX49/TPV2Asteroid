@@ -84,7 +84,10 @@ void Game::run() {
 void Game::render() const {
 	SDL_RenderClear(renderer);
 	dynamic_cast<RenderSystem*>(_sys[sys_RENDER])->render();
-	gameStateMachine->currentState()->render();
+	for (auto var : _sys) {
+		if (var != nullptr)
+			var->render();
+	}
 	SDL_RenderPresent(renderer);
 }
 
@@ -106,6 +109,11 @@ void Game::handleInput() {
 
 	if (InputHandler::instance()->closeWindowEvent()) {
 		exit = true;
+	}
+
+	for (auto var : _sys) {
+		if (var != nullptr)
+			var->handleInput();
 	}
 
 	gameStateMachine->currentState()->handleInput();

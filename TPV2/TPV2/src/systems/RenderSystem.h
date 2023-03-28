@@ -14,7 +14,7 @@ public:
 		// la práctica 1)
 	void update() override;
 
-	void render() const;
+	void render() const override;
 
 	constexpr static sysId_type id = sys_RENDER;
 
