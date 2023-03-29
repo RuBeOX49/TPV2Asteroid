@@ -45,8 +45,8 @@ public:
         T* c = new T(std::forward<Ts>(args)...);
         constexpr cmpId_type cId = T::id;
         removeComponent<T>(c);
-        e->currCmps_.push_back();
-        e->cmps_[cId] = c;
+        e->currCmps.push_back();
+        e->cmps[cId] = c;
         c->setContext(e, this);
         c->initComponent();
         return c;
@@ -55,24 +55,24 @@ public:
     template<typename T>
     inline void removeComponent(Entity* e) {
         constexpr cmpId_type cId = T::id;
-        if (e->cmps_[cId] != nullptr) {
+        if (e->cmps[cId] != nullptr) {
             auto iter = std::find(e->currCmps_.begin(),
-                e->currCmps_.end(),
-                e->cmps_[cId]);
-            e->currCmps_.erase(iter);
+                e->currCmps.end(),
+                e->cmps[cId]);
+            e->currCmps.erase(iter);
             delete e->cmps_[cId];
-            e->cmps_[cId] = nullptr;
+            e->cmps[cId] = nullptr;
         }
     }
     template<typename T>
     inline bool hasComponent(Entity* e) {
         constexpr cmpId_type cId = T::id;
-        return e->cmps_[cId] != nullptr;
+        return e->cmps[cId] != nullptr;
     }
     template<typename T>
     inline T* getComponent(Entity* e) {
         constexpr cmpId_type cId = T::id;
-        return static_cast<T*>(e->cmps_[cId]);
+        return static_cast<T*>(e->cmps[cId]);
     }
     inline void setAlive(Entity* e, bool alive) {
         e->setAlive(alive);
