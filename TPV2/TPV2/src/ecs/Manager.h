@@ -40,6 +40,50 @@ public:
         return e;
     }
 
+    template<typename T = Entity, typename ...Ts>
+    inline T* addComponent(Entity* e, Ts&& ...args) {
+        T* c = new T(std::forward<Ts>(args)...);
+        constexpr cmpId_type cId = T::id;
+        removeComponent<T>(c);
+        e->currCmps_.push_back();
+        e->cmps_[cId] = c;
+        c->setContext(e, this);
+        c->initComponent();
+        return c;
+    }
+
+    template<typename T>
+    inline void removeComponent(Entity* e) {
+        constexpr cmpId_type cId = T::id;
+        if (e->cmps_[cId] != nullptr) {
+            auto iter = std::find(e->currCmps_.begin(),
+                e->currCmps_.end(),
+                e->cmps_[cId]);
+            e->currCmps_.erase(iter);
+            delete e->cmps_[cId];
+            e->cmps_[cId] = nullptr;
+        }
+    }
+    template<typename T>
+    inline bool hasComponent(Entity* e) {
+        constexpr cmpId_type cId = T::id;
+        return e->cmps_[cId] != nullptr;
+    }
+    template<typename T>
+    inline T* getComponent(Entity* e) {
+        constexpr cmpId_type cId = T::id;
+        return static_cast<T*>(e->cmps_[cId]);
+    }
+    inline void setAlive(Entity* e, bool alive) {
+        e->setAlive(alive);
+    }
+    inline bool isAlive(Entity* e) {
+        return e->isAlive();
+    }
+    inline grpId_type groupId(Entity* e) {
+        return e->getGroup();
+    }
+
     
 };
 

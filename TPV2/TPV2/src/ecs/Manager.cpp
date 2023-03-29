@@ -11,8 +11,6 @@ Manager::~Manager() {
         delete(gObj);
         gObj = nullptr;
     }
-
-    
 }
 
 // Actualiza los objetos de la escena

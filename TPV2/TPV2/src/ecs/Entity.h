@@ -12,13 +12,16 @@
 using namespace std;
 
 class Entity {
+	friend class Manager;
 protected:
+	
 	grpId_type group;
 	bool alive;
 	Manager* mngr;
 	std::vector<Component*> currCmps;
 	std::array<Component*, maxComponentId> cmps;
 public:
+
 	// Constructor
 	Entity() : mngr(nullptr), cmps(), currCmps(), alive(true), group(_grp_NONE) {
 		currCmps.reserve(maxComponentId);
@@ -46,41 +49,7 @@ public:
 	inline bool isAlive() { return alive; }
 	// Asigna si el GameObject está vivo o no
 	inline void setAlive(bool _alive) { alive = _alive; }
-	// Añade el Component dicho al GameObject, devuelve un puntero a ese Component
-	template<typename T, typename ...Ts>
-	inline T* addComponent(Ts&& ...args) {
-		T* c = new T(std::forward<Ts>(args)...);
-		removeComponent<T>();
-		currCmps.push_back(c);
-		cmps[T::id] = c;
-		c->setContext(this, mngr);
-		c->initComponent();
-		return c;
-	}
-	// Elimina el Component dicho del GameObject
-	template<typename T>
-	inline void removeComponent() {
-		constexpr cmpId_type cId = T::id;
-
-		if (cmps[cId] != nullptr) {
-			auto iter = std::find(currCmps.begin(),
-				currCmps.end(),
-				cmps[cId]);
-			currCmps.erase(iter);
-			delete cmps[cId];
-			cmps[cId] = nullptr;
-		}
-	}
-	// Devuelve el Compoment pedido del GameObject
-	template<typename T>
-	inline T* getComponent() {
-		return static_cast<T*>(cmps[T::id]);
-	}
-	// Devuelve si el GameObject tiene el Component pedido
-	template<typename T>
-	inline bool hasComponent() {
-		return cmps[T::id] != nullptr;
-	}
+	
 	// Actualiza el GameObject
 	virtual void update() {
 		for (Component* cmp : currCmps) {
