@@ -40,23 +40,23 @@ public:
 	// Asigna si el GameObject está vivo o no
 	inline void setAlive(bool _alive) { alive = _alive; }
 	
-	// Actualiza el GameObject
-	virtual void update() {
-		for (Component* cmp : currCmps) {
-			cmp->update();
-		}
-	}
-	// Dibuja el GameObject en pantalla
-	virtual void render() const {
-		for (Component* cmp : currCmps) {
-			cmp->render();
-		}
-	}
-	// Maneja los eventos del GameObject
-	virtual void handleInput() {
-		for (Component* cmp : currCmps) {
-			cmp->handleInput();
-		}
-	}
+	//// Actualiza el GameObject
+	//virtual void update() {
+	//	for (Component* cmp : currCmps) {
+	//		cmp->update();
+	//	}
+	//}
+	//// Dibuja el GameObject en pantalla
+	//virtual void render() const {
+	//	for (Component* cmp : currCmps) {
+	//		cmp->render();
+	//	}
+	//}
+	//// Maneja los eventos del GameObject
+	//virtual void handleInput() {
+	//	for (Component* cmp : currCmps) {
+	//		cmp->handleInput();
+	//	}
+	//}
 };
 #endif

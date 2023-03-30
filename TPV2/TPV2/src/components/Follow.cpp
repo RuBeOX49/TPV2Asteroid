@@ -5,7 +5,7 @@
 
 void Follow::initComponent()
 {
-	asteroidTransform = ent->getComponent<Transform>();
+	//asteroidTransform = ent->getComponent<Transform>();
 }
 
 //Cambia la velocidad hacia la posición del jugador
