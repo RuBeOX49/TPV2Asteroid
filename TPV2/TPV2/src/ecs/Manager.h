@@ -56,11 +56,11 @@ public:
     inline void removeComponent(Entity* e) {
         constexpr cmpId_type cId = T::id;
         if (e->cmps[cId] != nullptr) {
-            auto iter = std::find(e->currCmps_.begin(),
+            auto iter = std::find(e->currCmps.begin(),
                 e->currCmps.end(),
                 e->cmps[cId]);
             e->currCmps.erase(iter);
-            delete e->cmps_[cId];
+            delete e->cmps[cId];
             e->cmps[cId] = nullptr;
         }
     }

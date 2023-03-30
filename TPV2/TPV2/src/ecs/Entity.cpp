@@ -1,5 +1,5 @@
 #include "Entity.h"
-#include "Manager.h"
+#include "../ecs/Component.h"
 
 Entity::Entity(): mngr(nullptr), cmps(), currCmps(), alive(true), group(_grp_NONE) {
 		currCmps.reserve(maxComponentId);

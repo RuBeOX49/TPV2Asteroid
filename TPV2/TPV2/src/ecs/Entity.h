@@ -5,12 +5,12 @@
 #include <iostream>
 #include <array>
 #include <vector>
-#include "../ecs/Component.h"
 
 #include "../game/ecs_def.h"
 
+class Component;
+
 using namespace std;
-class Manager;
 class Entity {
 	friend class Manager;
 protected:
