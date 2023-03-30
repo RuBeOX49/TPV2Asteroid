@@ -7,7 +7,7 @@ Image::Image(Texture* _texture) : texture(_texture), transform(nullptr), flip(SD
 
 // Inicializa el componente y asigna su puntero a transform
 void Image::initComponent() {
-	transform = ent->getComponent<Transform>();
+	transform = mngr->getComponent<Transform>(ent);
 	
 }
 

@@ -5,7 +5,7 @@
 
 
 void DeAcceleration::initComponent() {
-	transform = ent->getComponent<Transform>();
+	transform = mngr->getComponent<Transform>(ent);
 }
 
 //Cada segundo reduce la velocidad, y si la magnitud es menor que 5 detiene la nave

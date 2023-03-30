@@ -6,11 +6,11 @@
 #include <array>
 #include <vector>
 #include "../ecs/Component.h"
-#include "Manager.h"
+
 #include "../game/ecs_def.h"
 
 using namespace std;
-
+class Manager;
 class Entity {
 	friend class Manager;
 protected:
@@ -23,26 +23,16 @@ protected:
 public:
 
 	// Constructor
-	Entity() : mngr(nullptr), cmps(), currCmps(), alive(true), group(_grp_NONE) {
-		currCmps.reserve(maxComponentId);
-	}
+	Entity();
 	// Destructor
-	virtual ~Entity() { 
-		for (Component* cmp : currCmps) {
-			delete cmp;
-			cmp = nullptr;
-		}
-		for (Component* cpm : cmps) {
-			cpm = nullptr;
-		}
-	}
+	virtual ~Entity();
 
 	//Devuelve el grupo de la Entity
 	inline grpId_type getGroup() { return group; }
 	//Asigna el grupo del GameObject
 	inline void setGroup(grpId_type group) { this->group = group; }
 	// Asigna el Manager del GameObject
-	inline void setContext(Manager* _mngr) { mngr = _mngr; }
+	inline void setContext(Manager* _mngr);
 	// Inicializa el GameObject tras tener el contexto
 	virtual void initEntity() {}
 	// Devuelve si el GameObject está vivo

@@ -31,13 +31,13 @@ BattleState::BattleState()
 	//La Nave
 	Entity* ship = mngr->addEntity();
 	ship->setGroup(_grp_FIGHTER);
-	ship->addComponent<Transform>(Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / 2), Vector2D(), 100, 100, 0);
-	ship->addComponent<HealthComponent>();
-	ship->addComponent<DeAcceleration>();
-	ship->addComponent<FramedImage>(Game::getTexture("Ship"));
-	ship->addComponent<FighterCtrl>();
-	ship->addComponent<ShowAtOppositeSide>();
-	ship->addComponent<Gun>();
+	mngr->addComponent<Transform>(ship, Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / 2), Vector2D(), 100, 100, 0);
+	mngr->addComponent<HealthComponent>(ship);
+	mngr->addComponent<DeAcceleration>(ship);
+	mngr->addComponent<FramedImage>(ship, Game::getTexture("Ship"));
+	mngr->addComponent<FighterCtrl>(ship);
+	mngr->addComponent<ShowAtOppositeSide>(ship);
+	mngr->addComponent<Gun>(ship);
 	
 	astMngr = new AsteroidsManager(mngr, ship);
 	collMngr = new CollisonsManager(mngr, astMngr);

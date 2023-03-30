@@ -16,7 +16,7 @@ void RenderSystem::update() {
 
 	for (auto var : mngr_->getEntities())
 	{
-		auto fIm = var->getComponent<FramedImage>();
+		auto fIm = mngr_->getComponent<FramedImage>(var);
 
 		if (fIm->animated) {
 			if (fIm->timer >= fIm->stepDuration) {
@@ -43,10 +43,10 @@ void RenderSystem::render() const
 {
 	for (auto var : mngr_->getEntities())
 	{
-		auto fIm = var->getComponent<FramedImage>();
+		auto fIm = mngr_->getComponent<FramedImage>(var);
 
 		SDL_Rect sourceRect = build_sdlrect(fIm->frameColumn * fIm->texture->width() / fIm->columns, fIm->frameRow * fIm->texture->height() / fIm->rows, fIm->texture->width() / fIm->columns, fIm->texture->height() / fIm->rows);
-		SDL_Rect destRect = var->getComponent<Transform>()->getRect();
+		SDL_Rect destRect = mngr_->getComponent<Transform>(var)->getRect();
 		fIm->texture->render(sourceRect, destRect);
 	}
 }

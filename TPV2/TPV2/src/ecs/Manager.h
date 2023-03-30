@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../game/ecs_def.h"
+#include "Entity.h"
 #include <list>
 #include <vector>
 

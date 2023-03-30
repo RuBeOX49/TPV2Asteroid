@@ -18,7 +18,7 @@ Gun::~Gun()
 void Gun::initComponent() {
 	shotSound = &sdlutils().soundEffects().at("GunShot");
 	shotSound->setVolume(10);
-	shipData = ent->getComponent<Transform>();
+	shipData = mngr->getComponent<Transform>(ent);
 }
 
 //Si se pulsa la s y hace m�s de 0,25s desde la �ltima se crea una nueva bala 
@@ -31,7 +31,7 @@ void Gun::handleInput()
 			Entity* bullet = mngr->addEntity();
 			bullet->setGroup(_grp_BULLETS);
 			
-			bullet->addComponent<Transform>(
+			mngr->addComponent<Transform>( bullet,
 				//Posici�n
 				shipData->getPos()+Vector2D(shipData->getWidth() / 2.0f, shipData->getHeight() / 2.0f)
 				- Vector2D(0.0f, shipData->getHeight() / 2.0f + 5.0f + 12.0f).rotate(shipData->getRotation())
@@ -40,8 +40,8 @@ void Gun::handleInput()
 				Vector2D(0.0f, -1.0f).rotate(shipData->getRotation()) * (shipData->getVel().magnitude() + 5.0f)*bSpeed,
 				//Ancho, alto y rotaci�n
 				5, 20, shipData->getRotation());
-			bullet->addComponent<Image>(Game::getTexture("Bullet"));
-			bullet->addComponent<DisableOnExit>();
+			mngr->addComponent<Image>(bullet, Game::getTexture("Bullet"));
+			mngr->addComponent<DisableOnExit>(bullet);
 			lastTimeShot = 0;
 		}
 		

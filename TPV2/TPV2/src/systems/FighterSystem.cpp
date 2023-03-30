@@ -12,6 +12,8 @@ void FighterSystem::update()
 {
 	if (!active_)
 		return;
+
+
 }
 
 void FighterSystem::handleInput()

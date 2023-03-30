@@ -3,7 +3,7 @@
 ShowAtOppositeSide::ShowAtOppositeSide(): transform(nullptr){}
 
 void ShowAtOppositeSide::initComponent() {
-	transform = ent->getComponent<Transform>();
+	transform = mngr->getComponent<Transform>(ent);
 }
 
 

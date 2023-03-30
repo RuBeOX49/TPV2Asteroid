@@ -5,7 +5,7 @@ FighterCtrl::FighterCtrl():transform(nullptr){}
 
 void FighterCtrl::initComponent() {
 	thrust = &sdlutils().soundEffects().at("Thrust");
-	transform = ent->getComponent<Transform>();
+	transform = mngr->getComponent<Transform>(ent);
 }
 
 //Rota e incrementa la velocdad de la nave a empujones

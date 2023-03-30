@@ -36,8 +36,8 @@ void CollisonsManager::handlePhysics()
 
 void CollisonsManager::handleBulletCollision( Entity* e,  Entity* c)
 {
-	Transform* eTr = e->getComponent<Transform>();
-	Transform* cTr = c->getComponent<Transform>();
+	Transform* eTr = mngr->getComponent<Transform>(e);
+	Transform* cTr = mngr->getComponent<Transform>(c);
 
 	if (Collisions::collidesWithRotation(eTr->getPos(), eTr->getWidth(), eTr->getHeight(), eTr->getRotation(),
 		cTr->getPos(), cTr->getWidth(), cTr->getHeight(), cTr->getRotation())) {
@@ -49,8 +49,8 @@ void CollisonsManager::handleBulletCollision( Entity* e,  Entity* c)
 
 void CollisonsManager::handleFighterCollision( Entity* e,  Entity* c)
 {
-	Transform* eTr = e->getComponent<Transform>();
-	Transform* cTr = c->getComponent<Transform>();
+	Transform* eTr = mngr->getComponent<Transform>(e);
+	Transform* cTr = mngr->getComponent<Transform>(c);
 
 	if (Collisions::collidesWithRotation(eTr->getPos(), eTr->getWidth(), eTr->getHeight(), eTr->getRotation(),
 		cTr->getPos(), cTr->getWidth(), cTr->getHeight(), cTr->getRotation())) {
@@ -59,7 +59,7 @@ void CollisonsManager::handleFighterCollision( Entity* e,  Entity* c)
 
 		e->setAlive(false);
 
-		auto hComponent = c->getComponent<HealthComponent>();
+		auto hComponent = mngr->getComponent<HealthComponent>(c);
 
 		hComponent->damage(1);
 
