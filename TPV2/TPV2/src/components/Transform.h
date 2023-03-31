@@ -102,10 +102,6 @@ public:
 		return rotation_;
 	};
 
-	inline void setRotation(float newRotation) {
-		rotation_ = newRotation;
-	}
-
 
 	// Devuelve la distancia en valor absoluto desde un punto a otro
 	float getDistance(Vector2D other);
