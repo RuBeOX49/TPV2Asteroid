@@ -19,7 +19,11 @@ public:
 
 	void initComponent();
 
-	void handleInput();
+	void setVel(float newVel);
 
-	void setVel(int newVel);
+	float getVel();
+
+	float getRotationFactor();
+
+	void playThrust();
 };

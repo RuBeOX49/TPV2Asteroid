@@ -1,5 +1,10 @@
 #pragma once
 #include "../ecs/System.h"
+#include "../utils/Vector2D.h"
+#include "../sdlutils/InputHandler.h"
+#include "../components/Transform.h"
+#include "../components/FighterCtrl.h"
+#include "../game/Game.h"
 
 class FighterSystem : public System {
 public:
@@ -31,4 +36,7 @@ private:
 	// Indica si el sistema está activo o no (modificar el valor en onRoundOver y
 	// onRoundStart, y en update no hacer nada si no está activo)
 	bool active_;
+	Entity* fighter;
+	Transform* fighterTransform;
+	FighterCtrl* fighterCtrlData;
 };
