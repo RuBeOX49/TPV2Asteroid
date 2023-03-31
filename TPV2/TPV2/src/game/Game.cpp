@@ -22,19 +22,7 @@ Game::Game() {
 	// Maquina de estados
 	gameStateMachine = GameStateMachine::instance();
 	exit = false;
-	gameStateMachine->pushState(new BattleState());
-
-
-	//Sistemas
-
-	addSystem<RenderSystem>();
-	addSystem<AsteroidsSystem>();
-	addSystem<CollisionsSystem>();
-	addSystem<FighterSystem>();
-	addSystem<BulletsSystem>();
 	
-
-	setAllSystemsContext();
 }
 
 // Destructora
@@ -54,6 +42,19 @@ Game::~Game() {
 
 // Ejecuta el juego
 void Game::run() {
+
+	gameStateMachine->pushState(new BattleState());
+
+	//Sistemas
+
+	addSystem<RenderSystem>();
+	addSystem<AsteroidsSystem>();
+	addSystem<CollisionsSystem>();
+	addSystem<FighterSystem>();
+	addSystem<BulletsSystem>();
+
+	setAllSystemsContext();
+
 
 	uint32_t startTime, frameTime;
 	startTime = SDL_GetTicks();
