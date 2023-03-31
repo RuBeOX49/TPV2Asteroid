@@ -5,7 +5,6 @@ void BulletsSystem::receive(const Message& m)
 	switch (m.id) {
 	case _m_BATTLE_STATE_SETUP:
 		onRoundStart();
-		active_ = true;
 		break;
 	case _m_SHOOT_BULLET:
 		shoot(
@@ -65,11 +64,13 @@ void BulletsSystem::shoot(Vector2D pos, Vector2D vel, double width, double heigh
 
 void BulletsSystem::onRoundOver()
 {
+	active_ = false; 
 }
 
 void BulletsSystem::onRoundStart()
 {
-	
+
+	active_ = true;
 	for (auto var : mngr_->getEntities()) {
 		if (var->getGroup() == _grp_FIGHTER) {
 			shipTransform = mngr_->getComponent<Transform>(var);

@@ -4,6 +4,7 @@
 #include "../sdlutils/InputHandler.h"
 #include "../components/Transform.h"
 #include "../components/FighterCtrl.h"
+#include "../components/DeAcceleration.h"
 #include "../game/Game.h"
 
 class FighterSystem : public System {
@@ -39,4 +40,5 @@ private:
 	Entity* fighter;
 	Transform* fighterTransform;
 	FighterCtrl* fighterCtrlData;
+	DeAcceleration* deAccData;
 };

@@ -33,7 +33,7 @@ void AsteroidsManager::createAsteroid(int n)
 		{
 			Entity* asteroidA = mngr->addEntity();
 			mngr->addComponent<Transform>(asteroidA, nPos, v, 50, 50, 0);
-			mngr->addComponent<ShowAtOppositeSide>(asteroidA);
+			//mngr->addComponent<ShowAtOppositeSide>(asteroidA);
 			mngr->addComponent<FramedImage>(asteroidA, Game::getTexture("Asteroid"), 50.0, 6, 5, true);
 			mngr->addComponent<Generations>(asteroidA, 1);
 			asteroidA->setGroup(_grp_ASTEROIDS);
@@ -42,7 +42,7 @@ void AsteroidsManager::createAsteroid(int n)
 		{
 			Entity* asteroidB = mngr->addEntity();
 			mngr->addComponent<Transform>(asteroidB, nPos, v , 50, 50, 0);
-			mngr->addComponent<ShowAtOppositeSide>(asteroidB);
+			//mngr->addComponent<ShowAtOppositeSide>(asteroidB);
 			mngr->addComponent<FramedImage>(asteroidB, Game::getTexture("AsteroidG"), 50.0, 6, 5, true);
 			mngr->addComponent<Generations>(asteroidB, 1);
 			mngr->addComponent<Follow>(asteroidB, mngr->getComponent<Transform>(ship));
@@ -94,7 +94,7 @@ void AsteroidsManager::onCollision(Entity* asteroid) {
 			{
 				Entity* asteroidA = mngr->addEntity();
 				mngr->addComponent<Transform>(asteroidA, asteroidData->getPos(), v, asteroidData->getWidth()/2, asteroidData->getHeight()/2, 0);
-				mngr->addComponent<ShowAtOppositeSide>(asteroidA);
+				//mngr->addComponent<ShowAtOppositeSide>(asteroidA);
 				mngr->addComponent<FramedImage>(asteroidA, Game::getTexture("Asteroid"), 50.0, 6, 5, true);
 				mngr->addComponent<Generations>(asteroidA, pGen+1);
 				asteroidA->setGroup(_grp_ASTEROIDS);
@@ -103,7 +103,7 @@ void AsteroidsManager::onCollision(Entity* asteroid) {
 			{
 				Entity* asteroidB = mngr->addEntity();
 				mngr->addComponent<Transform>(asteroidB, asteroidData->getPos(), v, asteroidData->getWidth()/2, asteroidData->getHeight()/2, 0);
-				mngr->addComponent<ShowAtOppositeSide>(asteroidB);
+				//mngr->addComponent<ShowAtOppositeSide>(asteroidB);
 				mngr->addComponent<FramedImage>(asteroidB, Game::getTexture("AsteroidG"), 50.0, 6, 5, true);
 				mngr->addComponent<Generations>(asteroidB, pGen+1);
 				mngr->addComponent<Follow>(asteroidB, mngr->getComponent<Transform>(ship));

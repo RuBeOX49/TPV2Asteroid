@@ -13,7 +13,6 @@
 #include "../components/Generations.h"
 #include "../components/Gun.h"
 #include "../components/Health.h"
-#include "../components/ShowAtOppositeSide.h"
 #include "../components/Transform.h"
 #pragma endregion
 
@@ -35,7 +34,6 @@ BattleState::BattleState()
 	mngr->addComponent<DeAcceleration>(ship);
 	mngr->addComponent<FramedImage>(ship, Game::getTexture("Ship"));
 	mngr->addComponent<FighterCtrl>(ship);
-	mngr->addComponent<ShowAtOppositeSide>(ship);
 	mngr->addComponent<Gun>(ship);
 	
 

@@ -26,6 +26,35 @@ void FighterSystem::update()
 	if (!active_)
 		return;
 	fighterTransform->setPos(fighterTransform->getPos() + (fighterTransform->getVel() * Game::instance()->getDeltaTimeSeconds()));
+	deAccData->setDeAccTimer(deAccData->getDeAaccTimer()+ Game::instance()->getDeltaTime());
+
+
+	if (fighterTransform->getVel().magnitude() > 5 && deAccData->getDeAaccTimer() > 1000) {
+		fighterTransform->setVel(fighterTransform->getVel() * 0.9);
+		deAccData->setDeAccTimer(0);
+	}
+	else if (deAccData->getDeAaccTimer() > 1000) {
+		fighterTransform->setVel(Vector2D(0, 0));
+		deAccData->setDeAccTimer(0);
+	}
+
+		Vector2D pos = fighterTransform->getPos();
+
+		if (pos.getX() < 0 - fighterTransform->getWidth()) {
+
+			fighterTransform->setX(WIN_WIDTH);
+		}
+		else if (pos.getX() > WIN_WIDTH) {
+			fighterTransform->setX(0 - fighterTransform->getWidth());
+		}
+
+		if (pos.getY() < 0 - fighterTransform->getHeight()) {
+			fighterTransform->setY(WIN_HEIGHT);
+		}
+		else if (pos.getY() > WIN_HEIGHT) {
+			fighterTransform->setY(0 - fighterTransform->getHeight());
+		}
+		
 }
 
 void FighterSystem::handleInput()
@@ -66,16 +95,18 @@ void FighterSystem::onCollision_FighterAsteroid()
 
 void FighterSystem::onRoundOver()
 {
+	active_ = false;
 	fighter->setAlive(false);
 }
 
 void FighterSystem::onRoundStart()
 {
+	active_ = true;
 	for (auto var : mngr_->getEntities()) {
 		if (var->getGroup() == _grp_FIGHTER)
 			fighter = var;
 	}
 	fighterCtrlData = mngr_->getComponent<FighterCtrl>(fighter);
 	fighterTransform = mngr_->getComponent<Transform>(fighter);
-
+	deAccData = mngr_->getComponent<DeAcceleration>(fighter);
 }

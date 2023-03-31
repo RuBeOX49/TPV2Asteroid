@@ -4,19 +4,21 @@ class Transform;
 class DeAcceleration : public Component
 {
 private:
-
-	Transform* transform;
 	float deAccTimer=0;
 
 public:
 
 	static const int id = _DEACCELERATION;
 
-	DeAcceleration() : transform(nullptr) {}
+	DeAcceleration(){}
 	~DeAcceleration() {}
+	inline float getDeAaccTimer() {
+		return deAccTimer;
+	}
 
-	virtual void update();
-	void initComponent();
+	inline void setDeAccTimer(float newTime) {
+		deAccTimer = newTime;
+	}
 
 
 };

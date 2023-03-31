@@ -27,7 +27,6 @@
     <ClInclude Include="src\components\Generations.h" />
     <ClInclude Include="src\components\Gun.h" />
     <ClInclude Include="src\components\Health.h" />
-    <ClInclude Include="src\components\ShowAtOppositeSide.h" />
     <ClInclude Include="src\components\Transform.h" />
     <ClInclude Include="src\ecs\Component.h" />
     <ClInclude Include="src\ecs\Entity.h" />
@@ -73,12 +72,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DisableOnExit.cpp" />
-    <ClCompile Include="src\components\DeAcceleration.cpp" />
     <ClCompile Include="src\components\FighterCtrl.cpp" />
     <ClCompile Include="src\components\Follow.cpp" />
     <ClCompile Include="src\components\FramedImage.cpp" />
     <ClCompile Include="src\components\Health.cpp" />
-    <ClCompile Include="src\components\ShowAtOppositeSide.cpp" />
     <ClCompile Include="src\components\Transform.cpp" />
     <ClCompile Include="src\ecs\Entity.cpp" />
     <ClCompile Include="src\ecs\Manager.cpp" />

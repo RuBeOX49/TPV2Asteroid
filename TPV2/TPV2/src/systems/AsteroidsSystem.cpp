@@ -3,7 +3,6 @@
 #include "AsteroidsSystem.h"
 #include "../components/Transform.h"
 #include "../components/Follow.h"
-#include "../components/ShowAtOppositeSide.h"
 #include "../components/Generations.h"
 #include "../components/FramedImage.h"
 #include "../game/Game.h"
@@ -15,12 +14,10 @@ void AsteroidsSystem::receive(const Message& m)
 	{
 	case _m_BATTLE_STATE_SETUP:
 		onRoundStart();
-		active_ = true;
 		break;
 	case _m_CHANGE_STATE:
 		if (m.new_state_ID.state != state_BATTLE)
-			active_ = false;
-		else active_ = true;
+			onRoundOver();
 		break;
 	default:
 		
@@ -58,21 +55,21 @@ void AsteroidsSystem::update()
 
 			transform->position_ = transform->position_ + (transform->velocity_ * Game::instance()->getDeltaTimeSeconds());
 		
-			Vector2D pos = transform->position_;
+			Vector2D pos = transform->getPos();
 
-			if (pos.getX() < 0 - transform->width_) {
+			if (pos.getX() < 0 - transform->getWidth()) {
 
-				pos.setX(WIN_WIDTH);
+				transform->setX(WIN_WIDTH);
 			}
 			else if (pos.getX() > WIN_WIDTH) {
-				pos.setX(0 - transform->width_);
+				transform->setX(0 - transform->getWidth());
 			}
 
-			if (pos.getY() < 0 - transform->height_) {
-				pos.setY(WIN_HEIGHT);
+			if (pos.getY() < 0 - transform->getHeight()) {
+				transform->setY(WIN_HEIGHT);
 			}
 			else if (pos.getY() > WIN_HEIGHT) {
-				pos.setY(0 - transform->height_);
+				transform->setY(0 - transform->getHeight());
 			}
 		}
 	
@@ -103,7 +100,6 @@ void AsteroidsSystem::onCollision_AsteroidBullet(Entity* asteroid)
 			{
 				Entity* asteroidA = mngr_->addEntity();
 				mngr_->addComponent<Transform>(asteroidA, asteroidData->position_, v, asteroidData->width_ / 2, asteroidData->height_ / 2, 0);
-				mngr_->addComponent<ShowAtOppositeSide>(asteroidA);
 				mngr_->addComponent<FramedImage>(asteroidA, Game::getTexture("Asteroid"), 50.0, 6, 5, true);
 				mngr_->addComponent<Generations>(asteroidA, pGen + 1);
 				asteroidA->setGroup(_grp_ASTEROIDS);
@@ -112,7 +108,6 @@ void AsteroidsSystem::onCollision_AsteroidBullet(Entity* asteroid)
 			{
 				Entity* asteroidB = mngr_->addEntity();
 				mngr_->addComponent<Transform>(asteroidB, asteroidData->position_, v, asteroidData->width_ / 2, asteroidData->height_ / 2, 0);
-				mngr_->addComponent<ShowAtOppositeSide>(asteroidB);
 				mngr_->addComponent<FramedImage>(asteroidB, Game::getTexture("AsteroidG"), 50.0, 6, 5, true);
 				mngr_->addComponent<Generations>(asteroidB, pGen + 1);
 				mngr_->addComponent<Follow>(asteroidB, mngr_->getComponent<Transform>(fighter));
@@ -127,11 +122,13 @@ void AsteroidsSystem::onCollision_AsteroidBullet(Entity* asteroid)
 
 void AsteroidsSystem::onRoundOver()
 {
+	active_ = false;
 	destroyAllAsteroids();
 }
 
 void AsteroidsSystem::onRoundStart()
 {
+	active_ = true;
 	for (auto var : mngr_->getEntities()) {
 		if (var->getGroup() == _grp_FIGHTER)
 			fighter = var;
@@ -169,7 +166,6 @@ void AsteroidsSystem::createAsteroid(int n)
 		{
 			Entity* asteroidA = mngr_->addEntity();
 			mngr_->addComponent<Transform>(asteroidA, nPos, v, 50, 50, 0);
-			mngr_->addComponent<ShowAtOppositeSide>(asteroidA);
 			mngr_->addComponent<FramedImage>(asteroidA, Game::getTexture("Asteroid"), 50.0, 6, 5, true);
 			mngr_->addComponent<Generations>(asteroidA, 1);
 			asteroidA->setGroup(_grp_ASTEROIDS);
@@ -178,7 +174,6 @@ void AsteroidsSystem::createAsteroid(int n)
 		{
 			Entity* asteroidB = mngr_->addEntity();
 			mngr_->addComponent<Transform>(asteroidB, nPos, v, 50, 50, 0);
-			mngr_->addComponent<ShowAtOppositeSide>(asteroidB);
 			mngr_->addComponent<FramedImage>(asteroidB, Game::getTexture("AsteroidG"), 50.0, 6, 5, true);
 			mngr_->addComponent<Generations>(asteroidB, 1);
 			mngr_->addComponent<Follow>(asteroidB, mngr_->getComponent<Transform>(fighter));
