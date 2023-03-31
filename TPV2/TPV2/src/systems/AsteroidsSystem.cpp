@@ -11,9 +11,14 @@
 
 void AsteroidsSystem::receive(const Message& m)
 {
-	if(m.id == _m_SPAWN_ASTEROIDS)
+	switch (m.id)
 	{
-		// spawnInitialAsteroids();
+	case _m_BATTLE_STATE_SETUP:
+		onRoundStart();
+		active_ = true;
+
+	default:
+		break;
 	}
 }
 
@@ -106,6 +111,7 @@ void AsteroidsSystem::onRoundStart()
 		if (var->getGroup() == _grp_FIGHTER)
 			fighter = var;
 	}
+	createAsteroid(10);
 }
 
 void AsteroidsSystem::createAsteroid(int n)

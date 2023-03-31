@@ -1,7 +1,7 @@
 #pragma once
 #include "../ecs/System.h"
 #include "../game/constants.h"
-
+#include "../sdlutils/SDLUtils.h"
 
 class AsteroidsSystem : public System {
 public:

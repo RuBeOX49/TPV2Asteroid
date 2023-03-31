@@ -39,10 +39,14 @@ BattleState::BattleState()
 	mngr->addComponent<ShowAtOppositeSide>(ship);
 	mngr->addComponent<Gun>(ship);
 	
-	astMngr = new AsteroidsManager(mngr, ship);
+
 	collMngr = new CollisonsManager(mngr, astMngr);
 
-	astMngr->createAsteroid(10);
+	
+
+
+
+	Game::instance()->send(Message(_m_BATTLE_STATE_SETUP));
 
 }
 

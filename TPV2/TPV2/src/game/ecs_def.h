@@ -10,7 +10,8 @@ using msgId_type = int;
 class Entity;
 enum msgId : msgId_type {
 	_m_DESTROY_ASTEROID,
-	_m_SPAWN_ASTEROIDS
+	_m_SPAWN_ASTEROIDS,
+	_m_BATTLE_STATE_SETUP
 };
 
 struct Message {
@@ -23,6 +24,8 @@ struct Message {
 	struct {
 		unsigned int n;
 	} add_stars_data;
+
+	Message(msgId_type id): id(id) {}
 };
 
 enum cmpId : cmpId_type {
