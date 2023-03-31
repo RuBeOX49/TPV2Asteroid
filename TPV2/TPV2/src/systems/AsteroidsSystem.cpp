@@ -16,8 +16,13 @@ void AsteroidsSystem::receive(const Message& m)
 	case _m_BATTLE_STATE_SETUP:
 		onRoundStart();
 		active_ = true;
-
+		break;
+	case _m_CHANGE_STATE:
+		if (m.new_state_ID.state != state_BATTLE)
+			active_ = false;
+		break;
 	default:
+		
 		break;
 	}
 }

@@ -8,10 +8,19 @@ using sysId_type = int;
 using msgId_type = int;
 
 class Entity;
+
+enum stateID : int {
+	state_BATTLE,
+	state_PAUSED,
+	state_DAMAGED,
+	state_DEAD
+};
+
 enum msgId : msgId_type {
 	_m_DESTROY_ASTEROID,
 	_m_SPAWN_ASTEROIDS,
-	_m_BATTLE_STATE_SETUP
+	_m_CHANGE_STATE,
+	_m_BATTLE_STATE_SETUP,
 };
 
 struct Message {
@@ -24,7 +33,13 @@ struct Message {
 	struct {
 		unsigned int n;
 	} add_stars_data;
+	//_m_CHANGE_STATE
+	struct {
+		stateID state;
+	}new_state_ID;
+	
 
+	Message() {}
 	Message(msgId_type id): id(id) {}
 };
 
@@ -62,7 +77,7 @@ enum sysId : sysId_type {
 	sys_BULLET,
 	sys_COLLISION,
 	sys_FIGHTER,
-	sys_GAMECTRL,
+	sys_SCENECTRL,
 	sys_RENDER,
 
 	//DO NOT DELETE FOR THE LOVE OF THAT WOMAN

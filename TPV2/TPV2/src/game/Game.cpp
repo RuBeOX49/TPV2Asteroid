@@ -8,6 +8,8 @@
 #include "../systems/BulletSystem.h"
 #include "../systems/CollisionSystem.h"
 #include "../systems/FighterSystem.h"
+#include "../systems/SceneCtrlSystem.h"
+
 // Constructora
 Game::Game() {
 
@@ -52,6 +54,7 @@ void Game::run() {
 	addSystem<CollisionsSystem>();
 	addSystem<FighterSystem>();
 	addSystem<BulletsSystem>();
+	addSystem<SceneCtrlSystem>();
 
 	setAllSystemsContext();
 
