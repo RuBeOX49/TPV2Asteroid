@@ -12,7 +12,7 @@ void FighterCtrl::initComponent() {
 void FighterCtrl::handleInput() {
 
 
-
+	/*
 
 
 
@@ -31,6 +31,7 @@ void FighterCtrl::handleInput() {
 			transform->setVel(vel + transform->getVel());
 	}
 
+	*/
 }
 
 //Setter de velocidad

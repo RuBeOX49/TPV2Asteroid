@@ -27,7 +27,6 @@
     <ClInclude Include="src\components\Generations.h" />
     <ClInclude Include="src\components\Gun.h" />
     <ClInclude Include="src\components\Health.h" />
-    <ClInclude Include="src\components\Image.h" />
     <ClInclude Include="src\components\ShowAtOppositeSide.h" />
     <ClInclude Include="src\components\Transform.h" />
     <ClInclude Include="src\ecs\Component.h" />
@@ -79,7 +78,6 @@
     <ClCompile Include="src\components\FramedImage.cpp" />
     <ClCompile Include="src\components\Gun.cpp" />
     <ClCompile Include="src\components\Health.cpp" />
-    <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\ShowAtOppositeSide.cpp" />
     <ClCompile Include="src\components\Transform.cpp" />
     <ClCompile Include="src\ecs\Entity.cpp" />

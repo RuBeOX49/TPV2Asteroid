@@ -4,7 +4,7 @@
 #include "../ecs/Entity.h"
 #include "../game/Game.h"
 
-#include "Image.h"
+#include "FramedImage.h"
 #include "DisableOnExit.h"
 
 
@@ -40,7 +40,7 @@ void Gun::handleInput()
 				Vector2D(0.0f, -1.0f).rotate(shipData->getRotation()) * (shipData->getVel().magnitude() + 5.0f)*bSpeed,
 				//Ancho, alto y rotaci�n
 				5, 20, shipData->getRotation());
-			mngr->addComponent<Image>(bullet, Game::getTexture("Bullet"));
+			mngr->addComponent<FramedImage>(bullet, Game::getTexture("Bullet"));
 			mngr->addComponent<DisableOnExit>(bullet);
 			lastTimeShot = 0;
 		}

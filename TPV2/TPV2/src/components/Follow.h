@@ -17,7 +17,4 @@ public:
 	Follow(Transform* playerTransform) : playerTransform(playerTransform), asteroidTransform(nullptr) {}
 	~Follow(){}
 
-	virtual void initComponent();
-
-	virtual void update();
 };
