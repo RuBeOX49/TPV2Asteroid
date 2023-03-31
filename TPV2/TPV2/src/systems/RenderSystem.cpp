@@ -47,7 +47,7 @@ void RenderSystem::render() const
 
 		SDL_Rect sourceRect = build_sdlrect(fIm->frameColumn * fIm->texture->width() / fIm->columns, fIm->frameRow * fIm->texture->height() / fIm->rows, fIm->texture->width() / fIm->columns, fIm->texture->height() / fIm->rows);
 		SDL_Rect destRect = mngr_->getComponent<Transform>(var)->getRect();
-		fIm->texture->render(sourceRect, destRect);
+		fIm->texture->render(sourceRect, destRect, mngr_->getComponent<Transform>(var)->rotation_);
 	}
 }
 void RenderSystem::onRoundStart()
