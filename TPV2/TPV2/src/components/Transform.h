@@ -13,8 +13,9 @@
 	Dispone de getters y setters para los parametros menos la rotacion.
 */
 
-class Transform : public Component {
-private:
+struct Transform : public Component {
+public:
+
 
 	Vector2D position_;
 	Vector2D velocity_;
@@ -22,7 +23,6 @@ private:
 	float height_;
 	float rotation_;
 	
-public:
 
 	static const int id = _TRANSFORM;
 	Transform();

@@ -34,6 +34,10 @@ private:
 
 	std::array<System*, maxSystemId> _sys;
 
+	std::vector<Message> msgs_;
+	std::vector<Message> msgs_aux;
+	
+	
 	Font* gameFont;
 
 	// Constructora
@@ -114,5 +118,27 @@ public:
 
 	void setAllSystemsContext();
 
+	void send(const Message& m, bool delay = false) {
+		if (!delay) {
+			for (System* s : _sys){
+				if (s != nullptr)
+					s->receive(m);
+			}
+		}
+		else {
+			msgs_.emplace_back(m);
+		}
+	}
+
+	void flushMessages() {
+		std::swap(msgs_, msgs_aux);
+		for (auto& m : msgs_aux) {
+			for (System* s : _sys) {
+				if (s != nullptr)
+					s->receive(m);
+			}
+		}
+		msgs_aux.clear();
+	}
 };
 #endif
