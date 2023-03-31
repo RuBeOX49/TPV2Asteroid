@@ -3,7 +3,7 @@
 #include "../components/Transform.h"
 #include "../ecs/Entity.h"
 
-class ShowAtOppositeSide : public Component
+struct ShowAtOppositeSide : public Component
 {
 
 private:
@@ -15,7 +15,5 @@ public:
 	ShowAtOppositeSide();
 	~ShowAtOppositeSide() {}
 
-	void initComponent();
-	void update();
 };
 

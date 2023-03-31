@@ -13,7 +13,6 @@
 #include "../components/Generations.h"
 #include "../components/Gun.h"
 #include "../components/Health.h"
-#include "../components/Image.h"
 #include "../components/ShowAtOppositeSide.h"
 #include "../components/Transform.h"
 #pragma endregion
