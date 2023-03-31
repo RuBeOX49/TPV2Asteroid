@@ -14,7 +14,6 @@ void AsteroidsSystem::receive(const Message& m)
 	switch (m.id)
 	{
 	case _m_BATTLE_STATE_SETUP:
-
 		onRoundStart();
 		active_ = true;
 
