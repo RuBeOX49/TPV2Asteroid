@@ -3,6 +3,9 @@
 #include "AsteroidsSystem.h"
 #include "../components/Transform.h"
 #include "../components/Follow.h"
+#include "../components/ShowAtOppositeSide.h"
+#include "../components/Generations.h"
+#include "../components/FramedImage.h"
 #include "../game/Game.h"
 
 
@@ -22,6 +25,9 @@ void AsteroidsSystem::update()
 {
 	if (!active_)
 		return;
+
+	//Movimiento de asteroides
+
 	for (auto var : mngr_->getEntities())
 	{
 		if (var->getGroup() == _grp_ASTEROIDS)
@@ -43,17 +49,55 @@ void AsteroidsSystem::update()
 		}
 	}
 
+	addAsteroidFrequently();
 	
 }
 
-void AsteroidsSystem::onCollision_AsteroidBullet(Entity* a)
+void AsteroidsSystem::onCollision_AsteroidBullet(Entity* asteroid)
 {
+	brokenAsteroid->play();
+	asteroid->setAlive(false);
+	int pGen = mngr_->getComponent<Generations>(asteroid)->getGen();
+	//Si la generación es menor que 3 se genera un nuevo asteroide
+	if (pGen < 3) {
+		//Se genera en la posción específica
+		Transform* asteroidData = mngr_->getComponent<Transform>(asteroid);
+		for (int i = 0; i < 2 && numOfAsteroids_ <= 30; i++) {
+
+			Vector2D c = Vector2D(WIN_WIDTH / 2, WIN_HEIGHT) + Vector2D(sdlutils().rand().nextInt(-100, 100), sdlutils().rand().nextInt(-100, 100));
+			float speed = sdlutils().rand().nextInt(10, astSpeed);
+			Vector2D v = (c - asteroidData->getPos()).normalize() * speed;
+
+			//Se genera un asteroide tipo gris con un 70% y uno dorado con un 30%
+			if (sdlutils().rand().nextInt(0, 10) > 3)
+			{
+				Entity* asteroidA = mngr_->addEntity();
+				mngr_->addComponent<Transform>(asteroidA, asteroidData->getPos(), v, asteroidData->getWidth() / 2, asteroidData->getHeight() / 2, 0);
+				mngr_->addComponent<ShowAtOppositeSide>(asteroidA);
+				mngr_->addComponent<FramedImage>(asteroidA, Game::getTexture("Asteroid"), 50.0, 6, 5, true);
+				mngr_->addComponent<Generations>(asteroidA, pGen + 1);
+				asteroidA->setGroup(_grp_ASTEROIDS);
+			}
+			else
+			{
+				Entity* asteroidB = mngr_->addEntity();
+				mngr_->addComponent<Transform>(asteroidB, asteroidData->getPos(), v, asteroidData->getWidth() / 2, asteroidData->getHeight() / 2, 0);
+				mngr_->addComponent<ShowAtOppositeSide>(asteroidB);
+				mngr_->addComponent<FramedImage>(asteroidB, Game::getTexture("AsteroidG"), 50.0, 6, 5, true);
+				mngr_->addComponent<Generations>(asteroidB, pGen + 1);
+				mngr_->addComponent<Follow>(asteroidB, mngr_->getComponent<Transform>(fighter));
+				asteroidB->setGroup(_grp_ASTEROIDS);
+			}
+			numOfAsteroids_++;
+		}
+	}
+
 
 }
 
 void AsteroidsSystem::onRoundOver()
 {
-
+	destroyAllAsteroids();
 }
 
 void AsteroidsSystem::onRoundStart()
@@ -61,5 +105,73 @@ void AsteroidsSystem::onRoundStart()
 	for (auto var : mngr_->getEntities()) {
 		if (var->getGroup() == _grp_FIGHTER)
 			fighter = var;
+	}
+}
+
+void AsteroidsSystem::createAsteroid(int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		//Se escoge un borde de la pantalla
+		int n = sdlutils().rand().nextInt(1, 5);
+		Vector2D nPos;
+		switch (n) {
+		case 1:
+			nPos = Vector2D(0, sdlutils().rand().nextInt(0, WIN_HEIGHT));
+			break;
+		case 2:
+			nPos = Vector2D(sdlutils().rand().nextInt(0, WIN_WIDTH), 0);
+			break;
+		case 3:
+			nPos = Vector2D(WIN_HEIGHT, sdlutils().rand().nextInt(0, WIN_HEIGHT));
+			break;
+		case 4:
+			nPos = Vector2D(sdlutils().rand().nextInt(0, WIN_WIDTH), WIN_WIDTH);
+			break;
+		}
+		Vector2D c = Vector2D(WIN_WIDTH / 2, WIN_HEIGHT) + Vector2D(sdlutils().rand().nextInt(-100, 100), sdlutils().rand().nextInt(-100, 100));
+		float speed = sdlutils().rand().nextInt(10, astSpeed);
+		Vector2D v = (c - nPos).normalize() * speed;
+
+		//Se genera un asteroide tipo gris con un 70% y uno dorado con un 30%
+		if (sdlutils().rand().nextInt(0, 10) > 3)
+		{
+			Entity* asteroidA = mngr_->addEntity();
+			mngr_->addComponent<Transform>(asteroidA, nPos, v, 50, 50, 0);
+			mngr_->addComponent<ShowAtOppositeSide>(asteroidA);
+			mngr_->addComponent<FramedImage>(asteroidA, Game::getTexture("Asteroid"), 50.0, 6, 5, true);
+			mngr_->addComponent<Generations>(asteroidA, 1);
+			asteroidA->setGroup(_grp_ASTEROIDS);
+		}
+		else
+		{
+			Entity* asteroidB = mngr_->addEntity();
+			mngr_->addComponent<Transform>(asteroidB, nPos, v, 50, 50, 0);
+			mngr_->addComponent<ShowAtOppositeSide>(asteroidB);
+			mngr_->addComponent<FramedImage>(asteroidB, Game::getTexture("AsteroidG"), 50.0, 6, 5, true);
+			mngr_->addComponent<Generations>(asteroidB, 1);
+			mngr_->addComponent<Follow>(asteroidB, mngr_->getComponent<Transform>(fighter));
+			asteroidB->setGroup(_grp_ASTEROIDS);
+		}
+		numOfAsteroids_++;
+	}
+}
+
+void AsteroidsSystem::addAsteroidFrequently()
+{
+	timer += Game::instance()->getDeltaTime();
+	if (timer > 5000 && numOfAsteroids_ <= 30) {
+		createAsteroid(1);
+		timer = 0;
+	}
+}
+
+void AsteroidsSystem::destroyAllAsteroids()
+{
+	for (auto e : mngr_->getEntities())
+	{
+		if (e->getGroup() == _grp_ASTEROIDS) {
+			e->setAlive(false);
+		}
 	}
 }

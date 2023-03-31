@@ -35,4 +35,16 @@ private:
 	bool active_;
 
 	Entity* fighter;
+
+	//AsteroidManager
+
+	SoundEffect* brokenAsteroid;
+	float timer = 0;
+	float astSpeed = 50;
+
+	void createAsteroid(int n);
+	void addAsteroidFrequently();
+	void destroyAllAsteroids();
+
+	inline int getAsteroids() { return numOfAsteroids_; }
 };
