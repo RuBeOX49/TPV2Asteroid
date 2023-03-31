@@ -14,7 +14,7 @@ void RenderSystem::receive(const Message& m) {
 
 void RenderSystem::update() {
 
-	for (auto var : mngr_->getEntities())
+ 	for (auto var : mngr_->getEntities())
 	{
 		auto fIm = mngr_->getComponent<FramedImage>(var);
 

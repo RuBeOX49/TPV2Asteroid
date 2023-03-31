@@ -3,7 +3,10 @@
 #include "../utils/Vector2D.h"
 #include "../game/constants.h"
 #include "../game/ecs_def.h"
-
+#include "../components/Transform.h"
+#include "../components/Gun.h"
+#include "../game/Game.h"
+#include "../components/FramedImage.h"
 
 class BulletsSystem : public System {
 public:
@@ -31,4 +34,9 @@ private:
 	// Indica si el sistema está activo o no (modificar el valor en onRoundOver y
 	// onRoundStart, y en update no hacer nada si no está activo)
 	bool active_;
+
+	SoundEffect* shotSound;
+	Transform* shipTransform;
+	Gun* shipGun;
+	
 };

@@ -7,20 +7,21 @@ class Gun: public Component
 {
 private:
 
-	SoundEffect* shotSound;
 	int bSpeed=10;
 	float lastTimeShot=250;
-	Transform* shipData;
 	
-
 public:
 	static const int id = _GUN;
 
 	Gun() {};
-	~Gun();
+	~Gun() {};
 
-	virtual void initComponent();
-	virtual void handleInput();
-	virtual void update();
+	virtual void initComponent() {  };
+	virtual void handleInput() {};
+	virtual void update() {};
+
+	inline int getBulletSpeed() { return bSpeed; };
+	inline float getLastTimeShot() { return lastTimeShot; };
+	inline void setLastTimeShot(float newTime) { lastTimeShot = newTime; }
 };
 

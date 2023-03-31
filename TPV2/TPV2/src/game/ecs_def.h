@@ -21,6 +21,9 @@ enum msgId : msgId_type {
 	_m_SPAWN_ASTEROIDS,
 	_m_CHANGE_STATE,
 	_m_BATTLE_STATE_SETUP,
+	_m_COLLISION_AST_SHIP,
+	_m_COLLISION_AST_BULLET,
+	_m_SHOOT_BULLET,
 };
 
 struct Message {
