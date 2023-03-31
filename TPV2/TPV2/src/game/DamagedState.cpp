@@ -22,12 +22,4 @@ DamagedState::DamagedState()
 	mngr->addComponent<FramedImage>(text2, textTexture2);
 }
 
-void DamagedState::handleInput()
-{
-	GameState::handleInput();
 
-	if (InputHandler::instance()->isKeyDown(SDLK_SPACE))
-	{
-		Game::instance()->resumeGame();
-	}
-}

@@ -15,5 +15,4 @@ public:
 		delete TextTexture;
 	}
 
-	virtual void handleInput();
 };

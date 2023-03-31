@@ -41,7 +41,7 @@ void SceneCtrlSystem::update()
 
 			Game::instance()->send(m, true);
 			GameStateMachine::instance()->pushState(new PauseState());
-			Game::instance()->setAllSystemsContext();
+			
 			break;
 		case state_PAUSED:
 		case state_DAMAGED:
@@ -51,7 +51,7 @@ void SceneCtrlSystem::update()
 
 			Game::instance()->send(m, true);
 			GameStateMachine::instance()->popState();
-			Game::instance()->setAllSystemsContext();
+			
 			break;
 		case state_DEAD:
 			
@@ -60,7 +60,7 @@ void SceneCtrlSystem::update()
 
 			Game::instance()->send(m, true);
 			GameStateMachine::instance()->changeState(new BattleState());
-			Game::instance()->setAllSystemsContext();
+			
 			break;
 		default:
 			std::cout << "state_ sin definir\n";

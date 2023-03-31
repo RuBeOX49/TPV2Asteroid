@@ -20,5 +20,5 @@ public:
 
 	}
 
-	virtual void handleInput();
+
 };

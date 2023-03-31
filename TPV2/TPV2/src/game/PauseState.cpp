@@ -17,15 +17,7 @@ PauseState::PauseState()
 
 }
 
-void PauseState::handleInput()
-{
-	GameState::handleInput();
 
-	if (InputHandler::instance()->isKeyDown(SDLK_SPACE))
-	{
-		Game::instance()->resumeGame();
-	}
-}
 
 
 

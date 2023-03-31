@@ -29,12 +29,3 @@ DeathState::DeathState()
 }
 
 
-void DeathState::handleInput()
-{
-	GameState::handleInput();
-
-	if (InputHandler::instance()->isKeyDown(SDLK_SPACE))
-	{
-		GameStateMachine::instance()->changeState(new BattleState());
-	}
-}

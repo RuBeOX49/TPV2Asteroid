@@ -81,6 +81,7 @@ void Game::run() {
 			render();
 		}
 		handleInput();
+		setAllSystemsContext();
 	}
 	gameStateMachine->clearStates();
 }
@@ -120,8 +121,6 @@ void Game::handleInput() {
 		if (var != nullptr)
 			var->handleInput();
 	}
-
-	gameStateMachine->currentState()->handleInput();
 }
 
 // Devuelve la Texture pedida

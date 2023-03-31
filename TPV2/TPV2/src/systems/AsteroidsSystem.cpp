@@ -20,6 +20,7 @@ void AsteroidsSystem::receive(const Message& m)
 	case _m_CHANGE_STATE:
 		if (m.new_state_ID.state != state_BATTLE)
 			active_ = false;
+		else active_ = true;
 		break;
 	default:
 		
