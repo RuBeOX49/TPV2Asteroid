@@ -44,8 +44,8 @@ public:
     inline T* addComponent(Entity* e, Ts&& ...args) {
         T* c = new T(std::forward<Ts>(args)...);
         constexpr cmpId_type cId = T::id;
-        removeComponent<T>(c);
-        e->currCmps.push_back();
+        removeComponent<T>(e);
+        e->currCmps.push_back(c);
         e->cmps[cId] = c;
         c->setContext(e, this);
         c->initComponent();

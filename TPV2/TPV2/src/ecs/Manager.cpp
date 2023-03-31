@@ -15,25 +15,18 @@ Manager::~Manager() {
 
 // Actualiza los objetos de la escena
 void Manager::update() {
-    for (Entity* gObj : entities) {
-        gObj->update();
-    }
+    
 
     refresh();
 }
 
 // Dibuja la escena en pantalla
 void Manager::render() const {
-    for (Entity* gObj : entities) {
-        gObj->render();
-    }
+  
 }
 
 // Maneja el evento actual
 void Manager::handleInput() {
-    for (Entity* gObj : entities) {
-        gObj->handleInput();
-    }
 }
 
 // Borra todos los Entity no vivos

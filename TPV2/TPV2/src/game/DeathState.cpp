@@ -1,3 +1,5 @@
+#pragma once
+#include "../ecs/Manager.h"
 #include "DeathState.h"
 #include "BattleState.h"
 #include "../ecs/Entity.h"

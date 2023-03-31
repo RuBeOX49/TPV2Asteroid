@@ -9,6 +9,7 @@
 #include "../game/ecs_def.h"
 
 class Component;
+class Manager;
 
 using namespace std;
 class Entity {
@@ -28,17 +29,17 @@ public:
 	virtual ~Entity();
 
 	//Devuelve el grupo de la Entity
-	inline grpId_type getGroup() { return group; }
+	grpId_type getGroup();
 	//Asigna el grupo del GameObject
-	inline void setGroup(grpId_type group) { this->group = group; }
+	void setGroup(grpId_type group);
 	// Asigna el Manager del GameObject
-	inline void setContext(Manager* _mngr);
+	void setContext(Manager* _mngr);
 	// Inicializa el GameObject tras tener el contexto
-	virtual void initEntity() {}
+	virtual void initEntity();
 	// Devuelve si el GameObject está vivo
-	inline bool isAlive() { return alive; }
+	bool isAlive();
 	// Asigna si el GameObject está vivo o no
-	inline void setAlive(bool _alive) { alive = _alive; }
+	void setAlive(bool _alive);
 	
 	//// Actualiza el GameObject
 	//virtual void update() {
