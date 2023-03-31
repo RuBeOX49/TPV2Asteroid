@@ -43,7 +43,7 @@ void AsteroidsSystem::update()
 			{
 				//void Transform::lookAt(Vector2D point)
 
-				auto point = mngr_->getComponent<Transform>(fighter)->getPos();
+				auto point = mngr_->getComponent<Transform>(fighter)->position_;
 
 				Vector2D aux = point - transform->position_; // Saca el vector desde el punto a la posición
 				float rotation = transform->velocity_.angle(aux); // Saca los angulos entre el vector velocidad y el necesario
@@ -51,7 +51,26 @@ void AsteroidsSystem::update()
 			}
 
 			transform->position_ = transform->position_ + (transform->velocity_ * Game::instance()->getDeltaTimeSeconds());
+		
+			Vector2D pos = transform->position_;
+
+			if (pos.getX() < 0 - transform->width_) {
+
+				pos.setX(WIN_WIDTH);
+			}
+			else if (pos.getX() > WIN_WIDTH) {
+				pos.setX(0 - transform->width_);
+			}
+
+			if (pos.getY() < 0 - transform->height_) {
+				pos.setY(WIN_HEIGHT);
+			}
+			else if (pos.getY() > WIN_HEIGHT) {
+				pos.setY(0 - transform->height_);
+			}
 		}
+	
+		
 	}
 
 	addAsteroidFrequently();
@@ -71,13 +90,13 @@ void AsteroidsSystem::onCollision_AsteroidBullet(Entity* asteroid)
 
 			Vector2D c = Vector2D(WIN_WIDTH / 2, WIN_HEIGHT) + Vector2D(sdlutils().rand().nextInt(-100, 100), sdlutils().rand().nextInt(-100, 100));
 			float speed = sdlutils().rand().nextInt(10, astSpeed);
-			Vector2D v = (c - asteroidData->getPos()).normalize() * speed;
+			Vector2D v = (c - asteroidData->position_).normalize() * speed;
 
 			//Se genera un asteroide tipo gris con un 70% y uno dorado con un 30%
 			if (sdlutils().rand().nextInt(0, 10) > 3)
 			{
 				Entity* asteroidA = mngr_->addEntity();
-				mngr_->addComponent<Transform>(asteroidA, asteroidData->getPos(), v, asteroidData->getWidth() / 2, asteroidData->getHeight() / 2, 0);
+				mngr_->addComponent<Transform>(asteroidA, asteroidData->position_, v, asteroidData->width_ / 2, asteroidData->height_ / 2, 0);
 				mngr_->addComponent<ShowAtOppositeSide>(asteroidA);
 				mngr_->addComponent<FramedImage>(asteroidA, Game::getTexture("Asteroid"), 50.0, 6, 5, true);
 				mngr_->addComponent<Generations>(asteroidA, pGen + 1);
@@ -86,7 +105,7 @@ void AsteroidsSystem::onCollision_AsteroidBullet(Entity* asteroid)
 			else
 			{
 				Entity* asteroidB = mngr_->addEntity();
-				mngr_->addComponent<Transform>(asteroidB, asteroidData->getPos(), v, asteroidData->getWidth() / 2, asteroidData->getHeight() / 2, 0);
+				mngr_->addComponent<Transform>(asteroidB, asteroidData->position_, v, asteroidData->width_ / 2, asteroidData->height_ / 2, 0);
 				mngr_->addComponent<ShowAtOppositeSide>(asteroidB);
 				mngr_->addComponent<FramedImage>(asteroidB, Game::getTexture("AsteroidG"), 50.0, 6, 5, true);
 				mngr_->addComponent<Generations>(asteroidB, pGen + 1);

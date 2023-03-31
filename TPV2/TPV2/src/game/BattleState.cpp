@@ -46,7 +46,7 @@ BattleState::BattleState()
 
 
 
-	Game::instance()->send(Message(_m_BATTLE_STATE_SETUP));
+	Game::instance()->send(Message(_m_BATTLE_STATE_SETUP), true);
 
 }
 

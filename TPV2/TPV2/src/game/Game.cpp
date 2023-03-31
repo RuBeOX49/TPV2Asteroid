@@ -65,6 +65,7 @@ void Game::run() {
 	while (!exit) {
 		InputHandler::instance()->refresh();
 		frameTime = SDL_GetTicks() - startTime;
+		flushMessages();
 		update();
 
 		LAST = NOW;
