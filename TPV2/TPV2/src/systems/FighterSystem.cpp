@@ -33,11 +33,11 @@ void FighterSystem::handleInput()
 	Vector2D vel = Vector2D();
 	if (InputHandler::instance()->isKeyDown(SDLK_a)) {
 		fighterTransform->setRotation(fighterTransform->getRotation()-fighterCtrlData->getRotationFactor());
-		fighterTransform->setVel(fighterTransform->getVel().rotate(fighterTransform->getRotation()));
+		fighterTransform->setVel(fighterTransform->getVel().rotate(-fighterCtrlData->getRotationFactor()));
 	}
 	if (InputHandler::instance()->isKeyDown(SDLK_d)) {
 		fighterTransform->setRotation(fighterTransform->getRotation() + fighterCtrlData->getRotationFactor());
-		fighterTransform->setVel(fighterTransform->getVel().rotate(fighterTransform->getRotation()));
+		fighterTransform->setVel(fighterTransform->getVel().rotate(fighterCtrlData->getRotationFactor()));
 	}
 	if (InputHandler::instance()->isKeyDown(SDLK_w)) {
 		fighterCtrlData->playThrust();
