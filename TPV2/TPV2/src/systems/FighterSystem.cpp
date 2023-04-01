@@ -14,6 +14,11 @@ void FighterSystem::receive(const Message& m)
 		onRoundStart();
 		active_ = true;
 		break;
+	case _m_CHANGE_STATE:
+		if (m.new_state_ID.state != state_BATTLE)
+			active_ = false;
+		else active_ = true;
+		break;
 	case _m_COLLISION_AST_SHIP:
 		onCollision_FighterAsteroid();
 		break;
@@ -60,7 +65,8 @@ void FighterSystem::update()
 
 void FighterSystem::handleInput()
 {
-
+	if (!active_)
+		return;
 
 	Vector2D vel = Vector2D();
 	if (InputHandler::instance()->isKeyDown(SDLK_a)) {
