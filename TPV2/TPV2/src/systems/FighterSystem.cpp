@@ -27,7 +27,7 @@ void FighterSystem::receive(const Message& m)
 	case _m_CHANGE_STATE:
 		if (m.new_state_ID.state != state_BATTLE)
 			onRoundOver();
-		else active_ = true;
+		else onRoundStart();
 		break;
 	case _m_COLLISION_AST_SHIP:
 		onCollision_FighterAsteroid();
@@ -118,9 +118,5 @@ void FighterSystem::onRoundOver()
 void FighterSystem::onRoundStart()
 {
 	active_ = true;
-	for (auto var : mngr_->getEntities()) {
-		if (var->getGroup() == _grp_FIGHTER)
-			fighter = var;
-	}
 	
 }
