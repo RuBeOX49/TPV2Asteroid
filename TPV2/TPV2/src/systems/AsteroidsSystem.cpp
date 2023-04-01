@@ -35,6 +35,7 @@ void AsteroidsSystem::receive(const Message& m)
 void AsteroidsSystem::initSystem()
 {
 	brokenAsteroid = &sdlutils().soundEffects().at("Explosion");
+	brokenAsteroid->setVolume(10);
 }
 
 void AsteroidsSystem::update()
