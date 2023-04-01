@@ -37,6 +37,10 @@ void AsteroidsSystem::initSystem()
 {
 	brokenAsteroid = &sdlutils().soundEffects().at("Explosion");
 	brokenAsteroid->setVolume(10);
+	for (auto var : mngr_->getEntities()) {
+		if (var->getGroup() == _grp_FIGHTER)
+			fighter = var;
+	}
 }
 
 //Mueve los asteroides, dirige el comportamiento especial del follow
@@ -58,7 +62,7 @@ void AsteroidsSystem::update()
 			{
 				//void Transform::lookAt(Vector2D point)
 
-				auto point = mngr_->getComponent<Transform>(var)->position_;
+				auto point = mngr_->getComponent<Transform>(fighter)->position_;
 
 				Vector2D aux = point - transform->position_; // Saca el vector desde el punto a la posición
 				float rotation = transform->velocity_.angle(aux); // Saca los angulos entre el vector velocidad y el necesario
@@ -147,10 +151,7 @@ void AsteroidsSystem::onRoundStart()
 {
 	numOfAsteroids_ = 0;
 	active_ = true;
-	for (auto var : mngr_->getEntities()) {
-		if (var->getGroup() == _grp_FIGHTER)
-			fighter = var;
-	}
+	
 	createAsteroid(10);
 }
 
@@ -219,7 +220,7 @@ void AsteroidsSystem::destroyAllAsteroids()
 	for (auto e : mngr_->getEntities())
 	{
 		if (e->getGroup() == _grp_ASTEROIDS) {
-			e->setAlive(false);
+			mngr_->setAlive(e, false);
 		}
 	}
 }

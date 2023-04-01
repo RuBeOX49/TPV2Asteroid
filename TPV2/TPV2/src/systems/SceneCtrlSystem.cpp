@@ -77,6 +77,7 @@ void SceneCtrlSystem::update()
 
 
 
+
 }
 
 void SceneCtrlSystem::onCollision_FighterAsteroid(int remainingHealth)
