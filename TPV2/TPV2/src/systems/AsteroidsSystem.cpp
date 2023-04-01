@@ -7,7 +7,7 @@
 #include "../components/FramedImage.h"
 #include "../game/Game.h"
 
-
+//Maneja los casos de cada mensaje
 void AsteroidsSystem::receive(const Message& m)
 {
 	switch (m.id)
@@ -32,12 +32,15 @@ void AsteroidsSystem::receive(const Message& m)
 	}
 }
 
+//Cogemos la referencia del sonido de destruccion del asteroide
 void AsteroidsSystem::initSystem()
 {
 	brokenAsteroid = &sdlutils().soundEffects().at("Explosion");
 	brokenAsteroid->setVolume(10);
 }
 
+//Mueve los asteroides, dirige el comportamiento especial del follow
+//y llama al metodo de generacio
 void AsteroidsSystem::update()
 {
 	if (!active_)
@@ -89,10 +92,12 @@ void AsteroidsSystem::update()
 	
 }
 
+//Gestiona la reaccion del asteroide al colisionar con un disparo, se destruye
+//y si no hay más de 30 se genera uno nuevo
 void AsteroidsSystem::onCollision_AsteroidBullet(Entity* asteroid)
 {
 	brokenAsteroid->play();
-	asteroid->setAlive(false);
+	mngr_->setAlive(asteroid, false);
 	int pGen = mngr_->getComponent<Generations>(asteroid)->getGen();
 	//Si la generación es menor que 3 se genera un nuevo asteroide
 	if (pGen < 3) {
@@ -129,12 +134,15 @@ void AsteroidsSystem::onCollision_AsteroidBullet(Entity* asteroid)
 
 }
 
+//Se desactiva el sistema y se destruyen todos los asteroides restantes
 void AsteroidsSystem::onRoundOver()
 {
 	active_ = false;
 	destroyAllAsteroids();
 }
 
+//Al empezar una partida se activa el sistema, se reinicia el numero
+//de asteroides, se asigna el fighter y se crean 10 asteroides
 void AsteroidsSystem::onRoundStart()
 {
 	numOfAsteroids_ = 0;
@@ -146,6 +154,7 @@ void AsteroidsSystem::onRoundStart()
 	createAsteroid(10);
 }
 
+//Genera un número específico de asteroides
 void AsteroidsSystem::createAsteroid(int n)
 {
 	for (int i = 0; i < n; i++)
@@ -193,6 +202,8 @@ void AsteroidsSystem::createAsteroid(int n)
 	}
 }
 
+//Cada 5 segundos se añade un nuevo asteroide
+//si no se ha alcanzado el límitede 30
 void AsteroidsSystem::addAsteroidFrequently()
 {
 	timer += Game::instance()->getDeltaTime();
@@ -202,6 +213,7 @@ void AsteroidsSystem::addAsteroidFrequently()
 	}
 }
 
+//Destruyo todos los asteroides de la escena
 void AsteroidsSystem::destroyAllAsteroids()
 {
 	for (auto e : mngr_->getEntities())
