@@ -1,5 +1,6 @@
 #include "BulletSystem.h"
 
+//Maneja los casos de cada mensaje
 void BulletsSystem::receive(const Message& m)
 {
 	switch (m.id) {
@@ -31,6 +32,7 @@ void BulletsSystem::initSystem()
 	shotSound->setVolume(10);
 }
 
+//Aumenta el cooldown y destruye la bala si esta fuera de la pantalla
 void BulletsSystem::update()
 {
 	if (!active_)
@@ -49,6 +51,8 @@ void BulletsSystem::update()
 	}
 }
 
+//Si se cumple el cooldown genera una bala en la posición de la nave y
+//reinicia el cooldown
 void BulletsSystem::shoot(Vector2D pos, Vector2D vel, double width, double height)
 {
 	if (shipGun->getLastTimeShot() > 250)
@@ -68,11 +72,14 @@ void BulletsSystem::shoot(Vector2D pos, Vector2D vel, double width, double heigh
 	}
 }
 
+//Desactiva el sistema
 void BulletsSystem::onRoundOver()
 {
 	active_ = false; 
 }
 
+//Activa el sistema y obtiene las referencias a los componentes
+//Transform y Gun de la nave
 void BulletsSystem::onRoundStart()
 {
 
