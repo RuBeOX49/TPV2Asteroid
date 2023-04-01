@@ -10,6 +10,7 @@ void CollisionsSystem::receive(const Message& m)
 	case _m_CHANGE_STATE:
 		if(m.new_state_ID.state!=state_BATTLE)
 		onRoundOver();
+		break;
 	default:
 		break;
 	}
@@ -68,20 +69,11 @@ void CollisionsSystem::handleFighterCollision(Entity* e, Entity* c)
 
 		hComponent->damage(1);
 
-		if (hComponent->getLives() == 0) {
-			//astMngr->destroyAllAsteroids();
-			Message m;
-			m.id = _m_DESTROY_ALL_ASTEROIDS;
-			Game::instance()->send(m);
-			//GameStateMachine::instance()->changeState(new DeathState());
-		}
-		else {
-			Message m;
-			m.id = _m_DESTROY_ASTEROID;
-			m.destroy_asteroid_data.e = e;
-			Game::instance()->send(m);
-			//GameStateMachine::instance()->pushState(new DamagedState());
-		}
+		Message m;
+		m.id = _m_COLLISION_AST_SHIP;
+		m.destroy_asteroid_data.e = e;
+		m.remainingHealth = hComponent->getLives();
+		Game::instance()->send(m, true);
 	}
 }
 
@@ -93,9 +85,12 @@ void CollisionsSystem::handleBulletCollision(Entity* e, Entity* c)
 	if (Collisions::collidesWithRotation(eTr->getPos(), eTr->getWidth(), eTr->getHeight(), eTr->getRotation(),
 		cTr->getPos(), cTr->getWidth(), cTr->getHeight(), cTr->getRotation())) {
 		//hay colisi�n, e desaparece
+		
 		Message m;
 		m.id = _m_COLLISION_AST_BULLET;
 		m.destroy_asteroid_data.e = e;
 		m.destroy_bullet_data.b = c;
+
+		Game::instance()->send(m, true);
 	}
 }

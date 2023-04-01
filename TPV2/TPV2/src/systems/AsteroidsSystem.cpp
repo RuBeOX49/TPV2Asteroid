@@ -19,6 +19,11 @@ void AsteroidsSystem::receive(const Message& m)
 		if (m.new_state_ID.state != state_BATTLE)
 			onRoundOver();
 		break;
+	case _m_COLLISION_AST_BULLET:
+		onCollision_AsteroidBullet(m.destroy_asteroid_data.e);
+		break;
+	case _m_COLLISION_AST_SHIP:
+		m.destroy_asteroid_data.e->setAlive(false);
 	default:
 		
 		break;
@@ -27,6 +32,7 @@ void AsteroidsSystem::receive(const Message& m)
 
 void AsteroidsSystem::initSystem()
 {
+	brokenAsteroid = &sdlutils().soundEffects().at("Explosion");
 }
 
 void AsteroidsSystem::update()

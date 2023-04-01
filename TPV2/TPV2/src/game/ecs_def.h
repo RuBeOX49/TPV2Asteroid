@@ -41,7 +41,8 @@ struct Message {
 	struct {
 		stateID state;
 	}new_state_ID;
-	
+	//_m_COLLISION_AST_SHIP
+	int remainingHealth;
 
 	Message() {}
 	Message(msgId_type id): id(id) {}

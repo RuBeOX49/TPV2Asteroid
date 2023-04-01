@@ -37,7 +37,6 @@ BattleState::BattleState()
 	mngr->addComponent<Gun>(ship);
 	
 
-	collMngr = new CollisonsManager(mngr, astMngr);
 
 	
 
@@ -50,25 +49,6 @@ BattleState::BattleState()
 BattleState::~BattleState()
 {
 	soundTrack->haltChannel();
-	delete collMngr;
-	delete astMngr;
 }
 
-void BattleState::update()
-{
-	GameState::update();
-	collMngr->handlePhysics();
-	astMngr->addAsteroidFrequently();
-	if (astMngr->getAsteroids() == 0)
-		GameStateMachine::instance()->changeState(new WinState());
-}
 
-void BattleState::handleInput()
-{
-	GameState::handleInput();
-	if (InputHandler::instance()->isKeyDown(SDLK_SPACE)) {
-		GameStateMachine::instance()->pushState(new PauseState());
-	}
-
-
-}

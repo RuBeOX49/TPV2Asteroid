@@ -82,7 +82,6 @@
     <ClCompile Include="src\ecs\System.cpp" />
     <ClCompile Include="src\game\AsteroidsManager.cpp" />
     <ClCompile Include="src\game\BattleState.cpp" />
-    <ClCompile Include="src\game\CollisionsManager.cpp" />
     <ClCompile Include="src\game\DamagedState.cpp" />
     <ClCompile Include="src\game\DeathState.cpp" />
     <ClCompile Include="src\game\Game.cpp" />

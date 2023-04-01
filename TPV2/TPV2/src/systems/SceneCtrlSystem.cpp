@@ -17,6 +17,8 @@ void SceneCtrlSystem::receive(const Message& m)
 		break;
 	case _m_CHANGE_STATE:
 		state_ = m.new_state_ID.state;
+	case _m_COLLISION_AST_SHIP:
+		onCollision_FighterAsteroid(m.remainingHealth);
 	default:
 		break;
 	}
@@ -86,7 +88,6 @@ void SceneCtrlSystem::onCollision_FighterAsteroid(int remainingHealth)
 
 		Game::instance()->send(m);
 		GameStateMachine::instance()->changeState(new DeathState());
-		Game::instance()->setAllSystemsContext();
 	}
 	else {
 
@@ -94,7 +95,6 @@ void SceneCtrlSystem::onCollision_FighterAsteroid(int remainingHealth)
 		m.new_state_ID.state = state_DAMAGED;
 
 		GameStateMachine::instance()->pushState(new DamagedState());
-		Game::instance()->setAllSystemsContext();
 	}
 }
 

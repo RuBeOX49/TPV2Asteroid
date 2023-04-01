@@ -91,6 +91,7 @@ void FighterSystem::onCollision_FighterAsteroid()
 	Message m;
 	m.id = _m_CHANGE_STATE;
 	m.new_state_ID.state = state_DAMAGED;
+
 }
 
 void FighterSystem::onRoundOver()

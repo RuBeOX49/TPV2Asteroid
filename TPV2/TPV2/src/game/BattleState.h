@@ -1,7 +1,6 @@
 #pragma once
 #include "GameState.h"
-#include "CollisionsManager.h"
-#include "AsteroidsManager.h"
+#include "../sdlutils/SDLUtils.h"
 class BattleState : public GameState
 {
 public:
@@ -12,10 +11,4 @@ public:
 private:
 
 	SoundEffect* soundTrack;
-	CollisonsManager* collMngr;
-	AsteroidsManager* astMngr;
-
-	virtual void update();
-
-	virtual void handleInput();
 };
