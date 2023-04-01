@@ -16,6 +16,10 @@ void BulletsSystem::receive(const Message& m)
 			Vector2D(0.0f, -1.0f).rotate(shipTransform->getRotation()) * (shipTransform->getVel().magnitude() + 5.0f) * shipGun->getBulletSpeed(),
 			//Width, Height
 			5,20);
+		break;
+	case _m_COLLISION_AST_BULLET:
+		mngr_->setAlive(m.destroy_bullet_data.b, false);
+		break;
 	default:
 		break;
 	}
@@ -39,7 +43,7 @@ void BulletsSystem::update()
 			Vector2D currentPos = mngr_->getComponent<Transform>(var)->getPos();
 			if (currentPos.getX() > WIN_WIDTH || currentPos.getY() > WIN_HEIGHT ||
 				currentPos.getX() < 0 || currentPos.getY() < 0) {
-				var->setAlive(false);
+				mngr_->setAlive(var, false);
 			}
 		}
 	}

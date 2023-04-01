@@ -91,6 +91,6 @@ void CollisionsSystem::handleBulletCollision(Entity* e, Entity* c)
 		m.destroy_asteroid_data.e = e;
 		m.destroy_bullet_data.b = c;
 
-		Game::instance()->send(m, true);
+		Game::instance()->send(m);
 	}
 }
