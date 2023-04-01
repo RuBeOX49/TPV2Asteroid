@@ -24,6 +24,7 @@ enum msgId : msgId_type {
 	_m_COLLISION_AST_SHIP,
 	_m_COLLISION_AST_BULLET,
 	_m_SHOOT_BULLET,
+	_m_DESTROY_ALL_ASTEROIDS
 };
 
 struct Message {
@@ -34,8 +35,8 @@ struct Message {
 	} destroy_asteroid_data;
 	// _m_SPAWN_ASTEROID
 	struct {
-		unsigned int n;
-	} add_stars_data;
+		Entity* b;
+	} destroy_bullet_data;
 	//_m_CHANGE_STATE
 	struct {
 		stateID state;

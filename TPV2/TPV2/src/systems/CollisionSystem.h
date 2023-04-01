@@ -1,5 +1,10 @@
 #pragma once
 #include "../ecs/System.h"
+#include "../components/Transform.h"
+#include "../utils/Collisions.h"
+#include "../sdlutils/SDLUtils.h"
+#include "../components/Health.h"
+#include "../game/Game.h"
 
 class CollisionsSystem : public System {
 public:
@@ -21,4 +26,7 @@ private:
 		// Indica si el sistema está activo o no (modificar el valor en onRoundOver y
 		// onRoundStart, y en update no hacer nada si no está activo)
 		bool active_;
+		SoundEffect* explosion;
+		void handleFighterCollision(Entity* e, Entity* c);
+		void handleBulletCollision(Entity* e, Entity* c);
 };

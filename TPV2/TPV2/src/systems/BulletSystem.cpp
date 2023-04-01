@@ -29,6 +29,8 @@ void BulletsSystem::initSystem()
 
 void BulletsSystem::update()
 {
+	if (!active_)
+		return;
 	shipGun->setLastTimeShot(shipGun->getLastTimeShot() + Game::instance()->getDeltaTime());
 	for (auto var : mngr_->getEntities()) {
 		if (var->getGroup() == _grp_BULLETS) {
