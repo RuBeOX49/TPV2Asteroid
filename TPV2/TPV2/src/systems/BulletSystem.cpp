@@ -31,6 +31,12 @@ void BulletsSystem::initSystem()
 {
 	shotSound = &sdlutils().soundEffects().at("GunShot");
 	shotSound->setVolume(10);
+	for (auto var : mngr_->getEntities()) {
+		if (var->getGroup() == _grp_FIGHTER) {
+			shipTransform = mngr_->getComponent<Transform>(var);
+			shipGun = mngr_->getComponent<Gun>(var);
+		}
+	}
 }
 
 //Aumenta el cooldown y destruye la bala si esta fuera de la pantalla
@@ -79,17 +85,11 @@ void BulletsSystem::onRoundOver()
 	active_ = false; 
 }
 
-//Activa el sistema y obtiene las referencias a los componentes
-//Transform y Gun de la nave
+//Activa el sistema
 void BulletsSystem::onRoundStart()
 {
 
 	active_ = true;
-	for (auto var : mngr_->getEntities()) {
-		if (var->getGroup() == _grp_FIGHTER) {
-			shipTransform = mngr_->getComponent<Transform>(var);
-			shipGun = mngr_->getComponent<Gun>(var);
-		}
-	}
+	
 	 
 }
