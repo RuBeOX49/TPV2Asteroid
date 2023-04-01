@@ -3,20 +3,30 @@
 
 void FighterSystem::initSystem()
 {
-
+	//La Nave
+	Entity* fighter = mngr_->addEntity();
+	fighter->setGroup(_grp_FIGHTER);
+	fighterTransform = mngr_->addComponent<Transform>(fighter, Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / 2), Vector2D(), 100, 100, 0);
+	mngr_->addComponent<HealthComponent>(fighter);
+	deAccData = mngr_->addComponent<DeAcceleration>(fighter);
+	mngr_->addComponent<Gun>(fighter);
+	mngr_->addComponent<FramedImage>(fighter, Game::getTexture("Ship"));
+	fighterCtrlData = mngr_->addComponent<FighterCtrl>(fighter);
+	thrust = &sdlutils().soundEffects().at("Thrust");
+	thrust->setVolume(10);
 }
 
+//Mane
 void FighterSystem::receive(const Message& m)
 {
 	switch (m.id)
 	{
 	case _m_BATTLE_STATE_SETUP:
 		onRoundStart();
-		active_ = true;
 		break;
 	case _m_CHANGE_STATE:
 		if (m.new_state_ID.state != state_BATTLE)
-			active_ = false;
+			onRoundOver();
 		else active_ = true;
 		break;
 	case _m_COLLISION_AST_SHIP:
@@ -78,7 +88,7 @@ void FighterSystem::handleInput()
 		fighterTransform->setVel(fighterTransform->getVel().rotate(fighterCtrlData->getRotationFactor()));
 	}
 	if (InputHandler::instance()->isKeyDown(SDLK_w)) {
-		fighterCtrlData->playThrust();
+		thrust->play();
 		vel = vel + Vector2D(0, -1);
 		vel = vel.rotate(fighterTransform->getRotation()) * fighterCtrlData->getVel();
 		if (vel.magnitude() != 0 && fighterTransform->getVel().magnitude() < 50)
@@ -95,16 +105,14 @@ void FighterSystem::handleInput()
 
 void FighterSystem::onCollision_FighterAsteroid()
 {
-	Message m;
-	m.id = _m_CHANGE_STATE;
-	m.new_state_ID.state = state_DAMAGED;
-
+	fighterTransform->setPos(Vector2D(WIN_WIDTH/2,WIN_HEIGHT/2));
+	fighterTransform->setRotation(0);
+	fighterTransform->setVel(Vector2D());
 }
 
 void FighterSystem::onRoundOver()
 {
 	active_ = false;
-	fighter->setAlive(false);
 }
 
 void FighterSystem::onRoundStart()
@@ -114,7 +122,5 @@ void FighterSystem::onRoundStart()
 		if (var->getGroup() == _grp_FIGHTER)
 			fighter = var;
 	}
-	fighterCtrlData = mngr_->getComponent<FighterCtrl>(fighter);
-	fighterTransform = mngr_->getComponent<Transform>(fighter);
-	deAccData = mngr_->getComponent<DeAcceleration>(fighter);
+	
 }

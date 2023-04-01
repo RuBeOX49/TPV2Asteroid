@@ -50,9 +50,9 @@ void Game::run() {
 	//Sistemas
 
 	addSystem<RenderSystem>();
+	addSystem<FighterSystem>();
 	addSystem<AsteroidsSystem>();
 	addSystem<CollisionsSystem>();
-	addSystem<FighterSystem>();
 	addSystem<BulletsSystem>();
 	addSystem<SceneCtrlSystem>();
 

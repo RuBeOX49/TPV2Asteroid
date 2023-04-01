@@ -5,6 +5,9 @@
 #include "../components/Transform.h"
 #include "../components/FighterCtrl.h"
 #include "../components/DeAcceleration.h"
+#include "../components/Health.h"
+#include "../components/FramedImage.h"
+#include "../components/Gun.h"
 #include "../game/Game.h"
 
 class FighterSystem : public System {
@@ -37,6 +40,7 @@ private:
 	// Indica si el sistema está activo o no (modificar el valor en onRoundOver y
 	// onRoundStart, y en update no hacer nada si no está activo)
 	bool active_;
+	SoundEffect* thrust;
 	Entity* fighter;
 	Transform* fighterTransform;
 	FighterCtrl* fighterCtrlData;

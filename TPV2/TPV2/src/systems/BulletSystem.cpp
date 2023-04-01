@@ -26,6 +26,7 @@ void BulletsSystem::receive(const Message& m)
 	}
 }
 
+//Obtiene el sonido del json
 void BulletsSystem::initSystem()
 {
 	shotSound = &sdlutils().soundEffects().at("GunShot");

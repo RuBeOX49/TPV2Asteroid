@@ -1,11 +1,12 @@
 ﻿#include "CollisionSystem.h"
 
+//Maneja los mensajes
 void CollisionsSystem::receive(const Message& m)
 {
 	switch (m.id)
 	{
 	case _m_BATTLE_STATE_SETUP:
-		onRoundStart();
+		onRoundStart();onRoundStart();
 		break;
 	case _m_CHANGE_STATE:
 		if (m.new_state_ID.state != state_BATTLE)
@@ -17,11 +18,15 @@ void CollisionsSystem::receive(const Message& m)
 	}
 }
 
+//Obtiene el sonido de explosion de fighter del json
 void CollisionsSystem::initSystem()
 {
 	explosion= &sdlutils().soundEffects().at("BangSmall");
 }
 
+
+//Si está activo maneja las colisiones bala-asteroide
+//y asteroide-fighter
 void CollisionsSystem::update()
 {
 	if (!active_)
@@ -47,16 +52,19 @@ void CollisionsSystem::update()
 	}
 }
 
+//Desactiva el sistema
 void CollisionsSystem::onRoundOver()
 {
 	active_ = false;
 }
 
+//Activa el sistema
 void CollisionsSystem::onRoundStart()
 {
 	active_ = true;
 }
 
+//Si hay colision fighter-asteroide, manda el mensaje con referencia al asteroide y quita una vida
 void CollisionsSystem::handleFighterCollision(Entity* e, Entity* c)
 {
 	Transform* eTr = mngr_->getComponent<Transform>(e);
@@ -78,6 +86,7 @@ void CollisionsSystem::handleFighterCollision(Entity* e, Entity* c)
 	}
 }
 
+//Si hay colision bala-asteroide se manda el mensaje con referencia a asteroide y bala 
 void CollisionsSystem::handleBulletCollision(Entity* e, Entity* c)
 {
 	Transform* eTr = mngr_->getComponent<Transform>(e);
@@ -85,7 +94,6 @@ void CollisionsSystem::handleBulletCollision(Entity* e, Entity* c)
 
 	if (Collisions::collidesWithRotation(eTr->getPos(), eTr->getWidth(), eTr->getHeight(), eTr->getRotation(),
 		cTr->getPos(), cTr->getWidth(), cTr->getHeight(), cTr->getRotation())) {
-		//hay colisi�n, e desaparece
 		
 		Message m;
 		m.id = _m_COLLISION_AST_BULLET;

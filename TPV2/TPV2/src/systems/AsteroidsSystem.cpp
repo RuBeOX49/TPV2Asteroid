@@ -58,7 +58,7 @@ void AsteroidsSystem::update()
 			{
 				//void Transform::lookAt(Vector2D point)
 
-				auto point = mngr_->getComponent<Transform>(fighter)->position_;
+				auto point = mngr_->getComponent<Transform>(var)->position_;
 
 				Vector2D aux = point - transform->position_; // Saca el vector desde el punto a la posición
 				float rotation = transform->velocity_.angle(aux); // Saca los angulos entre el vector velocidad y el necesario

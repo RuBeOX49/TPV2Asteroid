@@ -1,10 +1,7 @@
 #include "FighterCtrl.h"
 #include "../sdlutils/InputHandler.h"
 
-FighterCtrl::FighterCtrl():transform(nullptr){}
-
 void FighterCtrl::initComponent() {
-	thrust = &sdlutils().soundEffects().at("Thrust");
 }
 
 //Setter de velocidad
@@ -18,8 +15,4 @@ float FighterCtrl::getVel() {
 
 float FighterCtrl::getRotationFactor() {
 	return rotationFactor;
-}
-
-void FighterCtrl::playThrust() {
-	thrust->play();
 }
