@@ -70,7 +70,7 @@ void Game::run() {
 		frameTime = SDL_GetTicks() - startTime;
 		flushMessages();
 		update();
-
+		gameStateMachine->currentState()->getManager()->refresh();
 		LAST = NOW;
 		NOW = SDL_GetPerformanceCounter();
 
