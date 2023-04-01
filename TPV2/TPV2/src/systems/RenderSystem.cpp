@@ -5,11 +5,22 @@
 #include "../components/Transform.h"
 
 void RenderSystem::initSystem() {
-
+	healthTexture = Game::getTexture("Heart");
 }
 
 void RenderSystem::receive(const Message& m) {
-
+	switch (m.id)
+	{
+	case _m_COLLISION_AST_SHIP:
+		currHealth = m.remainingHealth;
+		break;
+	case _m_CHANGE_STATE:
+		if (m.new_state_ID.state == state_BATTLE)
+			drawHealth = true;
+		else drawHealth = false;
+	default:
+		break;
+	}
 }
 
 void RenderSystem::update() {
@@ -49,6 +60,16 @@ void RenderSystem::render() const
 		SDL_Rect destRect = mngr_->getComponent<Transform>(var)->getRect();
 		fIm->texture->render(sourceRect, destRect, mngr_->getComponent<Transform>(var)->rotation_);
 	}
+
+	if (drawHealth)
+	{
+		for (int i = 0; i < currHealth; i++)
+		{
+			SDL_Rect rect = build_sdlrect(20 + i * (20 + 10), 20, 20, 20);
+			healthTexture->render(rect);
+		}
+	}
+
 }
 void RenderSystem::onRoundStart()
 {

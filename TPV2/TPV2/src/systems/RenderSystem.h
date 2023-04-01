@@ -1,6 +1,7 @@
 #pragma once
 #include "../game/constants.h"
 #include "../ecs/System.h"
+#include "../sdlutils/Texture.h"
 
 class RenderSystem : public System {
 public:
@@ -26,6 +27,11 @@ private:
 	void onGameStart();
 	void onGameOver();
 	
+	Texture* healthTexture;
+
+	int currHealth = STARTING_HEALTH;
+	bool drawHealth = true;
+
 	uint winner_; // 0 - None, 1 - Asteroid, 2- Fighter
 	uint state_; // El estado actual de juego (como en GameCtrlSystem)
 };

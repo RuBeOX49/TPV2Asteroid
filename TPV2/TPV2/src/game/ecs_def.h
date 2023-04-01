@@ -31,18 +31,18 @@ struct Message {
 	msgId_type id;
 	// _m_DESTROY_ASTEROID
 	struct {
-		Entity* e;
+		Entity* e = nullptr;
 	} destroy_asteroid_data;
 	// _m_SPAWN_ASTEROID
 	struct {
-		Entity* b;
+		Entity* b = nullptr;
 	} destroy_bullet_data;
 	//_m_CHANGE_STATE
 	struct {
 		stateID state;
 	}new_state_ID;
 	//_m_COLLISION_AST_SHIP
-	int remainingHealth;
+	int remainingHealth {-1};
 
 	Message() {}
 	Message(msgId_type id): id(id) {}

@@ -16,6 +16,7 @@ void FighterSystem::receive(const Message& m)
 		break;
 	case _m_COLLISION_AST_SHIP:
 		onCollision_FighterAsteroid();
+		break;
 	default:
 		break;
 	}

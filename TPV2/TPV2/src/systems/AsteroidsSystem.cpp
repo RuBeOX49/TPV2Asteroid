@@ -17,13 +17,15 @@ void AsteroidsSystem::receive(const Message& m)
 		break;
 	case _m_CHANGE_STATE:
 		if (m.new_state_ID.state != state_BATTLE)
-			onRoundOver();
+			active_ = false;
+		else active_ = true;
 		break;
 	case _m_COLLISION_AST_BULLET:
 		onCollision_AsteroidBullet(m.destroy_asteroid_data.e);
 		break;
 	case _m_COLLISION_AST_SHIP:
 		m.destroy_asteroid_data.e->setAlive(false);
+		break;
 	default:
 		
 		break;

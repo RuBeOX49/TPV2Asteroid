@@ -17,8 +17,10 @@ void SceneCtrlSystem::receive(const Message& m)
 		break;
 	case _m_CHANGE_STATE:
 		state_ = m.new_state_ID.state;
+		break;
 	case _m_COLLISION_AST_SHIP:
 		onCollision_FighterAsteroid(m.remainingHealth);
+		break;
 	default:
 		break;
 	}
@@ -94,6 +96,7 @@ void SceneCtrlSystem::onCollision_FighterAsteroid(int remainingHealth)
 		m.id = _m_CHANGE_STATE;
 		m.new_state_ID.state = state_DAMAGED;
 
+		Game::instance()->send(m);
 		GameStateMachine::instance()->pushState(new DamagedState());
 	}
 }
