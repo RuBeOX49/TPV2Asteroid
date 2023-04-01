@@ -2,20 +2,22 @@
 #include "../ecs/Component.h"
 #include "../game/constants.h"
 #include "../sdlutils/Texture.h"
+#include "../game/Game.h"
 class HealthComponent : public Component
 {
 private:
-	int currLives;
+	int currLives=STARTING_HEALTH;
 	Texture* healthTexture;
 
 public:
 
 	static const int id = _HEALTH;
-	HealthComponent();
+	HealthComponent() {
+		healthTexture = Game::getTexture("Heart");
+	}
 
-	virtual ~HealthComponent();
+	virtual ~HealthComponent() {};
 
-	virtual void render() const;
 	//Devuelve las vidas restantes
 	inline int getLives() { return currLives; }
 	//Reinicia las vidas al valor por defecto

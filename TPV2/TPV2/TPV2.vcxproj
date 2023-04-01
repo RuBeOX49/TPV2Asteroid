@@ -33,7 +33,6 @@
     <ClInclude Include="src\ecs\Manager.h" />
     <ClInclude Include="src\ecs\System.h" />
     <ClInclude Include="src\game\BattleState.h" />
-    <ClInclude Include="src\game\CollisionsManager.h" />
     <ClInclude Include="src\game\constants.h" />
     <ClInclude Include="src\game\DamagedState.h" />
     <ClInclude Include="src\game\DeathState.h" />
@@ -74,7 +73,6 @@
     <ClCompile Include="src\components\FighterCtrl.cpp" />
     <ClCompile Include="src\components\Follow.cpp" />
     <ClCompile Include="src\components\FramedImage.cpp" />
-    <ClCompile Include="src\components\Health.cpp" />
     <ClCompile Include="src\components\Transform.cpp" />
     <ClCompile Include="src\ecs\Entity.cpp" />
     <ClCompile Include="src\ecs\Manager.cpp" />

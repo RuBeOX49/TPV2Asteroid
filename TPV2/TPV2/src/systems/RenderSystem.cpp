@@ -11,6 +11,10 @@ void RenderSystem::initSystem() {
 void RenderSystem::receive(const Message& m) {
 	switch (m.id)
 	{
+	case _m_BATTLE_STATE_SETUP:
+		
+		onRoundStart();
+		break;
 	case _m_COLLISION_AST_SHIP:
 		currHealth = m.remainingHealth;
 		break;
@@ -73,6 +77,8 @@ void RenderSystem::render() const
 }
 void RenderSystem::onRoundStart()
 {
+	drawHealth = true;
+	currHealth = STARTING_HEALTH;
 }
 
 void RenderSystem::onRoundOver()

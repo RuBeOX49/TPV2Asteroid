@@ -28,7 +28,6 @@ private:
 	void onGameOver();
 	
 	Texture* healthTexture;
-
 	int currHealth = STARTING_HEALTH;
 	bool drawHealth = true;
 

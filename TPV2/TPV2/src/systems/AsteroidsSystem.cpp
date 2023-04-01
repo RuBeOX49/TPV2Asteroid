@@ -24,7 +24,7 @@ void AsteroidsSystem::receive(const Message& m)
 		onCollision_AsteroidBullet(m.destroy_asteroid_data.e);
 		break;
 	case _m_COLLISION_AST_SHIP:
-		m.destroy_asteroid_data.e->setAlive(false);
+		mngr_->setAlive(m.destroy_asteroid_data.e, false);
 		break;
 	default:
 		
@@ -137,6 +137,7 @@ void AsteroidsSystem::onRoundOver()
 
 void AsteroidsSystem::onRoundStart()
 {
+	numOfAsteroids_ = 0;
 	active_ = true;
 	for (auto var : mngr_->getEntities()) {
 		if (var->getGroup() == _grp_FIGHTER)
