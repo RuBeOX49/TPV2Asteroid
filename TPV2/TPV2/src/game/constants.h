@@ -13,5 +13,8 @@ const int DELAY_TIME = 17;
 
 const int STARTING_HEALTH = 3;
 
+const double SHOOT_DELAY = 250;
+const double ASTEROID_SPAWN_DELAY = 5000;
+
 
 #endif // !CONSTANTS_H

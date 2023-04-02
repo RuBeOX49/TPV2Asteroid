@@ -12,7 +12,7 @@ void FighterSystem::spawnFighter()
 {
 	Entity* fighter = mngr_->addEntity();
 	fighter->setGroup(_grp_FIGHTER);
-	fighterTransform = mngr_->addComponent<Transform>(fighter, Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / 2), Vector2D(), 100, 100, 0);
+	fighterTransform = mngr_->addComponent<Transform>(fighter, Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / 2), Vector2D(), 40, 40, 0);
 	mngr_->addComponent<HealthComponent>(fighter);
 	deAccData = mngr_->addComponent<DeAcceleration>(fighter);
 	mngr_->addComponent<Gun>(fighter);

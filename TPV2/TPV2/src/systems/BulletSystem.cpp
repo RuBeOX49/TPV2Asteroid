@@ -75,7 +75,7 @@ void BulletsSystem::update()
 //reinicia el cooldown
 void BulletsSystem::shoot(Vector2D pos, Vector2D vel, double width, double height)
 {
-	if (shipGun->getLastTimeShot() > 250)
+	if (shipGun->getLastTimeShot() > SHOOT_DELAY)
 	{
 		shotSound->play();
 		Entity* bullet = mngr_->addEntity();

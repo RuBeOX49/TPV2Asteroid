@@ -6,6 +6,7 @@
 #include "../components/Generations.h"
 #include "../components/FramedImage.h"
 #include "../game/Game.h"
+#include "../game/constants.h"
 
 //Maneja los casos de cada mensaje
 void AsteroidsSystem::receive(const Message& m)
@@ -43,6 +44,7 @@ void AsteroidsSystem::initSystem()
 	findFighter();
 }
 
+//Busca la referencia del fighter al inicio del sistema
 void AsteroidsSystem::findFighter()
 {
 	for (auto var : mngr_->getEntities()) {
@@ -226,7 +228,7 @@ void AsteroidsSystem::createAsteroid(int n)
 void AsteroidsSystem::addAsteroidFrequently()
 {
 	timer += Game::instance()->getDeltaTime();
-	if (timer > 5000 && numOfAsteroids_ <= 30) {
+	if (timer > ASTEROID_SPAWN_DELAY && numOfAsteroids_ <= 30) {
 		createAsteroid(1);
 		timer = 0;
 	}

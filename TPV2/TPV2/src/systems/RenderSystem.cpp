@@ -18,10 +18,6 @@ void RenderSystem::receive(const Message& m) {
 	case _m_COLLISION_AST_SHIP:
 		currHealth = m.remainingHealth;
 		break;
-	case _m_CHANGE_STATE:
-		if (m.new_state_ID.state == state_BATTLE)
-			drawHealth = true;
-		else drawHealth = false;
 	default:
 		break;
 	}
@@ -65,30 +61,18 @@ void RenderSystem::render() const
 		fIm->texture->render(sourceRect, destRect, mngr_->getComponent<Transform>(var)->rotation_);
 	}
 
-	if (drawHealth)
-	{
+	
 		for (int i = 0; i < currHealth; i++)
 		{
 			SDL_Rect rect = build_sdlrect(20 + i * (20 + 10), 20, 20, 20);
 			healthTexture->render(rect);
 		}
-	}
+	
 
 }
 void RenderSystem::onRoundStart()
 {
-	drawHealth = true;
 	currHealth = STARTING_HEALTH;
 }
 
-void RenderSystem::onRoundOver()
-{
-}
 
-void RenderSystem::onGameStart()
-{
-}
-
-void RenderSystem::onGameOver()
-{
-}

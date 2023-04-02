@@ -25,13 +25,11 @@ private:
 	// Para gestionar los mensajes correspondientes y actualizar los atributos
 	// winner_ y state_.
 	void onRoundStart();
-	void onRoundOver();
-	void onGameStart();
-	void onGameOver();
+	
 	
 	Texture* healthTexture;
 	int currHealth = STARTING_HEALTH;
-	bool drawHealth = true;
+	
 
 	uint winner_; // 0 - None, 1 - Asteroid, 2- Fighter
 	uint state_; // El estado actual de juego (como en GameCtrlSystem)
