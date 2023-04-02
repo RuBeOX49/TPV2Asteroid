@@ -35,6 +35,7 @@ private:
 	// onRoundStart, y en update no hacer nada si no está activo)
 	bool active_;
 
+	// Busca la referencia al fighter en la escena
 	void findFighter();
 
 	SoundEffect* shotSound;

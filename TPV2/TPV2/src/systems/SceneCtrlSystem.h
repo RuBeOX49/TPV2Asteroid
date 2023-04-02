@@ -27,6 +27,8 @@ private:
 	// Para gestionar el mensaje de que no hay más asteroides. Tiene que avisar que
 	// ha acabado la ronda y además que ha acabado el juego (y quien es el ganador)
 	void onAsteroidsExtinction();
-	uint winner_; // 0 - None, 1 - Asteroids, 2- Fighter
 	stateID state_; // El estado actual del juego (en lugar del componente State)
+
+	//NOTAS:
+	//Como manejamos el cambio de escenas desde los mensajes, no necesitamos la variable winner_ para determinar la escena a la que cambiar
 };

@@ -43,9 +43,13 @@ private:
 	float timer = 0;
 	float astSpeed = 50;
 
+	//Crea n asteroides, con una probabilidad de que sean tipo 2
 	void createAsteroid(int n);
+	//Maneja el temporizardor que marca la creacion de asteroides
 	void addAsteroidFrequently();
+	//Destruye todos los asteroides
 	void destroyAllAsteroids();
 
+	//Getter del numero de asteroides
 	inline int getAsteroids() { return numOfAsteroids_; }
 };

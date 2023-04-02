@@ -18,8 +18,9 @@ public:
 
 	void setContext(Manager* mngr);
 
+	//Inicializa el sistema
 	virtual void initSystem() {}
-
+	//Separamos update, render y handleInput para mayor control. Usado principalmente en RenderSystem, BulletSystem y FighterSystem.
 	virtual void update();
 
 	virtual void render() const {}

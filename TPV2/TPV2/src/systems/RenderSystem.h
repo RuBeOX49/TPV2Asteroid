@@ -13,6 +13,8 @@ public:
 		// - Dibujar las vidas (siempre).
 		// - Dibujar los mensajes correspondientes: si el juego está parado, etc (como en
 		// la práctica 1)
+		
+	//Actualiza los frames a renderizar de todos los objetos en escena. Se hace independiente del update para poder hacer uso del reloj del sistema (deltaTime)
 	void update() override;
 
 	void render() const override;

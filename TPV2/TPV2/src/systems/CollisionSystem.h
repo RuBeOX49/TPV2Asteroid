@@ -27,6 +27,10 @@ private:
 		// onRoundStart, y en update no hacer nada si no está activo)
 		bool active_;
 		SoundEffect* explosion;
+
+		//Maneja las colisiones entre fighter y asteroide
 		void handleFighterCollision(Entity* e, Entity* c);
+		
+		//Maneja las colisiones entre bala y asteroide
 		void handleBulletCollision(Entity* e, Entity* c);
 };
