@@ -2,6 +2,7 @@
 #include "../game/Game.h"
 #include "../game/GameStateMachine.h"
 #include "../game/DeathState.h"
+#include "../game/WinState.h"
 #include "../game/DamagedState.h"
 #include "../game/PauseState.h"
 #include "../game/BattleState.h"
@@ -20,6 +21,9 @@ void SceneCtrlSystem::receive(const Message& m)
 		break;
 	case _m_COLLISION_AST_SHIP:
 		onCollision_FighterAsteroid(m.remainingHealth);
+		break;
+	case _m_ASTEROIDS_EXTINCTION:
+		onAsteroidsExtinction();
 		break;
 	default:
 		break;
@@ -58,6 +62,7 @@ void SceneCtrlSystem::update()
 			
 			break;
 		case state_DEAD:
+		case state_WIN:
 			
 			m.id = _m_BATTLE_RESTART;
 			m.new_state_ID.state = state_BATTLE;
@@ -104,4 +109,11 @@ void SceneCtrlSystem::onCollision_FighterAsteroid(int remainingHealth)
 
 void SceneCtrlSystem::onAsteroidsExtinction()
 {
+	Message m;
+
+	m.id = _m_CHANGE_STATE;
+	m.new_state_ID.state = state_WIN;
+
+	Game::instance()->send(m);
+	GameStateMachine::instance()->changeState(new WinState());
 }

@@ -25,6 +25,7 @@ void AsteroidsSystem::receive(const Message& m)
 		break;
 	case _m_COLLISION_AST_SHIP:
 		mngr_->setAlive(m.destroy_asteroid_data.e, false);
+		numOfAsteroids_--;
 		break;
 	case _m_BATTLE_RESTART:
 		findFighter();
@@ -58,6 +59,15 @@ void AsteroidsSystem::update()
 		return;
 
 	//Movimiento de asteroides
+
+	if (numOfAsteroids_ == 0)
+	{
+		Message m;
+
+		m.id = _m_ASTEROIDS_EXTINCTION;
+
+		Game::instance()->send(m, true);
+	}
 
 	for (auto var : mngr_->getEntities())
 	{

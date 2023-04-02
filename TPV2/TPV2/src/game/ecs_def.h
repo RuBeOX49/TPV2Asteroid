@@ -13,7 +13,8 @@ enum stateID : int {
 	state_BATTLE,
 	state_PAUSED,
 	state_DAMAGED,
-	state_DEAD
+	state_DEAD,
+	state_WIN
 };
 
 enum msgId : msgId_type {
@@ -26,7 +27,8 @@ enum msgId : msgId_type {
 	_m_SHOOT_BULLET,
 	_m_BATTLE_RESTART,
 	_m_SEND_FIGHTER,
-	_m_DESTROY_ALL_ASTEROIDS
+	_m_DESTROY_ALL_ASTEROIDS,
+	_m_ASTEROIDS_EXTINCTION
 };
 
 struct Message {
