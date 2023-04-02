@@ -1,12 +1,13 @@
 #include "FighterSystem.h"
 
-
+//Crea la nave
 void FighterSystem::initSystem()
 {
 	//La Nave
 	spawnFighter();
 }
 
+//Metodo que crea la nave
 void FighterSystem::spawnFighter()
 {
 	Entity* fighter = mngr_->addEntity();
@@ -21,7 +22,7 @@ void FighterSystem::spawnFighter()
 	thrust->setVolume(10);
 }
 
-//Mane
+//Maneja los mensajes recibidos
 void FighterSystem::receive(const Message& m)
 {
 	switch (m.id)
@@ -44,6 +45,8 @@ void FighterSystem::receive(const Message& m)
 	}
 }
 
+//Si esta activo actualiza la posicion de la nave, bloquea su aceleracion a un maximo
+//y a un minimo y comprueba si ha salido de pantalla para moverla al lado contrario
 void FighterSystem::update()
 {
 	if (!active_)
@@ -80,6 +83,7 @@ void FighterSystem::update()
 		
 }
 
+//Comprueba la w para acelerar, a y d para girar y s para mandar el mensaje de disparo
 void FighterSystem::handleInput()
 {
 	if (!active_)
@@ -110,6 +114,7 @@ void FighterSystem::handleInput()
 
 }
 
+//Si se produce una colision resetea posicion, roticion y velocidad
 void FighterSystem::onCollision_FighterAsteroid()
 {
 	fighterTransform->setPos(Vector2D(WIN_WIDTH/2,WIN_HEIGHT/2));
@@ -117,11 +122,13 @@ void FighterSystem::onCollision_FighterAsteroid()
 	fighterTransform->setVel(Vector2D());
 }
 
+//Desactiva el sistema
 void FighterSystem::onRoundOver()
 {
 	active_ = false;
 }
 
+//Activa el sistema
 void FighterSystem::onRoundStart()
 {
 	active_ = true;
