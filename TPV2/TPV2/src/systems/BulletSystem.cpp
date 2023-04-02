@@ -21,6 +21,13 @@ void BulletsSystem::receive(const Message& m)
 	case _m_COLLISION_AST_BULLET:
 		mngr_->setAlive(m.destroy_bullet_data.b, false);
 		break;
+	case _m_BATTLE_RESTART:
+		findFighter();
+		break;
+	case _m_SEND_FIGHTER:
+		shipTransform = mngr_->getComponent<Transform>(m.fighter_address.f);
+		shipGun = mngr_->getComponent<Gun>(m.fighter_address.f);
+		break;
 	default:
 		break;
 	}
@@ -31,8 +38,14 @@ void BulletsSystem::initSystem()
 {
 	shotSound = &sdlutils().soundEffects().at("GunShot");
 	shotSound->setVolume(10);
+
+	findFighter();
+
+}
+
+void BulletsSystem::findFighter() {
 	for (auto var : mngr_->getEntities()) {
-		if (var->getGroup() == _grp_FIGHTER) {
+		if (mngr_->hasComponent<Gun>(var)) {
 			shipTransform = mngr_->getComponent<Transform>(var);
 			shipGun = mngr_->getComponent<Gun>(var);
 		}

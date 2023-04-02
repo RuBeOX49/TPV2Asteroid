@@ -20,6 +20,13 @@ void FighterSystem::spawnFighter()
 	fighterCtrlData = mngr_->addComponent<FighterCtrl>(fighter);
 	thrust = &sdlutils().soundEffects().at("Thrust");
 	thrust->setVolume(10);
+
+	Message m;
+
+	m.id = _m_SEND_FIGHTER;
+	m.fighter_address.f = fighter;
+
+	Game::instance()->send(m);
 }
 
 //Maneja los mensajes recibidos

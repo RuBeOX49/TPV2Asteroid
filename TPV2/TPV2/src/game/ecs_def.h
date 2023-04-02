@@ -25,6 +25,7 @@ enum msgId : msgId_type {
 	_m_COLLISION_AST_BULLET,
 	_m_SHOOT_BULLET,
 	_m_BATTLE_RESTART,
+	_m_SEND_FIGHTER,
 	_m_DESTROY_ALL_ASTEROIDS
 };
 
@@ -42,6 +43,9 @@ struct Message {
 	struct {
 		stateID state;
 	}new_state_ID;
+	struct {
+		Entity* f = nullptr;
+	}fighter_address;
 	//_m_COLLISION_AST_SHIP
 	int remainingHealth {-1};
 

@@ -35,6 +35,8 @@ private:
 	// onRoundStart, y en update no hacer nada si no está activo)
 	bool active_;
 
+	void findFighter();
+
 	SoundEffect* shotSound;
 	Transform* shipTransform;
 	Gun* shipGun;
