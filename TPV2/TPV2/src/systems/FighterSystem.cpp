@@ -4,6 +4,11 @@
 void FighterSystem::initSystem()
 {
 	//La Nave
+	spawnFighter();
+}
+
+void FighterSystem::spawnFighter()
+{
 	Entity* fighter = mngr_->addEntity();
 	fighter->setGroup(_grp_FIGHTER);
 	fighterTransform = mngr_->addComponent<Transform>(fighter, Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / 2), Vector2D(), 100, 100, 0);
@@ -32,6 +37,8 @@ void FighterSystem::receive(const Message& m)
 	case _m_COLLISION_AST_SHIP:
 		onCollision_FighterAsteroid();
 		break;
+	case _m_BATTLE_RESTART:
+		spawnFighter();
 	default:
 		break;
 	}

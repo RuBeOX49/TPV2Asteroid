@@ -17,6 +17,7 @@ public:
 	// Crear la entidad del caza, añadir sus componentes, asociarla con un handler
 	// correspondiente, etc.
 	void initSystem() override;
+	void spawnFighter();
 	// Si el juego está parado no hacer nada, en otro caso actualizar la velocidad
 	// del caza y moverlo como en la práctica 1 (acelerar, desacelerar, etc). Además,
 	// si el juego no está parado y el jugador pulsa la tecla de disparo, enviar un

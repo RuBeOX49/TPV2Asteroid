@@ -59,7 +59,7 @@ void SceneCtrlSystem::update()
 			break;
 		case state_DEAD:
 			
-			m.id = _m_BATTLE_STATE_SETUP;
+			m.id = _m_BATTLE_RESTART;
 			m.new_state_ID.state = state_BATTLE;
 
 			Game::instance()->send(m, true);

@@ -9,6 +9,7 @@ public:
 	void receive(const Message& m) override;
 		// Inicializar el sistema, etc.
 		void initSystem() override;
+		void findFighter();
 		// Si el juego está parado no hacer nada, en otro caso mover los asteroides como
 		// en la práctica 1 y generar 1 asteroide nuevo cada 5 segundos (aparte
 		// de los 10 al principio de cada ronda).

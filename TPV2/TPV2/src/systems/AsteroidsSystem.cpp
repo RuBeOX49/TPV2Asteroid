@@ -26,6 +26,8 @@ void AsteroidsSystem::receive(const Message& m)
 	case _m_COLLISION_AST_SHIP:
 		mngr_->setAlive(m.destroy_asteroid_data.e, false);
 		break;
+	case _m_BATTLE_RESTART:
+		findFighter();
 	default:
 		
 		break;
@@ -37,6 +39,11 @@ void AsteroidsSystem::initSystem()
 {
 	brokenAsteroid = &sdlutils().soundEffects().at("Explosion");
 	brokenAsteroid->setVolume(10);
+	findFighter();
+}
+
+void AsteroidsSystem::findFighter()
+{
 	for (auto var : mngr_->getEntities()) {
 		if (var->getGroup() == _grp_FIGHTER)
 			fighter = var;
@@ -149,6 +156,7 @@ void AsteroidsSystem::onRoundOver()
 //de asteroides, se asigna el fighter y se crean 10 asteroides
 void AsteroidsSystem::onRoundStart()
 {
+	findFighter();
 	numOfAsteroids_ = 0;
 	active_ = true;
 	
