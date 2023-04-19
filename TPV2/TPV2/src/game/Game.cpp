@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "BattleState.h"
 #include "PauseState.h"
+#include "MainMenuState.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../systems/RenderSystem.h"
 #include "../systems/AsteroidsSystem.h"
@@ -45,7 +46,7 @@ Game::~Game() {
 // Ejecuta el juego
 void Game::run() {
 
-	gameStateMachine->pushState(new BattleState());
+	gameStateMachine->pushState(new MainMenuState());
 
 	//Sistemas
 

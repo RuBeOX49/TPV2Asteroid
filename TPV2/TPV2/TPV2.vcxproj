@@ -39,6 +39,8 @@
     <ClInclude Include="src\game\Game.h" />
     <ClInclude Include="src\game\GameState.h" />
     <ClInclude Include="src\game\GameStateMachine.h" />
+    <ClInclude Include="src\game\MainMenuState.h" />
+    <ClInclude Include="src\game\MultiplayerState.h" />
     <ClInclude Include="src\game\PauseState.h" />
     <ClInclude Include="src\game\WinState.h" />
     <ClInclude Include="src\json\JSON.h" />
@@ -81,6 +83,8 @@
     <ClCompile Include="src\game\Game.cpp" />
     <ClCompile Include="src\game\Gamestate.cpp" />
     <ClCompile Include="src\game\GameStateMachine.cpp" />
+    <ClCompile Include="src\game\MainMenuState.cpp" />
+    <ClCompile Include="src\game\MultiplayerState.cpp" />
     <ClCompile Include="src\game\PauseState.cpp" />
     <ClCompile Include="src\game\WinState.cpp" />
     <ClCompile Include="src\json\JSON.cpp" />

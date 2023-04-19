@@ -6,6 +6,7 @@
 #include "../game/DamagedState.h"
 #include "../game/PauseState.h"
 #include "../game/BattleState.h"
+#include "../game/MultiplayerState.h"
 #include "../sdlutils/InputHandler.h"
 
 
@@ -32,6 +33,7 @@ void SceneCtrlSystem::receive(const Message& m)
 
 void SceneCtrlSystem::initSystem()
 {
+	state_ = state_MAINMENU;
 }
 
 void SceneCtrlSystem::update()
@@ -63,6 +65,7 @@ void SceneCtrlSystem::update()
 			break;
 		case state_DEAD:
 		case state_WIN:
+		case state_MAINMENU:
 			
 			m.id = _m_BATTLE_RESTART;
 			m.new_state_ID.state = state_BATTLE;
@@ -78,6 +81,18 @@ void SceneCtrlSystem::update()
 		
 
 
+	}
+
+	if (state_ == state_MAINMENU && InputHandler::instance()->isKeyDown(SDLK_c)) {
+		
+		Message m;
+
+		m.id = _m_CHANGE_STATE;
+		m.new_state_ID.state = state_MULTIPLAYER;
+
+		Game::instance()->send(m, true);
+		GameStateMachine::instance()->changeState(new MultiplayerState());
+	
 	}
 
 

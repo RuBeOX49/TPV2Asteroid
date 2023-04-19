@@ -14,7 +14,9 @@ enum stateID : int {
 	state_PAUSED,
 	state_DAMAGED,
 	state_DEAD,
-	state_WIN
+	state_WIN,
+	state_MAINMENU,
+	state_MULTIPLAYER
 };
 
 enum msgId : msgId_type {
