@@ -12,9 +12,7 @@
 #include "../sdlutils/InputHandler.h"
 #include "constants.h"
 #include "../ecs/System.h"
-
-
-
+#include <SDL_net.h>
 
 
 using namespace std;

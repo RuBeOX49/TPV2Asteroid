@@ -210,6 +210,9 @@
     <ClInclude Include="src\game\MultiplayerState.h">
       <Filter>Header Files\src\game</Filter>
     </ClInclude>
+    <ClInclude Include="src\systems\NetSystem.h">
+      <Filter>Header Files\src\systems</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\json\JSONValue.cpp">
@@ -310,6 +313,9 @@
     </ClCompile>
     <ClCompile Include="src\game\MultiplayerState.cpp">
       <Filter>Source Files\src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systems\NetSystem.cpp">
+      <Filter>Source Files\src\systems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

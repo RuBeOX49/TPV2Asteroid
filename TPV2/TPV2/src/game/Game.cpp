@@ -66,6 +66,10 @@ void Game::run() {
 	Uint64 NOW = SDL_GetPerformanceCounter();
 	Uint64 LAST = 0;
 
+	if (SDLNet_Init() < 0) {
+		throw "Bad SDLNet init";
+	}
+
 	while (!exit) {
 		InputHandler::instance()->refresh();
 		frameTime = SDL_GetTicks() - startTime;
@@ -85,6 +89,7 @@ void Game::run() {
 		setAllSystemsContext();
 	}
 	gameStateMachine->clearStates();
+	SDLNet_Quit();
 }
 
 // Dibuja el juego en pantalla
