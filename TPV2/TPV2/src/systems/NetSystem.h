@@ -11,7 +11,8 @@ private:
 	SDLNet_SocketSet socketSet;
 	Uint16 port;
 
-	bool connected;
+	bool connected, isHost;
+	vector<string> names;
 	IPaddress otherPlayerAdress;
 
 

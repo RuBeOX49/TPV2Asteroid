@@ -13,11 +13,13 @@ void NetSystem::initSystem() {
 		case 'H':
 		case 'h':
 			resolved=host();
+			if (!resolved) cout << "error on host conexion";
 			break;
 		default:
 			break;
 		}
 	}
+
 }
 
 bool NetSystem::host() {
@@ -45,7 +47,13 @@ bool NetSystem::host() {
 		return false;
 	}
 
-	//port = SDLNetUtils::getSocketPort(socket);
+	port = SDLNetUtils::getSocketPort(socket);
+
+	names.push_back(myName);
+	hostName = myName;
+	isHost = true;
+	connected = false;
+
 
 	return true;
 

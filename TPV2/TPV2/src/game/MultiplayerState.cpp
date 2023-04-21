@@ -5,7 +5,7 @@
 MultiplayerState::MultiplayerState()
 {
 	
-	
+	Game::instance()->addSystem<NetSystem>();
 
 
 
