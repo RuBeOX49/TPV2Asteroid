@@ -101,7 +101,7 @@ bool NetSystem::client()
 	if (!socketSet) {
 		cout << "Error en socketset\n";
 		return false;
-
+	}
 
 	packet = SDLNet_AllocPacket(MAX_SIZE);
 	if (!packet) {
