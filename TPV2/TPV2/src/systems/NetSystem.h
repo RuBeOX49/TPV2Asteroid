@@ -1,13 +1,10 @@
 #include <SDL_net.h>
 #include "../ecs/System.h"
+#include "../game/constants.h"
 
 
 class NetSystem : public System{
 private:
-
-	bool host_;
-	Uint8 side_; // 0 left 1 right
-
 
 	UDPsocket socket;
 	UDPpacket* packet;
@@ -18,20 +15,18 @@ private:
 	IPaddress otherPlayerAdress;
 
 
-	bool initConnection(Uint16 port);
-
-	bool initHost();
-	bool initClient();
 
 public:
+	constexpr static sysId_type id = sys_FIGHTER;
 
-	std::string myName = "waiting";
-	std::string hostName = "waiting";
-	std::array<std::string, 2> names_ = { "waiting", "waiting" };
+	string myName = "";
+	string hostName = "";
 
 	void initSystem() override;
 
 	bool connect();
 
 	void recieve(const Message& m);
+
+	bool host();
 };

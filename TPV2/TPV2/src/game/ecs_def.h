@@ -93,6 +93,7 @@ enum sysId : sysId_type {
 	sys_FIGHTER,
 	sys_SCENECTRL,
 	sys_RENDER,
+	sys_NET,
 
 	//DO NOT DELETE FOR THE LOVE OF THAT WOMAN
 	sys_LAST_SYSTEM_ID
