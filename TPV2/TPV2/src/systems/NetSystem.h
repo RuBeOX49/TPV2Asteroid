@@ -18,7 +18,7 @@ private:
 
 
 public:
-	constexpr static sysId_type id = sys_FIGHTER;
+	constexpr static sysId_type id = sys_NET;
 
 	string myName = "";
 	string hostName = "";

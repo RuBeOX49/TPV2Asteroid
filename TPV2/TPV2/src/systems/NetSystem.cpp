@@ -25,6 +25,7 @@ void NetSystem::setup()
 		case 'C':
 		case 'c':
 			resolved = client();
+			if (!resolved) cout << "error on client conexion";
 			break;
 		default:
 			break;
@@ -128,7 +129,7 @@ bool NetSystem::client()
 	*/
 
 
-
+	std::cout << "all good so far!\n";
 
 	return false;
 }
