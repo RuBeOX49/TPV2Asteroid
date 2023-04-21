@@ -7,10 +7,6 @@ MultiplayerState::MultiplayerState()
 	
 	
 
-	//realizar la conexion
-	while (!Game::instance()->getSystem<NetSystem>()->connect())
-		;
-
 
 
 

@@ -1,5 +1,4 @@
 #include "NetSystem.h"
-#include "network_messages.h"
 #include "../sdlutils/SDLNetUtils.h"
 
 void NetSystem::initSystem() {
@@ -46,7 +45,7 @@ bool NetSystem::host() {
 		return false;
 	}
 
-	port = SDLNetUtils::getSocketPort(socket);
+	//port = SDLNetUtils::getSocketPort(socket);
 
 	return true;
 
