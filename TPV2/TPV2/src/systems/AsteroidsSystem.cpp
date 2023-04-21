@@ -23,6 +23,7 @@ void AsteroidsSystem::receive(const Message& m)
 		break;
 	case _m_COLLISION_AST_BULLET:
 		onCollision_AsteroidBullet(m.destroy_asteroid_data.e);
+		numOfAsteroids_--;
 		break;
 	case _m_COLLISION_AST_SHIP:
 		mngr_->setAlive(m.destroy_asteroid_data.e, false);
