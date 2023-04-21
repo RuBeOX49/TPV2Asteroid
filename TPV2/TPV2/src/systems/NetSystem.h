@@ -25,9 +25,12 @@ public:
 
 	void initSystem() override;
 
-	bool connect();
+	void setup();
+
 
 	void recieve(const Message& m);
 
 	bool host();
+
+	bool client();
 };
