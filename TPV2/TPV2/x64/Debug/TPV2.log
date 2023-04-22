@@ -1,25 +1,3 @@
-﻿D:\Visual Studio 2022\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(520,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
-  Game.cpp
-C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
-C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "SoundEffect &SDLUtils::map_access_wrapper<SoundEffect>::at(std::string)"
-C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\sdlutils\SDLUtils.h(194): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
-C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(91,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(92,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(93,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(94,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  RenderSystem.cpp
-C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\systems\RenderSystem.cpp(1,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(91,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(92,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(93,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\components\Transform.h(94,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\systems\RenderSystem.cpp(48,209): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\systems\RenderSystem.cpp(48,170): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\systems\RenderSystem.cpp(48,135): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\TPV2\src\systems\RenderSystem.cpp(48,80): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  Generando código...
-  TPV2.vcxproj -> C:\Users\49leg\Documents\GitHub\TPV2Asteroid\TPV2\bin\TPV2Debug.exe
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(496,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
+  NetSystem.cpp
+  TPV2.vcxproj -> C:\Users\Lenovo X250\Documents\GitHub\TPV2Asteroid\TPV2\bin\TPV2Debug.exe

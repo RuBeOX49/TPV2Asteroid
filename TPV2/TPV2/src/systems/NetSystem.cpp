@@ -124,7 +124,8 @@ bool NetSystem::client()
 		return false;
 	}
 
-	ip.port = port;
+	ip.port = askedPort;
+
 	isHost = false;
 
 
@@ -167,7 +168,7 @@ bool NetSystem::client()
 
 	int resu = SDLNet_TCP_Recv(socket, &m, sizeof(m));
 
-	std::cout << m.name;
+	std::cout << "\n" << m.name;
 	
 
 
