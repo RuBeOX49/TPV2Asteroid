@@ -121,28 +121,23 @@ bool NetSystem::client()
 	m.name[i] = 0;
 
 	packet->address = ip;
-	SDLNetUtils::serializedSend(m, packet, socket);
 
 	if (SDLNet_CheckSockets(socketSet, 3000) > 0)
 	{
 		if (SDLNet_SocketReady(socket))
 		{
-			SDLNetUtils::deserializedReceive(m, packet, socket);
-
-			if (m.id == _REQUEST_ACCEPTED)
+			if (m.id == 12)
 			{
-				net::ReqAccMsg m;
-				m.deserialize(p_->data);
-				side_ = m.side;
-				chars_to_string(names_[0], m.name);
-				hostName = names_[0];
-				host_ = false;
-				connected_ = true;
+				Message m;
+				isHost = m.side;
+				m.name[10] = 0;
+				myName = m.name[0];
+				connected = true;
 			}
 		}
 	}
 
-	if (!connected_) {
+	if (!connected) {
 		std::cout << "Could not connect to the other player " << std::endl;
 		return false;
 	}

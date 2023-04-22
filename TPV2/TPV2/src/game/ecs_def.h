@@ -70,7 +70,7 @@ struct Message {
 	char name[11];
 
 	Message() {}
-	Message(msgId_type id): id(id) {}
+	Message(msgId_type id) : id(id) {}
 };
 
 enum cmpId : cmpId_type {
