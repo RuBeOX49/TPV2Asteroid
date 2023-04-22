@@ -43,11 +43,17 @@ private:
 
 	void setupMultiplayer(bool isHost);
 
+	void enemyForward();
+
+	void enemyRotation(bool left);
+
 	bool multiplayer = false;
 	bool active_;
 	SoundEffect* thrust;
 	Entity* fighter;
 	Transform* fighterTransform;
+	Entity* enemyFighter;
+	Transform* enemyFighterTransform;
 	FighterCtrl* fighterCtrlData;
 	DeAcceleration* deAccData;
 };

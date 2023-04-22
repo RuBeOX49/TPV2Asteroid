@@ -51,9 +51,33 @@ void FighterSystem::receive(const Message& m)
 	case _m_SETUP_MULTIPLAYER:
 		setupMultiplayer(m.isHost);
 		break;
+	case _m_NET_OTHER_FIGHTER_FORWARD:
+		enemyForward();
+		break;
+	case _m_NET_OTHER_FIGHTER_LEFT:
+		enemyRotation(true);
+		break;
+	case _m_NET_OTHER_FIGHTER_RIGHT:
+		enemyRotation(false);
+		break;
 	default:
 		break;
 	}
+}
+
+void FighterSystem::enemyForward() {
+	Vector2D vel = Vector2D();
+	thrust->play();
+	vel = vel + Vector2D(0, -1);
+	vel = vel.rotate(enemyFighterTransform->getRotation()) * fighterCtrlData->getVel();
+	if (vel.magnitude() != 0 && enemyFighterTransform->getVel().magnitude() < 50)
+		enemyFighterTransform->setVel(vel + enemyFighterTransform->getVel());
+}
+
+void FighterSystem::enemyRotation(bool left) {
+	float rotation = left ? -fighterCtrlData->getRotationFactor() : fighterCtrlData->getRotationFactor();
+	enemyFighterTransform->setRotation(enemyFighterTransform->getRotation() + rotation);
+	enemyFighterTransform->setVel(enemyFighterTransform->getVel().rotate(rotation));
 }
 
 //Si esta activo actualiza la posicion de la nave, bloquea su aceleracion a un maximo
@@ -103,7 +127,7 @@ void FighterSystem::handleInput()
 	if (!active_)
 		return;
 
-	Vector2D vel = Vector2D();
+	
 	if (InputHandler::instance()->isKeyDown(SDLK_a)) {
 		fighterTransform->setRotation(fighterTransform->getRotation()-fighterCtrlData->getRotationFactor());
 		fighterTransform->setVel(fighterTransform->getVel().rotate(-fighterCtrlData->getRotationFactor()));
@@ -113,6 +137,7 @@ void FighterSystem::handleInput()
 		fighterTransform->setVel(fighterTransform->getVel().rotate(fighterCtrlData->getRotationFactor()));
 	}
 	if (InputHandler::instance()->isKeyDown(SDLK_w)) {
+		Vector2D vel = Vector2D();
 		thrust->play();
 		vel = vel + Vector2D(0, -1);
 		vel = vel.rotate(fighterTransform->getRotation()) * fighterCtrlData->getVel();
@@ -154,7 +179,7 @@ void FighterSystem::setupMultiplayer(bool isHost)
 
 	//Generar Fighter Izquierdo (host)
 	grpId_type leftFighter = isHost ? _grp_FIGHTER : _grp_ENEMY_FIGHTER;
-	Entity* fighter = mngr_->addEntity();
+	fighter = mngr_->addEntity();
 	fighter->setGroup(leftFighter);
 	fighterTransform = mngr_->addComponent<Transform>(fighter, Vector2D(0, WIN_HEIGHT / 2), Vector2D(), 40, 40, 90);
 	mngr_->addComponent<HealthComponent>(fighter);
@@ -167,5 +192,12 @@ void FighterSystem::setupMultiplayer(bool isHost)
 
 	//Generar Fighter Derecho (cliente)
 	grpId_type rightFighter = !isHost ? _grp_FIGHTER : _grp_ENEMY_FIGHTER;
+    enemyFighter = mngr_->addEntity();
+	enemyFighter->setGroup(rightFighter);
+	fighterTransform = mngr_->addComponent<Transform>(enemyFighter, Vector2D(WIN_WIDTH, WIN_HEIGHT / 2), Vector2D(), 40, 40, 270);
+	mngr_->addComponent<HealthComponent>(enemyFighter);
+	deAccData = mngr_->addComponent<DeAcceleration>(enemyFighter);
+	mngr_->addComponent<Gun>(enemyFighter);
+	mngr_->addComponent<FramedImage>(enemyFighter, Game::getTexture("Ship"));
 
 }

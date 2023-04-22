@@ -21,7 +21,6 @@ void NetSystem::update()
 		{
 			Message message;
 			message.id = m->id;
-			
 			Game::instance()->send(message, true);
 		}
 	}
