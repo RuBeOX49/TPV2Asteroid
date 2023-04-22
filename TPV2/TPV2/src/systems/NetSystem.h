@@ -8,10 +8,9 @@
 class NetSystem : public System{
 private:
 
-	UDPsocket socket;
-	UDPpacket* packet;
+	TCPsocket socket;
 	SDLNet_SocketSet socketSet;
-	UDPsocket masterSocket;
+	TCPsocket masterSocket;
 	Uint16 port;
 
 	bool connected, isHost;
