@@ -15,16 +15,18 @@ void NetSystem::initSystem() {
 void NetSystem::update()
 {
 	NetMessage* m;
-	if ((SDLNet_CheckSockets(socketSet, 0) > 0)&& SDLNet_SocketReady(socket)) {
-		if (SDLNet_TCP_Recv(socket, &m, sizeof(m))>0) {
+	if ((SDLNet_CheckSockets(socketSet, 0) > 0)&& SDLNet_SocketReady(socket))
+	{
+		if (SDLNet_TCP_Recv(socket, &m, sizeof(m))>0) 
+		{
 			Message message;
 			message.id = m->id;
 			
 			Game::instance()->send(message, true);
-			}
 		}
 	}
 }
+
 
 
 void NetSystem::setup()
@@ -56,7 +58,31 @@ void NetSystem::setup()
 
 }
 
+void NetSystem::recieve(const Message& m)
+{
+	switch (m.id)
+	{
+	case _m_SEND_NET_MESSAGE:
+		sendNetMessage(m.netMessageID);
+		break;
+	default:
+		break;
+	}
+}
 
+
+
+void NetSystem::sendNetMessage(msgId_type id)
+{
+	NetMessage m;
+	m.id = id;
+
+	int sentData = SDLNet_TCP_Send(socket, &m, sizeof(m));
+	if (sentData != sizeof(m))
+	{
+		SDLNetUtils::print_SDLNet_error();
+	}
+}
 
 bool NetSystem::host() {
 	Uint16 askedPort=100;

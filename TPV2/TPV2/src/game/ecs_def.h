@@ -44,6 +44,7 @@ enum msgId : msgId_type {
 
 	_m_UPDATE_ENEMY_TRANSFORM,
 
+	_m_SEND_NET_MESSAGE,
 
 	_m_NET_OTHER_FIGHTER_FORWARD,
 	_m_NET_OTHER_FIGHTER_LEFT,
@@ -81,6 +82,9 @@ struct Message {
 	
 	//_m_SETUP_MULTIPLAYER
 	bool isHost;
+
+	//_m_SEND_NET_MESSAGE
+	msgId_type netMessageID;
 
 	Message() {}
 	Message(msgId_type id) : id(id) {}

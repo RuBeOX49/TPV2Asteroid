@@ -34,6 +34,8 @@ public:
 
 	void recieve(const Message& m);
 
+	void sendNetMessage(msgId_type id);
+
 	bool host();
 
 	bool client();
