@@ -28,6 +28,9 @@ void BulletsSystem::receive(const Message& m)
 		shipTransform = mngr_->getComponent<Transform>(m.fighter_address.f);
 		shipGun = mngr_->getComponent<Gun>(m.fighter_address.f);
 		break;
+	case _m_SETUP_MULTIPLAYER:
+		setupMultiplayer(m.isHost);
+		break;
 	default:
 		break;
 	}

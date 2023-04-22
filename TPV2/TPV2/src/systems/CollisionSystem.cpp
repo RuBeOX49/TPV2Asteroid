@@ -13,6 +13,9 @@ void CollisionsSystem::receive(const Message& m)
 			active_ = false;
 		else active_ = true;
 		break;
+	case _m_SETUP_MULTIPLAYER:
+		setupMultiplayer(m.isHost);
+		break;
 	default:
 		break;
 	}
@@ -62,6 +65,10 @@ void CollisionsSystem::onRoundOver()
 void CollisionsSystem::onRoundStart()
 {
 	active_ = true;
+}
+
+void CollisionsSystem::setupMultiplayer(bool isHost)
+{
 }
 
 //Si hay colision fighter-asteroide, manda el mensaje con referencia al asteroide y quita una vida

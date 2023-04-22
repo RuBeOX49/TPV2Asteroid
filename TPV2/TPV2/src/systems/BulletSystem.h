@@ -38,6 +38,9 @@ private:
 	// Busca la referencia al fighter en la escena
 	void findFighter();
 
+
+	void setupMultiplayer(bool isHost);
+
 	SoundEffect* shotSound;
 	Transform* shipTransform;
 	Gun* shipGun;

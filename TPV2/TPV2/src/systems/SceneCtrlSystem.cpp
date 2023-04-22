@@ -26,6 +26,9 @@ void SceneCtrlSystem::receive(const Message& m)
 	case _m_ASTEROIDS_EXTINCTION:
 		onAsteroidsExtinction();
 		break;
+	case _m_SETUP_MULTIPLAYER:
+		setupMultiplayer(m.isHost);
+		break;
 	default:
 		break;
 	}

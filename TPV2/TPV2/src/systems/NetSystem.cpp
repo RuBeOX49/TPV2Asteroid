@@ -5,18 +5,22 @@ void NetSystem::initSystem() {
 	
 	setup();
 
+	Message m;
+
+	m.id = _m_SETUP_MULTIPLAYER;
+	m.isHost = isHost;
 }
 
 void NetSystem::update()
 {
-	Message m;
+	NetMessage m;
 
 	
 }
 
 void NetSystem::setup()
 {
-	std::cout << sizeof(Message);
+	std::cout << sizeof(NetMessage);
 
 	bool resolved = false;
 	while (!resolved) {
@@ -85,7 +89,7 @@ bool NetSystem::host() {
 	isHost = true,
 	connected = false;
 
-	Message m;
+	NetMessage m;
 
 	int resu = SDLNet_TCP_Recv(socket, &m, sizeof(m));
 
@@ -161,7 +165,7 @@ bool NetSystem::client()
 
 	names[1] = myName;
 
-	Message m;
+	NetMessage m;
 
 	m.id = _m_CONNECTION_REQUEST;
 

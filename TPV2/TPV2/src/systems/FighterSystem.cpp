@@ -47,6 +47,10 @@ void FighterSystem::receive(const Message& m)
 		break;
 	case _m_BATTLE_RESTART:
 		spawnFighter();
+		break;
+	case _m_SETUP_MULTIPLAYER:
+		setupMultiplayer(m.isHost);
+		break;
 	default:
 		break;
 	}
@@ -56,6 +60,9 @@ void FighterSystem::receive(const Message& m)
 //y a un minimo y comprueba si ha salido de pantalla para moverla al lado contrario
 void FighterSystem::update()
 {
+	
+
+
 	if (!active_)
 		return;
 	fighterTransform->setPos(fighterTransform->getPos() + (fighterTransform->getVel() * Game::instance()->getDeltaTimeSeconds()));
