@@ -1,4 +1,5 @@
 #pragma once
+#include "../utils/Vector2D.h"
 #ifndef ECS_H_
 #define ECS_H_
 
@@ -41,12 +42,16 @@ enum msgId : msgId_type {
 	_m_START_ROUND_REQUEST,
 	_START_GAME_REQUEST,
 
+	_m_UPDATE_ENEMY_TRANSFORM,
 
-	_m_START_THE_GAME,
-	_m_START_THE_ROUND,
-	_m_FIGHTER_HIT,
-	_m_GAME_OVER,
-	_m_DISCONNECTING,
+
+	_m_NET_OTHER_FIGHTER_FORWARD,
+	_m_NET_OTHER_FIGHTER_LEFT,
+	_m_NET_OTHER_FIGHTER_RIGHT,
+	_m_NET_OTHER_FIGHTER_SHOOTS,
+	_m_NET_OTHER_FIGHTER_WINS,
+	_m_NET_OTHER_FIGHTER_LOSES,
+	_m_NET_OTHER_FIGHTER_DISCONNECTS,
 
 
 	_m_SETUP_MULTIPLAYER
@@ -86,6 +91,8 @@ struct NetMessage {
 
 	int nameSize;
 	char name[11];
+
+	
 
 	NetMessage() {}
 };

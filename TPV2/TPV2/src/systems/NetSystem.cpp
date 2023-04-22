@@ -1,5 +1,6 @@
 #include "NetSystem.h"
 #include "../sdlutils/SDLNetUtils.h"
+#include "../game/Game.h"
 
 void NetSystem::initSystem() {
 	
@@ -16,8 +17,10 @@ void NetSystem::update()
 	NetMessage* m;
 	if ((SDLNet_CheckSockets(socketSet, 0) > 0)&& SDLNet_SocketReady(socket)) {
 		if (SDLNet_TCP_Recv(socket, &m, sizeof(m))>0) {
-			switch (m->id) {
-				case 
+			Message message;
+			message.id = m->id;
+			
+			Game::instance()->send(message, true);
 			}
 		}
 	}
