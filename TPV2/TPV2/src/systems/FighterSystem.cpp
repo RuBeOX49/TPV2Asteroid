@@ -151,4 +151,21 @@ void FighterSystem::onRoundStart()
 
 void FighterSystem::setupMultiplayer(bool isHost)
 {
+
+	//Generar Fighter Izquierdo (host)
+	grpId_type leftFighter = isHost ? _grp_FIGHTER : _grp_ENEMY_FIGHTER;
+	Entity* fighter = mngr_->addEntity();
+	fighter->setGroup(leftFighter);
+	fighterTransform = mngr_->addComponent<Transform>(fighter, Vector2D(0, WIN_HEIGHT / 2), Vector2D(), 40, 40, 90);
+	mngr_->addComponent<HealthComponent>(fighter);
+	deAccData = mngr_->addComponent<DeAcceleration>(fighter);
+	mngr_->addComponent<Gun>(fighter);
+	mngr_->addComponent<FramedImage>(fighter, Game::getTexture("Ship"));
+	fighterCtrlData = mngr_->addComponent<FighterCtrl>(fighter);
+	thrust = &sdlutils().soundEffects().at("Thrust");
+	thrust->setVolume(10);
+
+	//Generar Fighter Derecho (cliente)
+	grpId_type rightFighter = !isHost ? _grp_FIGHTER : _grp_ENEMY_FIGHTER;
+
 }
