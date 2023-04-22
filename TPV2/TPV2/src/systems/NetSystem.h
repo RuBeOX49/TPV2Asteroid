@@ -27,6 +27,7 @@ public:
 
 	void setup();
 
+	void update();
 
 	void recieve(const Message& m);
 
