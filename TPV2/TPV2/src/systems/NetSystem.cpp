@@ -76,11 +76,33 @@ bool NetSystem::host() {
 		}
 	}
 
+	std::cout << "Como me llamo?";
+
+	std::cin >> myName;
 
 	names.push_back(myName);
 	hostName = myName;
 	isHost = true,
 	connected = false;
+
+	Message m;
+
+	int resu = SDLNet_TCP_Recv(socket, &m, sizeof(m));
+
+	std::cout << m.name;
+
+	m.id = _m_REQUEST_ACCEPTED;
+
+	auto nombreenc = myName.c_str();
+
+	for (int i = 0; i < myName.size(); i++)
+	{
+		m.name[i] = nombreenc[i];
+	}
+
+	SDLNet_TCP_Send(socket, &m, sizeof(m));
+
+
 	return true;
 
 }
@@ -105,6 +127,7 @@ bool NetSystem::client()
 	ip.port = port;
 	isHost = false;
 
+
 	//se conecta al masterSocket
 	socket = SDLNet_TCP_Open(&ip);
 	if (!socket) {
@@ -121,15 +144,30 @@ bool NetSystem::client()
 	SDLNet_TCP_AddSocket(socketSet, socket);
 	
 
+	std::cout << "Como me llamo?";
 
-	names.push_back(myName);
+	std::cin >> myName;
 
+	//names.push_back(myName);
 
 	Message m;
 
+	m.id = _m_CONNECTION_REQUEST;
+
+	auto nombreenc = myName.c_str();
+
+	for (int i = 0; i < myName.size(); i++)
+	{
+		m.name[i] = nombreenc[i];
+	}
+
+	SDLNet_TCP_Send(socket, &m, sizeof(m));
+
+	
+
 	int resu = SDLNet_TCP_Recv(socket, &m, sizeof(m));
 
-
+	std::cout << m.name;
 	
 
 
