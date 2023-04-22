@@ -13,10 +13,16 @@ void NetSystem::initSystem() {
 
 void NetSystem::update()
 {
-	NetMessage m;
-
-	
+	NetMessage* m;
+	if ((SDLNet_CheckSockets(socketSet, 0) > 0)&& SDLNet_SocketReady(socket)) {
+		if (SDLNet_TCP_Recv(socket, &m, sizeof(m))>0) {
+			switch (m->id) {
+				case 
+			}
+		}
+	}
 }
+
 
 void NetSystem::setup()
 {
