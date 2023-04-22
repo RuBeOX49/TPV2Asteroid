@@ -104,6 +104,7 @@ bool NetSystem::client()
 		return false;
 	}
 
+	ip.port = port;
 	isHost = false;
 
 	//se conecta al masterSocket
