@@ -55,6 +55,10 @@ void BulletsSystem::findFighter() {
 	}
 }
 
+void BulletsSystem::setupMultiplayer(bool isHost)
+{
+}
+
 //Aumenta el cooldown y destruye la bala si esta fuera de la pantalla
 void BulletsSystem::update()
 {

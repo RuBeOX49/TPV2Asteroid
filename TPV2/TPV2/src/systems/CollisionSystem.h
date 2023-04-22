@@ -28,6 +28,8 @@ private:
 		bool active_;
 		SoundEffect* explosion;
 
+		void setupMultiplayer(bool isHost);
+
 		//Maneja las colisiones entre fighter y asteroide
 		void handleFighterCollision(Entity* e, Entity* c);
 		

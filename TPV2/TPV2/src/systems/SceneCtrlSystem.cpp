@@ -135,3 +135,8 @@ void SceneCtrlSystem::onAsteroidsExtinction()
 	Game::instance()->send(m);
 	GameStateMachine::instance()->changeState(new WinState());
 }
+
+void SceneCtrlSystem::setupMultiplayer(bool isHost)
+{
+
+}

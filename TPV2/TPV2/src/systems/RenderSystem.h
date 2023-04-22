@@ -30,6 +30,7 @@ private:
 	Texture* healthTexture;
 	int currHealth = STARTING_HEALTH;
 	
+	void setupMultiplayer(bool isHost);
 
 	uint winner_; // 0 - None, 1 - Asteroid, 2- Fighter
 	uint state_; // El estado actual de juego (como en GameCtrlSystem)

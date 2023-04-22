@@ -23,6 +23,9 @@ void RenderSystem::receive(const Message& m) {
 	case _m_BATTLE_RESTART:
 		state_ = m.new_state_ID.state;
 		break;
+	case _m_SETUP_MULTIPLAYER:
+		setupMultiplayer(m.isHost);
+		break;
 	default:
 		break;
 	}
@@ -84,6 +87,10 @@ void RenderSystem::render() const
 void RenderSystem::onRoundStart()
 {
 	currHealth = STARTING_HEALTH;
+}
+
+void RenderSystem::setupMultiplayer(bool isHost)
+{
 }
 
 
