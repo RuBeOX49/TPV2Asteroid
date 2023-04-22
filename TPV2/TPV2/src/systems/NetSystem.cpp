@@ -46,17 +46,13 @@ void NetSystem::setup()
 
 
 bool NetSystem::host() {
-	Uint16 askedPort;
-	std::cout << "Enter a port number to use: ";
-	cin >> askedPort;
-
-	//masterSocket
+	Uint16 askedPort=100;
 
 	if (SDLNet_ResolveHost(&ip, nullptr, askedPort) < 0) {
 		SDLNetUtils::print_SDLNet_error();
 		return false;
 	}
-
+	cout << "Puerto:" << ip.port<<endl;
 	masterSocket = SDLNet_TCP_Open(&ip);
 
 
