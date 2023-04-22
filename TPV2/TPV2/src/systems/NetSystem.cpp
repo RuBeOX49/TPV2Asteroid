@@ -118,23 +118,6 @@ bool NetSystem::client()
 	}
 
 	std::cout << "all good so far!\n";
-	char* buffer = reinterpret_cast<char*>(packet->data);
-
-	memcpy(buffer, "Received!", 10);
-	packet->len = 10;
-	SDLNet_UDP_Send(socket, -1, packet);
 
 	return true;
-}
-
-void NetSystem::update() {
-
-	if (isHost) {
-		char* buffer = reinterpret_cast<char*>(packet->data);
-		while (SDLNet_UDP_Recv(socket, packet) > 0) {
-			cout << "Server says: " << buffer << endl;
-		}
-	}
-				
-	
 }
