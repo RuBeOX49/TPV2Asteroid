@@ -2,6 +2,7 @@
 #include "../ecs/System.h"
 #include "../game/constants.h"
 #include "../game/ecs_def.h"
+#include <array>
 #include <string>
 
 
@@ -14,7 +15,7 @@ private:
 	Uint16 port;
 
 	bool connected, isHost;
-	vector<string> names;
+	string names[2];
 	IPaddress ip;
 
 
@@ -36,6 +37,4 @@ public:
 	bool host();
 
 	bool client();
-
-	void handleConnectionRequest(Message m);
 };

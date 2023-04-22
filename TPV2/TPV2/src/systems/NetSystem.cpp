@@ -80,7 +80,7 @@ bool NetSystem::host() {
 
 	std::cin >> myName;
 
-	names.push_back(myName);
+	names[0]=myName;
 	hostName = myName;
 	isHost = true,
 	connected = false;
@@ -96,7 +96,7 @@ bool NetSystem::host() {
 	{
 		std::cout << m.name[i];
 	}std::cout << "\n";
-
+	names[1] = m.name;
 
 
 
@@ -159,7 +159,7 @@ bool NetSystem::client()
 
 	std::cin >> myName;
 
-	//names.push_back(myName);
+	names[1] = myName;
 
 	Message m;
 
@@ -184,13 +184,8 @@ bool NetSystem::client()
 		std::cout << m.name[i];
 	}std::cout << "\n";
 
-
+	names[0] =m.name;
 
 	
 	return true;
-}
-
-void NetSystem::handleConnectionRequest(Message m)
-{
-	
 }
