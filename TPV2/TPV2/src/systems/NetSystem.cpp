@@ -89,7 +89,16 @@ bool NetSystem::host() {
 
 	int resu = SDLNet_TCP_Recv(socket, &m, sizeof(m));
 
-	std::cout << m.name;
+
+
+
+	for (int i = 0; i < m.nameSize; i++)
+	{
+		std::cout << m.name[i];
+	}std::cout << "\n";
+
+
+
 
 	m.id = _m_REQUEST_ACCEPTED;
 
@@ -99,6 +108,7 @@ bool NetSystem::host() {
 	{
 		m.name[i] = nombreenc[i];
 	}
+	m.nameSize = myName.size();
 
 	SDLNet_TCP_Send(socket, &m, sizeof(m));
 
@@ -161,6 +171,7 @@ bool NetSystem::client()
 	{
 		m.name[i] = nombreenc[i];
 	}
+	m.nameSize = myName.size();
 
 	SDLNet_TCP_Send(socket, &m, sizeof(m));
 
@@ -168,8 +179,10 @@ bool NetSystem::client()
 
 	int resu = SDLNet_TCP_Recv(socket, &m, sizeof(m));
 
-	std::cout << "\n" << m.name;
-	
+	for (int i = 0; i < m.nameSize; i++)
+	{
+		std::cout << m.name[i];
+	}std::cout << "\n";
 
 
 

@@ -67,6 +67,8 @@ struct Message {
 	//Connection Propertues
 	bool side;
 	int num;
+
+	int nameSize;
 	char name[11];
 
 	Message() {}
