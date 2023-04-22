@@ -60,17 +60,23 @@ bool NetSystem::host() {
 	masterSocket = SDLNet_TCP_Open(&ip);
 
 
-	std::cout << "Esperando a que se conecte el cliente\n";
-	while ((socket = SDLNet_TCP_Accept(masterSocket)) == nullptr)
-		;
-
-	socketSet = SDLNet_AllocSocketSet(1);
+	socketSet = SDLNet_AllocSocketSet(2);
 	if (!socketSet) {
 		SDLNetUtils::print_SDLNet_error();
 		return false;
 	}
 
-	SDLNet_TCP_AddSocket(socketSet, socket);
+	SDLNet_TCP_AddSocket(socketSet, masterSocket);
+
+	std::cout << "Esperando a que se conecte el cliente\n";
+	if (SDLNet_CheckSockets(socketSet, SDL_MAX_UINT32) > 0) {
+		if (SDLNet_SocketReady(masterSocket)) {
+			socket = SDLNet_TCP_Accept(masterSocket);
+			cout << "SE CONECTO ALGUIEN" << endl;
+			SDLNet_TCP_AddSocket(socketSet, socket);
+			
+		}
+	}
 
 
 	names.push_back(myName);
