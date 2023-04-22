@@ -53,6 +53,8 @@ bool NetSystem::host() {
 		return false;
 	}
 	cout << "Puerto:" << ip.port<<endl;
+
+
 	masterSocket = SDLNet_TCP_Open(&ip);
 
 
@@ -95,7 +97,7 @@ bool NetSystem::client()
 		<< endl;
 	cin >> askedPort;
 
-	if (SDLNet_ResolveHost(&ip, askedHost.c_str(), port) < 0) {
+	if (SDLNet_ResolveHost(&ip, askedHost.c_str(), askedPort) < 0) {
 		SDLNetUtils::print_SDLNet_error();
 		return false;
 	}
