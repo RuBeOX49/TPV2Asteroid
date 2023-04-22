@@ -148,3 +148,7 @@ void FighterSystem::onRoundStart()
 	active_ = true;
 	
 }
+
+void FighterSystem::setupMultiplayer(bool isHost)
+{
+}

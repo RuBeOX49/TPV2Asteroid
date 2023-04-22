@@ -112,7 +112,9 @@ enum grpId : grpId_type {
 
 	_grp_ASTEROIDS,
 	_grp_BULLETS,
+	_grp_ENEMY_BULLETS,
 	_grp_FIGHTER,
+	_grp_ENEMY_FIGHTER,
 	_grp_UI,
 
 	_grp_NONE
