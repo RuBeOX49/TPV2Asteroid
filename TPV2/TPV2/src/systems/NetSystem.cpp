@@ -37,39 +37,35 @@ void NetSystem::setup()
 
 
 bool NetSystem::host() {
-	Uint16 puerto;
-
-	cout << "Port Number: ";
-	cin >> puerto;
-
-	socket = SDLNet_UDP_Open(puerto);
+	Uint16 askedPort;
+	std::cout << "Enter a port number to use: ";
+	cin >> askedPort;
+	socket = SDLNet_UDP_Open(askedPort);
 	if (!socket) {
-		cout << "Error en socket\n";
+		SDLNetUtils::print_SDLNet_error();
 		return false;
-	} 
+	}
 
 	socketSet = SDLNet_AllocSocketSet(1);
 	if (!socketSet) {
-		cout << "Error en socketset\n";
+		SDLNetUtils::print_SDLNet_error();
 		return false;
-	} 
+	}
 
 	SDLNet_UDP_AddSocket(socketSet, socket);
-	packet = SDLNet_AllocPacket(MAX_SIZE);
+	packet = SDLNet_AllocPacket(512);
 	if (!packet) {
-		cout << "Error en packet\n";
+		SDLNetUtils::print_SDLNet_error();
 		return false;
 	}
 
 	port = SDLNetUtils::getSocketPort(socket);
 
+
 	names.push_back(myName);
 	hostName = myName;
-	isHost = true;
+	isHost = true,
 	connected = false;
-
-
-
 	return true;
 
 }
@@ -77,47 +73,79 @@ bool NetSystem::host() {
 bool NetSystem::client()
 {
 
-	Uint16 puerto;
+	Uint16 askedPort;
+	std::string askedHost;
 
-	cout << "Server Port Number: ";
-	cin >> puerto;
+	std::cout << "Enter the host:" << endl;
+	cin >> askedHost;
+	std::cout << "Enter the port:"
+		<< endl;
+	cin >> askedPort;
 
-	std::string hostName;
-
-	cout << "Server Host Name: ";
-	cin >> hostName;
-
-	if (SDLNet_ResolveHost(&otherPlayerAdress, hostName.c_str(), puerto) < 0) {
-		std::cout << "Could not resolve hostname";
+	if (SDLNet_ResolveHost(&ip, askedHost.c_str(), port) < 0) {
+		SDLNetUtils::print_SDLNet_error();
 		return false;
 	}
 
-	socket = SDLNet_UDP_Open(0);
+	isHost = false;
+
+	socket = SDLNet_UDP_Open(port);
 	if (!socket) {
-		cout << "Error en socket\n";
+		SDLNetUtils::print_SDLNet_error();
 		return false;
 	}
 
 	socketSet = SDLNet_AllocSocketSet(1);
 	if (!socketSet) {
-		cout << "Error en socketset\n";
+		SDLNetUtils::print_SDLNet_error();
 		return false;
 	}
 
-	packet = SDLNet_AllocPacket(MAX_SIZE);
+	SDLNet_UDP_AddSocket(socketSet, socket);
+	packet = SDLNet_AllocPacket(512);
 	if (!packet) {
-		cout << "Error en packet\n";
+		SDLNetUtils::print_SDLNet_error();
 		return false;
 	}
 
 	port = SDLNetUtils::getSocketPort(socket);
-	if (!port)
+
+	names.push_back(myName);
+
+	Message m;
+
+	m.id =11;
+	m.side =isHost;
+	auto i = 0u;
+	for (; i < myName.size() && i < 10; i++) m.name[i] = myName[i];
+	m.name[i] = 0;
+
+	packet->address = ip;
+	SDLNetUtils::serializedSend(m, packet, socket);
+
+	if (SDLNet_CheckSockets(socketSet, 3000) > 0)
 	{
-		cout << "Error en socket port (cliente)\n";
-		return false;
+		if (SDLNet_SocketReady(socket))
+		{
+			SDLNetUtils::deserializedReceive(m, packet, socket);
+
+			if (m.id == _REQUEST_ACCEPTED)
+			{
+				net::ReqAccMsg m;
+				m.deserialize(p_->data);
+				side_ = m.side;
+				chars_to_string(names_[0], m.name);
+				hostName = names_[0];
+				host_ = false;
+				connected_ = true;
+			}
+		}
 	}
 
-	std::cout << "all good so far!\n";
+	if (!connected_) {
+		std::cout << "Could not connect to the other player " << std::endl;
+		return false;
+	}
 
 	return true;
 }

@@ -30,7 +30,19 @@ enum msgId : msgId_type {
 	_m_BATTLE_RESTART,
 	_m_SEND_FIGHTER,
 	_m_DESTROY_ALL_ASTEROIDS,
-	_m_ASTEROIDS_EXTINCTION
+	_m_ASTEROIDS_EXTINCTION,
+	_m_CONNECTION_REQUEST, 
+	_m_REQUEST_ACCEPTED,
+	_m_REQUEST_REFUSED,
+	_m_FIGHTER_POS,
+	_m_BULLETS_REC,
+	_m_START_ROUND_REQUEST,
+	_START_GAME_REQUEST, 
+	_m_START_THE_GAME,
+	_m_START_THE_ROUND,
+	_m_FIGHTER_HIT,
+	_m_GAME_OVER,
+	_m_DISCONNECTING
 };
 
 struct Message {
@@ -52,6 +64,10 @@ struct Message {
 	}fighter_address;
 	//_m_COLLISION_AST_SHIP
 	int remainingHealth {-1};
+	//Connection Propertues
+	bool side;
+	int num;
+	char name[11];
 
 	Message() {}
 	Message(msgId_type id): id(id) {}
