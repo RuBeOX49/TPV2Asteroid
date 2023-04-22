@@ -7,6 +7,31 @@ void NetSystem::initSystem() {
 
 }
 
+void NetSystem::update()
+{
+	Message m;
+
+	while (SDLNet_UDP_Recv(socket, packet) > 0)
+	{
+		m = (Message&)packet->data;
+
+		switch (m.id)
+		{
+		case _m_CONNECTION_REQUEST:
+			handleConnectionRequest(m);
+
+
+
+
+
+		default:
+			break;
+		}
+
+
+	}
+}
+
 void NetSystem::setup()
 {
 	bool resolved = false;
@@ -114,13 +139,22 @@ bool NetSystem::client()
 
 	Message m;
 
-	m.id =11;
+	m.id = _m_CONNECTION_REQUEST;
 	m.side =isHost;
 	auto i = 0u;
+
+
 	for (; i < myName.size() && i < 10; i++) m.name[i] = myName[i];
 	m.name[i] = 0;
 
 	packet->address = ip;
+
+
+	while (SDLNet_UDP_Send(socket, -1, packet) == 0) {
+		std::cout << "Error enviando paquete\n";
+	}
+
+
 
 	if (SDLNet_CheckSockets(socketSet, 3000) > 0)
 	{
@@ -143,4 +177,29 @@ bool NetSystem::client()
 	}
 
 	return true;
+}
+
+void NetSystem::handleConnectionRequest(Message m)
+{
+	if (!connected && isHost) {
+
+		//hacer cosas de rellenar
+
+		ip = packet->address;
+		
+		
+		Message accepted;
+
+
+		accepted.id = _m_REQUEST_ACCEPTED;
+
+
+		packet->data = accepted;
+		
+		
+
+		SDLNet_UDP_Send(socket, -1, packet);
+
+		connected = true;
+	}
 }

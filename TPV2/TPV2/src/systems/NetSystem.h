@@ -28,6 +28,8 @@ public:
 
 	void initSystem() override;
 
+	void update() override;
+
 	void setup();
 
 	void recieve(const Message& m);
@@ -35,4 +37,6 @@ public:
 	bool host();
 
 	bool client();
+
+	void handleConnectionRequest(Message m);
 };
