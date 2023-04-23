@@ -50,7 +50,7 @@ void FighterSystem::receive(const Message& m)
 		break;
 	case _m_SETUP_MULTIPLAYER:
 		onRoundStart();
-		setupMultiplayer(m.isHost);
+		setupMultiplayer(m.name,m.nameRival, m.isHost);
 		break;
 	case _m_NET_OTHER_FIGHTER_FORWARD:
 		enemyForward();
@@ -250,13 +250,14 @@ void FighterSystem::onRoundStart()
 	
 }
 
-void FighterSystem::setupMultiplayer(bool isHost)
+void FighterSystem::setupMultiplayer(string name, string nameRival, bool isHost)
 {
 
 	//Generar Fighter Izquierdo (host)
 	Vector2D playerFighterPos = isHost ? Vector2D(0, WIN_HEIGHT / 2) : Vector2D(WIN_WIDTH - 40, WIN_HEIGHT / 2);
 	int rotation = isHost ? 90 : 270;
 
+	
 
 	fighter = mngr_->addEntity();
 	fighter->setGroup(_grp_FIGHTER);
@@ -268,6 +269,11 @@ void FighterSystem::setupMultiplayer(bool isHost)
 	fighterCtrlData = mngr_->addComponent<FighterCtrl>(fighter);
 	thrust = &sdlutils().soundEffects().at("Thrust");
 	thrust->setVolume(10);
+
+	Texture* nameTexture = new Texture(SDLUtils::instance()->renderer(), name, *(Game::instance()->getGameFont()), build_sdlcolor("0x2020ffff"));
+	auto text = mngr_->addEntity();
+	nameTransform = mngr_->addComponent<Transform>(text, playerFighterPos + Vector2D(0, -fighterTransform->getHeight()/2), Vector2D(0, 0), nameTexture->width(), nameTexture->height());
+	mngr_->addComponent<FramedImage>(text, nameTexture);
 
 	//Generar Fighter Derecho (cliente)
 	Vector2D enemyFighterPos = !isHost ? Vector2D(0, WIN_HEIGHT / 2) : Vector2D(WIN_WIDTH - 40, WIN_HEIGHT / 2);
@@ -281,6 +287,10 @@ void FighterSystem::setupMultiplayer(bool isHost)
 	mngr_->addComponent<Gun>(enemyFighter);
 	mngr_->addComponent<FramedImage>(enemyFighter, Game::getTexture("Ship"));
 
+	Texture* nameTextureRival = new Texture(SDLUtils::instance()->renderer(), nameRival, *(Game::instance()->getGameFont()), build_sdlcolor("0x2020ffff"));
+	auto text1 = mngr_->addEntity();
+	enemyNameTransform = mngr_->addComponent<Transform>(text, enemyFighterPos + Vector2D(0, -enemyFighterTransform->getWidth()), Vector2D(0, 0), nameTextureRival->width(), nameTextureRival->height());
+	mngr_->addComponent<FramedImage>(text, nameTextureRival);
 
 	Message m(_m_FIND_FIGHTER);
 	Game::instance()->send(m);

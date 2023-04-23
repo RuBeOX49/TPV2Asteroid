@@ -3,7 +3,6 @@
 #include "../game/Game.h"
 
 void NetSystem::initSystem() {
-	
 }
 
 void NetSystem::update()
@@ -64,6 +63,8 @@ void NetSystem::setup()
 
 	m.id = _m_SETUP_MULTIPLAYER;
 	m.isHost = isHost;
+	m.name = names[0];
+	m.nameRival = names[1];
 	Game::instance()->send(m, true);
 }
 
@@ -151,13 +152,14 @@ bool NetSystem::host() {
 	int resu = SDLNet_TCP_Recv(socket, &m, sizeof(m));
 
 
-
+	string rivalName = "";
 
 	for (int i = 0; i < m.nameSize; i++)
 	{
+		rivalName += m.name[i];
 		std::cout << m.name[i];
 	}std::cout << "\n";
-	names[1] = m.name;
+	names[1] = rivalName;
 
 
 
@@ -240,12 +242,14 @@ bool NetSystem::client()
 
 	int resu = SDLNet_TCP_Recv(socket, &m, sizeof(m));
 
+	string rivalName="";
 	for (int i = 0; i < m.nameSize; i++)
 	{
+		rivalName += m.name[i];
 		std::cout << m.name[i];
 	}std::cout << "\n";
 
-	names[0] =m.name;
+	names[0] =rivalName;
 
 	
 	return true;

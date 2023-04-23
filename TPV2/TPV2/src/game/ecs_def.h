@@ -88,6 +88,8 @@ struct Message {
 	
 	//_m_SETUP_MULTIPLAYER
 	bool isHost;
+	std::string name;
+	std::string nameRival;
 
 	//_m_SEND_NET_MESSAGE
 	msgId_type netMessageID;

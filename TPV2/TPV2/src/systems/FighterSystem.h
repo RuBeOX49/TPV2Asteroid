@@ -41,7 +41,7 @@ private:
 	// Indica si el sistema está activo o no (modificar el valor en onRoundOver y
 	// onRoundStart, y en update no hacer nada si no está activo)
 
-	void setupMultiplayer(bool isHost);
+	void setupMultiplayer(string name, string nameEnemy, bool isHost);
 
 	void enemyForward();
 
@@ -54,6 +54,8 @@ private:
 	Transform* fighterTransform;
 	Entity* enemyFighter;
 	Transform* enemyFighterTransform;
+	Transform* nameTransform;
+	Transform* enemyNameTransform;
 	FighterCtrl* fighterCtrlData;
 	DeAcceleration* deAccData;
 };
