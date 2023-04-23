@@ -24,7 +24,6 @@ public:
 
 	~RenderSystem(){
 		delete nameTexture;
-		delete healthTexture;
 		delete enemyNameTexture;
 	}
 
