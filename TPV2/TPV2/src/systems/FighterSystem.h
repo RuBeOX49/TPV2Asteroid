@@ -58,4 +58,7 @@ private:
 	Transform* enemyNameTransform;
 	FighterCtrl* fighterCtrlData;
 	DeAcceleration* deAccData;
+
+	Texture* nameTexture;
+	Texture* enemyNameTexture;
 };

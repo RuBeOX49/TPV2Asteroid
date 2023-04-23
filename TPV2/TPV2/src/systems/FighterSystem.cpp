@@ -270,7 +270,7 @@ void FighterSystem::setupMultiplayer(string name, string nameRival, bool isHost)
 	thrust = &sdlutils().soundEffects().at("Thrust");
 	thrust->setVolume(10);
 
-	Texture* nameTexture = new Texture(SDLUtils::instance()->renderer(), name, *(Game::instance()->getGameFont()), build_sdlcolor("0x2020ffff"));
+	nameTexture = new Texture(SDLUtils::instance()->renderer(), name, *(Game::instance()->getGameFont()), build_sdlcolor("0x2020ffff"));
 	auto text = mngr_->addEntity();
 	nameTransform = mngr_->addComponent<Transform>(text, playerFighterPos + Vector2D(0, -fighterTransform->getHeight()/2), Vector2D(0, 0), nameTexture->width(), nameTexture->height());
 	mngr_->addComponent<FramedImage>(text, nameTexture);
@@ -287,7 +287,7 @@ void FighterSystem::setupMultiplayer(string name, string nameRival, bool isHost)
 	mngr_->addComponent<Gun>(enemyFighter);
 	mngr_->addComponent<FramedImage>(enemyFighter, Game::getTexture("Ship"));
 
-	Texture* nameTextureRival = new Texture(SDLUtils::instance()->renderer(), nameRival, *(Game::instance()->getGameFont()), build_sdlcolor("0x2020ffff"));
+	enemyNameTexture = new Texture(SDLUtils::instance()->renderer(), nameRival, *(Game::instance()->getGameFont()), build_sdlcolor("0x2020ffff"));
 	auto text1 = mngr_->addEntity();
 	enemyNameTransform = mngr_->addComponent<Transform>(text, enemyFighterPos + Vector2D(0, -enemyFighterTransform->getWidth()), Vector2D(0, 0), nameTextureRival->width(), nameTextureRival->height());
 	mngr_->addComponent<FramedImage>(text, nameTextureRival);
