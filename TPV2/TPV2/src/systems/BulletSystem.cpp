@@ -75,6 +75,7 @@ void BulletsSystem::findFighter() {
 void BulletsSystem::setupMultiplayer(bool isHost)
 {
 	findFighter();
+	multiplayer = true;
 }
 
 //Aumenta el cooldown y destruye la bala si esta fuera de la pantalla
@@ -82,7 +83,10 @@ void BulletsSystem::update()
 {
 	if (!active_)
 		return;
+	
 	shipGun->setLastTimeShot(shipGun->getLastTimeShot() + Game::instance()->getDeltaTime());
+	if (multiplayer)
+		enemyShipGun->setLastTimeShot(enemyShipGun->getLastTimeShot() + Game::instance()->getDeltaTime());
 	for (auto var : mngr_->getEntities()) {
 		if (var->getGroup() == _grp_BULLETS) {
 			Transform* bulletTransform = mngr_->getComponent<Transform>(var);
