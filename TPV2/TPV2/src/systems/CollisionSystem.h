@@ -27,6 +27,7 @@ private:
 		// onRoundStart, y en update no hacer nada si no está activo)
 		bool active_;
 		bool multiplayer=false;
+		bool isHost;
 		SoundEffect* explosion;
 
 		void setupMultiplayer(bool isHost);

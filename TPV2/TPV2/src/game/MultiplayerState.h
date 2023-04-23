@@ -5,8 +5,12 @@ class MultiplayerState : public GameState
 {
 public:
 
+	Texture* waitingTexture;
+
 	MultiplayerState();
-	~MultiplayerState();
+	~MultiplayerState() {
+		delete waitingTexture;
+	}
 
 private:
 

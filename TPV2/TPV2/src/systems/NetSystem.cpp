@@ -65,6 +65,10 @@ void NetSystem::receive(const Message& m)
 	case _m_SEND_NET_MESSAGE:
 		sendNetMessage(m.netMessageID);
 		break;
+	case _m_DEFEAT:
+		sendNetMessage(_m_NET_NOTIFIY_VICTORY);
+		Message m;
+		m.id = _m_CHANGE_STATE;
 	default:
 		break;
 	}

@@ -7,6 +7,10 @@
 #include "../game/PauseState.h"
 #include "../game/BattleState.h"
 #include "../game/MultiplayerState.h"
+#include "../game/MainMenuState.h"
+#include "../game/MultiplayerVictoryState.h"
+#include "../game/MultiplayerDefeatState.h"
+#include "../game/DisconnectState.h"
 #include "../sdlutils/InputHandler.h"
 
 
@@ -29,6 +33,10 @@ void SceneCtrlSystem::receive(const Message& m)
 	case _m_SETUP_MULTIPLAYER:
 		setupMultiplayer(m.isHost);
 		break;
+	case _m_DEFEAT:
+		initDefeatState();
+	case _m_NET_NOTIFIY_VICTORY:
+		initVictoryState();
 	default:
 		break;
 	}
@@ -76,6 +84,17 @@ void SceneCtrlSystem::update()
 			Game::instance()->send(m, true);
 			GameStateMachine::instance()->changeState(new BattleState());
 			
+			break;
+		case state_MULTIPLAYER_VICTORY:
+		case state_MULTIPLAYER_DEFEAT:
+		case state_MULTIPLAYER_DISCONNECT:
+
+			m.id = _m_CHANGE_STATE;
+			m.new_state_ID.state = state_MAINMENU;
+
+			Game::instance()->send(m, true);
+			GameStateMachine::instance()->changeState(new MainMenuState());
+
 			break;
 		default:
 			std::cout << "state_ sin definir\n";
@@ -139,4 +158,26 @@ void SceneCtrlSystem::onAsteroidsExtinction()
 void SceneCtrlSystem::setupMultiplayer(bool isHost)
 {
 
+}
+
+void SceneCtrlSystem::initDefeatState()
+{
+	Message m;
+
+	m.id = _m_CHANGE_STATE;
+	m.new_state_ID.state = state_MULTIPLAYER_DEFEAT;
+
+	Game::instance()->send(m);
+	GameStateMachine::instance()->changeState(new MultiplayerDefeatState());
+}
+
+void SceneCtrlSystem::initVictoryState()
+{
+	Message m;
+
+	m.id = _m_CHANGE_STATE;
+	m.new_state_ID.state = state_MULTIPLAYER_VICTORY;
+
+	Game::instance()->send(m);
+	GameStateMachine::instance()->changeState(new MultiplayerVictoryState());
 }

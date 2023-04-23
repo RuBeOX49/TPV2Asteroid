@@ -36,28 +36,36 @@ void CollisionsSystem::update()
 	if (!active_)
 		return;
 
-	for (auto e : mngr_->getEntities())
+	if (multiplayer)
 	{
-		if (e->getGroup() == _grp_ASTEROIDS) {
-			for (auto c : mngr_->getEntities())
-			{
-				if (c->getGroup() == _grp_BULLETS)
-				{
-					handleBulletCollision(e, c);
-				}
+		for (auto e : mngr_->getEntities()) {
 
-				if (c->getGroup() == _grp_FIGHTER)
-				{
+			if (e->getGroup() == _grp_FIGHTER) {
+				for (auto c : mngr_->getEntities()) {
 
-					handleFighterCollision(e, c);
+					if (c->getGroup() == _grp_ENEMY_BULLETS)
+					{
+						handleNetCollision(e, c);
+					}
 				}
 			}
 		}
-		if (multiplayer) {
-			if (e->getGroup() == _grp_ENEMY_BULLETS) {
-				for (auto c : mngr_->getEntities()) {
-					if (c->getGroup() == _grp_FIGHTER) {
-						handleNetCollision(e, c);
+	}
+	else {
+		for (auto e : mngr_->getEntities())
+		{
+			if (e->getGroup() == _grp_ASTEROIDS) {
+				for (auto c : mngr_->getEntities())
+				{
+					if (c->getGroup() == _grp_BULLETS)
+					{
+						handleBulletCollision(e, c);
+					}
+
+					if (c->getGroup() == _grp_FIGHTER)
+					{
+
+						handleFighterCollision(e, c);
 					}
 				}
 			}
@@ -79,6 +87,7 @@ void CollisionsSystem::onRoundStart()
 
 void CollisionsSystem::setupMultiplayer(bool isHost)
 {
+	isHost = isHost;
 	multiplayer = true;
 }
 
@@ -129,9 +138,9 @@ void CollisionsSystem::handleNetCollision(Entity* e, Entity* c) {
 	if (Collisions::collidesWithRotation(eTr->getPos(), eTr->getWidth(), eTr->getHeight(), eTr->getRotation(),
 		cTr->getPos(), cTr->getWidth(), cTr->getHeight(), cTr->getRotation())) {
 
-		Message m;
-		m.id = _m_NET_OTHER_FIGHTER_WINS;
-		cout << "Victoria";
-		Game::instance()->send(m);
+		Message m2(_m_DEFEAT);
+
+		Game::instance()->send(m2);
+
 	}
 }
