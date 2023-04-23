@@ -21,8 +21,8 @@ MultiplayerState::MultiplayerState()
 	mngr->addComponent<Transform>(text, Vector2D(WIN_WIDTH / 2 - waitingTexture->width() / 2, waitingTexture->height() + 100), Vector2D(0, 0), waitingTexture->width(), waitingTexture->height());
 	mngr->addComponent<FramedImage>(text, waitingTexture);
 
-	Game::instance()->addSystem<NetSystem>();
-
+	Game::instance()->getSystem<NetSystem>()->setup();
+	
 	//Not waiting anymore
 	text->setAlive(false);
 

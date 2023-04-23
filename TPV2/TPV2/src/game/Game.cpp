@@ -10,6 +10,7 @@
 #include "../systems/CollisionSystem.h"
 #include "../systems/FighterSystem.h"
 #include "../systems/SceneCtrlSystem.h"
+#include "../systems/NetSystem.h"
 
 // Constructora
 Game::Game() {
@@ -56,6 +57,7 @@ void Game::run() {
 	addSystem<CollisionsSystem>();
 	addSystem<BulletsSystem>();
 	addSystem<SceneCtrlSystem>();
+	addSystem<NetSystem>();
 
 	setAllSystemsContext();
 

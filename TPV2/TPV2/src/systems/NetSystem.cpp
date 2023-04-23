@@ -4,13 +4,6 @@
 
 void NetSystem::initSystem() {
 	
-	setup();
-
-	Message m;
-
-	m.id = _m_SETUP_MULTIPLAYER;
-	m.isHost = isHost;
-	Game::instance()->send(m, true);
 }
 
 void NetSystem::update()
@@ -24,7 +17,13 @@ void NetSystem::update()
 			message.id = m.id;
 			Game::instance()->send(message, true);
 		}
+		if (SDLNet_TCP_Recv(socket, &m, sizeof(m)) == 0)
+		{
+			//desconectado
+			std::cout << "Desconectado";
+		}
 	}
+	
 }
 
 
@@ -56,6 +55,11 @@ void NetSystem::setup()
 		}
 	}
 
+	Message m;
+
+	m.id = _m_SETUP_MULTIPLAYER;
+	m.isHost = isHost;
+	Game::instance()->send(m, true);
 }
 
 void NetSystem::receive(const Message& m)
@@ -67,6 +71,16 @@ void NetSystem::receive(const Message& m)
 		break;
 	case _m_DEFEAT:
 		sendNetMessage(_m_NET_NOTIFIY_VICTORY);
+		break;
+	case m_DISCONNECT:
+		endConnection();
+		break;
+	case _m_CHANGE_STATE:
+		if (m.new_state_ID.state == state_MULTIPLAYER_DEFEAT
+			|| m.new_state_ID.state == state_MULTIPLAYER_VICTORY
+			|| m.new_state_ID.state == state_MULTIPLAYER_DISCONNECT)
+			endConnection();
+		break;
 	default:
 		break;
 	}
@@ -229,4 +243,14 @@ bool NetSystem::client()
 
 	
 	return true;
+}
+
+void NetSystem::endConnection()
+{
+
+	SDLNet_TCP_DelSocket(socketSet, socket);
+
+	if (host)
+		SDLNet_TCP_DelSocket(socketSet, masterSocket);
+
 }

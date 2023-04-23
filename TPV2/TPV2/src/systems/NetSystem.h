@@ -23,6 +23,10 @@ private:
 public:
 	constexpr static sysId_type id = sys_NET;
 
+	~NetSystem() {
+		endConnection();
+	}
+
 	string myName = "";
 	string hostName = "";
 
@@ -39,4 +43,6 @@ public:
 	bool host();
 
 	bool client();
+
+	void endConnection();
 };
