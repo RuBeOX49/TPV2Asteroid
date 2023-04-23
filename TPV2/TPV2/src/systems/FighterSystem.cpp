@@ -119,7 +119,37 @@ void FighterSystem::update()
 		else if (pos.getY() > WIN_HEIGHT) {
 			fighterTransform->setY(0 - fighterTransform->getHeight());
 		}
-		
+		if (multiplayer) {
+			enemyFighterTransform->setPos(enemyFighterTransform->getPos() + (enemyFighterTransform->getVel() * Game::instance()->getDeltaTimeSeconds()));
+			deAccData->setDeAccTimer(deAccData->getDeAaccTimer() + Game::instance()->getDeltaTime());
+
+
+			if (enemyFighterTransform->getVel().magnitude() > 5 && deAccData->getDeAaccTimer() > 1000) {
+				enemyFighterTransform->setVel(enemyFighterTransform->getVel() * 0.9);
+				deAccData->setDeAccTimer(0);
+			}
+			else if (deAccData->getDeAaccTimer() > 1000) {
+				enemyFighterTransform->setVel(Vector2D(0, 0));
+				deAccData->setDeAccTimer(0);
+			}
+
+			Vector2D pos = enemyFighterTransform->getPos();
+
+			if (pos.getX() < 0 - enemyFighterTransform->getWidth()) {
+
+				enemyFighterTransform->setX(WIN_WIDTH);
+			}
+			else if (pos.getX() > WIN_WIDTH) {
+				enemyFighterTransform->setX(0 - enemyFighterTransform->getWidth());
+			}
+
+			if (pos.getY() < 0 - enemyFighterTransform->getHeight()) {
+				enemyFighterTransform->setY(WIN_HEIGHT);
+			}
+			else if (pos.getY() > WIN_HEIGHT) {
+				enemyFighterTransform->setY(0 - enemyFighterTransform->getHeight());
+			}
+		}
 }
 
 //Comprueba la w para acelerar, a y d para girar y s para mandar el mensaje de disparo
@@ -245,7 +275,7 @@ void FighterSystem::setupMultiplayer(bool isHost)
 
     enemyFighter = mngr_->addEntity();
 	enemyFighter->setGroup(_grp_ENEMY_FIGHTER);
-	fighterTransform = mngr_->addComponent<Transform>(enemyFighter, enemyFighterPos, Vector2D(), 40, 40, rotation);
+	enemyFighterTransform = mngr_->addComponent<Transform>(enemyFighter, enemyFighterPos, Vector2D(), 40, 40, rotation);
 	mngr_->addComponent<HealthComponent>(enemyFighter);
 	deAccData = mngr_->addComponent<DeAcceleration>(enemyFighter);
 	mngr_->addComponent<Gun>(enemyFighter);
