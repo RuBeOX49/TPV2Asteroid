@@ -250,7 +250,7 @@ void NetSystem::endConnection()
 
 	SDLNet_TCP_DelSocket(socketSet, socket);
 
-	if (host)
+	if (isHost)
 		SDLNet_TCP_DelSocket(socketSet, masterSocket);
 
 }
