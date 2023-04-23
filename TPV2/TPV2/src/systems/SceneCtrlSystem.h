@@ -29,7 +29,6 @@ private:
 	void onAsteroidsExtinction();
 	stateID state_; // El estado actual del juego (en lugar del componente State)
 
-	void setupMultiplayer(bool isHost);
 
 	//Inician las escenas pertinentes al recibir un mensaje de red de control de escena
 	void initDefeatState();

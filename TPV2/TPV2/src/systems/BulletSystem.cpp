@@ -31,7 +31,7 @@ void BulletsSystem::receive(const Message& m)
 		break;
 	case _m_SETUP_MULTIPLAYER:
 		onRoundStart();
-		setupMultiplayer(m.isHost);
+		setupMultiplayer();
 		break;
 	case _m_NET_OTHER_FIGHTER_SHOOTS:
 		shoot(
@@ -74,7 +74,7 @@ void BulletsSystem::findFighter() {
 	}
 }
 
-void BulletsSystem::setupMultiplayer(bool isHost)
+void BulletsSystem::setupMultiplayer()
 {
 	findFighter();
 	multiplayer = true;

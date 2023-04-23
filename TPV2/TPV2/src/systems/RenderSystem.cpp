@@ -24,7 +24,7 @@ void RenderSystem::receive(const Message& m) {
 		state_ = m.new_state_ID.state;
 		break;
 	case _m_SETUP_MULTIPLAYER:
-		setupMultiplayer(m.name, m.enemyName, m.isHost);
+		setupMultiplayer(m.name, m.enemyName);
 		break;
 	default:
 		break;
@@ -103,7 +103,7 @@ void RenderSystem::onRoundStart()
 	currHealth = STARTING_HEALTH;
 }
 
-void RenderSystem::setupMultiplayer(string name, string enemyName, bool isHost)
+void RenderSystem::setupMultiplayer(string name, string enemyName)
 {
 	//findFighters
 	for (auto var : mngr_->getEntities()) {

@@ -42,8 +42,8 @@ private:
 	Texture* nameTexture;
 	Texture* enemyNameTexture;
 
-	//Inicializa las texturas necesarias para el modo multijugador
-	void setupMultiplayer(string name, string nameRival, bool isHost);
+	//Inicializa las texturas y referencias necesarias para el modo multijugador
+	void setupMultiplayer(string name, string nameRival);
 	bool multiplayer = false;
 
 	uint winner_; // 0 - None, 1 - Asteroid, 2- Fighter

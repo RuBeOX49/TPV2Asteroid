@@ -40,7 +40,7 @@ private:
 	void findFighter();
 
 	// Actualiza las referencias y cambia el modo del sistema a multijugador
-	void setupMultiplayer(bool isHost);
+	void setupMultiplayer();
 
 	SoundEffect* shotSound;
 	Transform* shipTransform;

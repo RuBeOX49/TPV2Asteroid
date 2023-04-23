@@ -25,8 +25,6 @@ void NetSystem::update()
 void NetSystem::setup()
 {
 	canReceive = true;
-	std::cout << sizeof(NetMessage);
-
 	bool resolved = false;
 	while (!resolved) {
 		char choice;

@@ -30,9 +30,7 @@ void SceneCtrlSystem::receive(const Message& m)
 	case _m_ASTEROIDS_EXTINCTION:
 		onAsteroidsExtinction();
 		break;
-	case _m_SETUP_MULTIPLAYER:
-		setupMultiplayer(m.isHost);
-		break;
+	
 	case _m_DEFEAT:
 		initDefeatState();
 		break;
@@ -160,10 +158,6 @@ void SceneCtrlSystem::onAsteroidsExtinction()
 	GameStateMachine::instance()->changeState(new WinState());
 }
 
-void SceneCtrlSystem::setupMultiplayer(bool isHost)
-{
-
-}
 
 void SceneCtrlSystem::initDefeatState()
 {
