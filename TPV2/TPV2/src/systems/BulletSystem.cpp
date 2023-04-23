@@ -90,7 +90,7 @@ void BulletsSystem::update()
 	if (multiplayer)
 		enemyShipGun->setLastTimeShot(enemyShipGun->getLastTimeShot() + Game::instance()->getDeltaTime());
 	for (auto var : mngr_->getEntities()) {
-		if (var->getGroup() == _grp_BULLETS) {
+		if (var->getGroup() == _grp_BULLETS||var->getGroup()==_grp_ENEMY_BULLETS) {
 			Transform* bulletTransform = mngr_->getComponent<Transform>(var);
 			bulletTransform->setPos(bulletTransform->getPos() + (bulletTransform->getVel() * Game::instance()->getDeltaTimeSeconds()));
 			Vector2D currentPos = mngr_->getComponent<Transform>(var)->getPos();
@@ -119,7 +119,7 @@ void BulletsSystem::shoot(Vector2D pos, Vector2D vel, double width, double heigh
 			//Velocidad
 			vel,
 			//Ancho, alto y rotacion
-			width, height, shipTransform->getRotation());
+			width, height, ((id == _grp_BULLETS) ? shipTransform : enemyShipTransform)->getRotation());
 		mngr_->addComponent<FramedImage>(bullet, Game::getTexture("Bullet"));
 		
 		currentGun->setLastTimeShot(0);
