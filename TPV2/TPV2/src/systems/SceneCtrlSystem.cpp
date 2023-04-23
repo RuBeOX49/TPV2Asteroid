@@ -39,6 +39,9 @@ void SceneCtrlSystem::receive(const Message& m)
 	case _m_NET_NOTIFIY_VICTORY:
 		initVictoryState();
 		break;
+	case m_DISCONNECT:
+		initDisconnectState();
+		break;
 	default:
 		break;
 	}
@@ -182,4 +185,15 @@ void SceneCtrlSystem::initVictoryState()
 
 	Game::instance()->send(m);
 	GameStateMachine::instance()->changeState(new MultiplayerVictoryState());
+}
+
+void SceneCtrlSystem::initDisconnectState()
+{
+	Message m;
+
+	m.id = _m_CHANGE_STATE;
+	m.new_state_ID.state = state_MULTIPLAYER_DISCONNECT;
+
+	Game::instance()->send(m);
+	GameStateMachine::instance()->changeState(new DisconnectState());
 }

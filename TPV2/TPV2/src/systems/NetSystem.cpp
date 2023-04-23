@@ -101,7 +101,8 @@ void NetSystem::sendNetMessage(msgId_type id)
 	int sentData = SDLNet_TCP_Send(socket, &m, sizeof(m));
 	if (sentData != sizeof(m))
 	{
-		SDLNetUtils::print_SDLNet_error();
+		//Error, desconectando
+		Game::instance()->send(Message(m_DISCONNECT));
 	}
 }
 
