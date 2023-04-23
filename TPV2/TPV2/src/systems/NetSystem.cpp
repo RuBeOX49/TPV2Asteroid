@@ -63,8 +63,8 @@ void NetSystem::setup()
 
 	m.id = _m_SETUP_MULTIPLAYER;
 	m.isHost = isHost;
-	m.name = names[0];
-	m.enemyName = names[1];
+	m.name = isHost ? names[0]: names[1];
+	m.enemyName = isHost? names[1]: names[0];
 	Game::instance()->send(m, true);
 }
 
