@@ -28,6 +28,3 @@ MultiplayerState::MultiplayerState()
 
 }
 
-MultiplayerState::~MultiplayerState()
-{
-}
