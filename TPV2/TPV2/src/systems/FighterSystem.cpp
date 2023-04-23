@@ -289,8 +289,8 @@ void FighterSystem::setupMultiplayer(string name, string nameRival, bool isHost)
 
 	enemyNameTexture = new Texture(SDLUtils::instance()->renderer(), nameRival, *(Game::instance()->getGameFont()), build_sdlcolor("0x2020ffff"));
 	auto text1 = mngr_->addEntity();
-	enemyNameTransform = mngr_->addComponent<Transform>(text, enemyFighterPos + Vector2D(0, -enemyFighterTransform->getWidth()), Vector2D(0, 0), nameTextureRival->width(), nameTextureRival->height());
-	mngr_->addComponent<FramedImage>(text, nameTextureRival);
+	enemyNameTransform = mngr_->addComponent<Transform>(text, enemyFighterPos + Vector2D(0, -enemyFighterTransform->getWidth()), Vector2D(0, 0), enemyNameTexture->width(), enemyNameTexture->height());
+	mngr_->addComponent<FramedImage>(text1, enemyNameTexture);
 
 	Message m(_m_FIND_FIGHTER);
 	Game::instance()->send(m);
