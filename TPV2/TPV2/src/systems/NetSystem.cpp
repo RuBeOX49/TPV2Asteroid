@@ -91,9 +91,6 @@ void NetSystem::receive(const Message& m)
 
 void NetSystem::sendNetMessage(msgId_type id)
 {
-	if (!connected)
-		return;
-
 	NetMessage m;
 	m.id = id;
 
