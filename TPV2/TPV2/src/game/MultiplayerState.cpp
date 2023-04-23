@@ -9,7 +9,7 @@ MultiplayerState::MultiplayerState()
 	
 
 	soundTrack = &sdlutils().soundEffects().at("Navesitas");
-	soundTrack->play();
+	soundTrack->play(-1);
 	Entity* background = mngr->addEntity();
 	mngr->addComponent<Transform>(background, Vector2D(0, 0), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
 	mngr->addComponent<FramedImage>(background, Game::getTexture("Background"));

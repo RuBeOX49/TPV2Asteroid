@@ -2,9 +2,6 @@
 #include "../sdlutils/SDLNetUtils.h"
 #include "../game/Game.h"
 
-void NetSystem::initSystem() {
-}
-
 void NetSystem::update()
 {
 	if (!connected)

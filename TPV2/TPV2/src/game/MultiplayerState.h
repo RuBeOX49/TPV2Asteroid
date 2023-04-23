@@ -9,6 +9,7 @@ public:
 
 	MultiplayerState();
 	~MultiplayerState() {
+		soundTrack->haltChannel();
 		delete waitingTexture;
 	}
 

@@ -50,7 +50,7 @@ void FighterSystem::receive(const Message& m)
 		break;
 	case _m_SETUP_MULTIPLAYER:
 		onRoundStart();
-		setupMultiplayer(m.name,m.enemyName, m.isHost);
+		setupMultiplayer(m.isHost);
 		break;
 	case _m_NET_OTHER_FIGHTER_FORWARD:
 		enemyForward();
