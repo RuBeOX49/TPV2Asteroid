@@ -225,6 +225,9 @@ void FighterSystem::setupMultiplayer(bool isHost)
 
 	//Generar Fighter Izquierdo (host)
 	Vector2D playerFighterPos = isHost ? Vector2D(0, WIN_HEIGHT / 2) : Vector2D(WIN_WIDTH - 40, WIN_HEIGHT / 2);
+
+
+
 	fighter = mngr_->addEntity();
 	fighter->setGroup(_grp_FIGHTER);
 	fighterTransform = mngr_->addComponent<Transform>(fighter, playerFighterPos, Vector2D(), 40, 40, 90);

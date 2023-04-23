@@ -32,7 +32,7 @@ public:
 
 	void setup();
 
-	void recieve(const Message& m);
+	void receive(const Message& m) override;
 
 	void sendNetMessage(msgId_type id);
 

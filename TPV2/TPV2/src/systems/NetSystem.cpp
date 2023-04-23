@@ -58,7 +58,7 @@ void NetSystem::setup()
 
 }
 
-void NetSystem::recieve(const Message& m)
+void NetSystem::receive(const Message& m)
 {
 	switch (m.id)
 	{
