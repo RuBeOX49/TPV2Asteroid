@@ -23,7 +23,7 @@ private:
 public:
 	constexpr static sysId_type id = sys_NET;
 
-	
+	bool canReceive = false;
 
 	string myName = "";
 	string hostName = "";

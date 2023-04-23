@@ -27,6 +27,7 @@ void NetSystem::update()
 
 void NetSystem::setup()
 {
+	canReceive = true;
 	std::cout << sizeof(NetMessage);
 
 	bool resolved = false;
@@ -77,8 +78,13 @@ void NetSystem::receive(const Message& m)
 		endConnection();
 		break;
 	case _m_NET_NOTIFIY_VICTORY:
-			endConnection();
+		endConnection();
 		break;
+	case _m_CHANGE_STATE:
+		if (m.new_state_ID.state == state_MAINMENU)
+		{
+			canReceive = false;
+		}
 	default:
 		break;
 	}
@@ -88,6 +94,9 @@ void NetSystem::receive(const Message& m)
 
 void NetSystem::sendNetMessage(msgId_type id)
 {
+	if (!canReceive)
+		return;
+
 	NetMessage m;
 	m.id = id;
 
