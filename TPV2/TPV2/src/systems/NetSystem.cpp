@@ -10,6 +10,7 @@ void NetSystem::initSystem() {
 
 	m.id = _m_SETUP_MULTIPLAYER;
 	m.isHost = isHost;
+	Game::instance()->send(m, true);
 }
 
 void NetSystem::update()
