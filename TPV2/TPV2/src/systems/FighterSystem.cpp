@@ -131,10 +131,33 @@ void FighterSystem::handleInput()
 	if (InputHandler::instance()->isKeyDown(SDLK_a)) {
 		fighterTransform->setRotation(fighterTransform->getRotation()-fighterCtrlData->getRotationFactor());
 		fighterTransform->setVel(fighterTransform->getVel().rotate(-fighterCtrlData->getRotationFactor()));
+
+		if (multiplayer) {
+			Message m;
+
+			m.id = _m_SEND_NET_MESSAGE;
+
+			m.netMessageID = _m_NET_OTHER_FIGHTER_LEFT;
+
+			Game::instance()->send(m);
+		}
+
+
 	}
 	else if (InputHandler::instance()->isKeyDown(SDLK_d)) {
 		fighterTransform->setRotation(fighterTransform->getRotation() + fighterCtrlData->getRotationFactor());
 		fighterTransform->setVel(fighterTransform->getVel().rotate(fighterCtrlData->getRotationFactor()));
+
+		if (multiplayer) {
+			Message m;
+
+			m.id = _m_SEND_NET_MESSAGE;
+
+			m.netMessageID = _m_NET_OTHER_FIGHTER_RIGHT;
+
+			Game::instance()->send(m);
+		}
+
 	}
 	if (InputHandler::instance()->isKeyDown(SDLK_w)) {
 		Vector2D vel = Vector2D();
@@ -143,11 +166,33 @@ void FighterSystem::handleInput()
 		vel = vel.rotate(fighterTransform->getRotation()) * fighterCtrlData->getVel();
 		if (vel.magnitude() != 0 && fighterTransform->getVel().magnitude() < 50)
 			fighterTransform->setVel(vel + fighterTransform->getVel());
+
+		if (multiplayer) {
+			Message m;
+
+			m.id = _m_SEND_NET_MESSAGE;
+
+			m.netMessageID = _m_NET_OTHER_FIGHTER_FORWARD;
+
+			Game::instance()->send(m);
+		}
+
 	}
 	if (InputHandler::instance()->isKeyDown(SDLK_s)) {
 		Message m;
 		m.id = _m_SHOOT_BULLET;
 		Game::instance()->send(m);
+
+		if (multiplayer) {
+			Message m;
+
+			m.id = _m_SEND_NET_MESSAGE;
+
+			m.netMessageID = _m_NET_OTHER_FIGHTER_SHOOTS;
+
+			Game::instance()->send(m);
+		}
+
 	}
 	
 
@@ -194,7 +239,7 @@ void FighterSystem::setupMultiplayer(bool isHost)
 	grpId_type rightFighter = !isHost ? _grp_FIGHTER : _grp_ENEMY_FIGHTER;
     enemyFighter = mngr_->addEntity();
 	enemyFighter->setGroup(rightFighter);
-	fighterTransform = mngr_->addComponent<Transform>(enemyFighter, Vector2D(WIN_WIDTH, WIN_HEIGHT / 2), Vector2D(), 40, 40, 270);
+	fighterTransform = mngr_->addComponent<Transform>(enemyFighter, Vector2D(WIN_WIDTH - 40, WIN_HEIGHT / 2), Vector2D(), 40, 40, 270);
 	mngr_->addComponent<HealthComponent>(enemyFighter);
 	deAccData = mngr_->addComponent<DeAcceleration>(enemyFighter);
 	mngr_->addComponent<Gun>(enemyFighter);
