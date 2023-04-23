@@ -16,7 +16,7 @@ void BulletsSystem::receive(const Message& m)
 			//Vel
 			Vector2D(0.0f, -1.0f).rotate(shipTransform->getRotation()) * (shipTransform->getVel().magnitude() + 5.0f) * shipGun->getBulletSpeed(),
 			//Width, Height
-			5,20);
+			5,20, _grp_BULLETS);
 		break;
 	case _m_COLLISION_AST_BULLET:
 		mngr_->setAlive(m.destroy_bullet_data.b, false);
@@ -31,6 +31,17 @@ void BulletsSystem::receive(const Message& m)
 	case _m_SETUP_MULTIPLAYER:
 		onRoundStart();
 		setupMultiplayer(m.isHost);
+		break;
+	case _m_NET_OTHER_FIGHTER_SHOOTS:
+		shoot(
+			//Pos
+			enemyShipTransform->getPos() + Vector2D(enemyShipTransform->getWidth() / 2.0f, enemyShipTransform->getHeight() / 2.0f)
+			- Vector2D(0.0f, enemyShipTransform->getHeight() / 2.0f + 5.0f + 12.0f).rotate(enemyShipTransform->getRotation())
+			- Vector2D(2.0f, 10.0f),
+			//Vel
+			Vector2D(0.0f, -1.0f).rotate(enemyShipTransform->getRotation()) * (enemyShipTransform->getVel().magnitude() + 5.0f) * enemyShipGun->getBulletSpeed(),
+			//Width, Height
+			5, 20, _grp_ENEMY_BULLETS);
 		break;
 	default:
 		break;
@@ -48,16 +59,27 @@ void BulletsSystem::initSystem()
 }
 
 void BulletsSystem::findFighter() {
+	bool foundFirst=true;
 	for (auto var : mngr_->getEntities()) {
-		if (mngr_->hasComponent<Gun>(var)) {
-			shipTransform = mngr_->getComponent<Transform>(var);
-			shipGun = mngr_->getComponent<Gun>(var);
+		if (foundFirst) {
+			if (mngr_->hasComponent<Gun>(var)) {
+				shipTransform = mngr_->getComponent<Transform>(var);
+				shipGun = mngr_->getComponent<Gun>(var);
+				foundFirst = false;
+			}
+		}
+		else {
+			if (mngr_->hasComponent<Gun>(var)) {
+				enemyShipTransform = mngr_->getComponent<Transform>(var);
+				enemyShipGun = mngr_->getComponent<Gun>(var);
+			}
 		}
 	}
 }
 
 void BulletsSystem::setupMultiplayer(bool isHost)
 {
+	findFighter();
 }
 
 //Aumenta el cooldown y destruye la bala si esta fuera de la pantalla
@@ -81,13 +103,16 @@ void BulletsSystem::update()
 
 //Si se cumple el cooldown genera una bala en la posición de la nave y
 //reinicia el cooldown
-void BulletsSystem::shoot(Vector2D pos, Vector2D vel, double width, double height)
+void BulletsSystem::shoot(Vector2D pos, Vector2D vel, double width, double height, grpId id)
 {
-	if (shipGun->getLastTimeShot() > SHOOT_DELAY)
+	if (enemyShipGun == nullptr)
+		findFighter();
+	Gun* currentGun = (id == _grp_BULLETS) ? shipGun : enemyShipGun;
+	if (currentGun->getLastTimeShot() > SHOOT_DELAY)
 	{
 		shotSound->play();
 		Entity* bullet = mngr_->addEntity();
-		bullet->setGroup(_grp_BULLETS);
+		bullet->setGroup(id);
 
 		mngr_->addComponent<Transform>(bullet,pos,
 			//Velocidad
@@ -96,7 +121,7 @@ void BulletsSystem::shoot(Vector2D pos, Vector2D vel, double width, double heigh
 			width, height, shipTransform->getRotation());
 		mngr_->addComponent<FramedImage>(bullet, Game::getTexture("Bullet"));
 		
-		shipGun->setLastTimeShot(0);
+		currentGun->setLastTimeShot(0);
 	}
 }
 
