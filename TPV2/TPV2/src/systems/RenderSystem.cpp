@@ -82,7 +82,7 @@ void RenderSystem::render() const
 		}
 	}
 
-	if (multiplayer) {
+	if (state_ == state_MULTIPLAYER) {
 		//name
 		Vector2D pos = fighterTransform->getPos() + Vector2D(-nameTexture->width() / 2, fighterTransform->getHeight());
 		SDL_Rect rect = build_sdlrect(pos,nameTexture->width(),nameTexture->height());
