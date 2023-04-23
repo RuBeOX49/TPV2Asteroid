@@ -60,7 +60,7 @@ void NetSystem::setup()
 	m.isHost = isHost;
 	m.name = isHost ? names[0]: names[1];
 	m.enemyName = isHost? names[1]: names[0];
-	Game::instance()->send(m, true);
+	Game::instance()->send(m);
 }
 
 void NetSystem::receive(const Message& m)
