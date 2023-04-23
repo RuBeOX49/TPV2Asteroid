@@ -19,11 +19,6 @@ void NetSystem::update()
 			message.id = m.id;
 			Game::instance()->send(message, true);
 		}
-		if (SDLNet_TCP_Recv(socket, &m, sizeof(m)) == 0)
-		{
-			//desconectado
-			std::cout << "Desconectado";
-		}
 	}
 	
 }
@@ -132,7 +127,7 @@ bool NetSystem::host() {
 	if (SDLNet_CheckSockets(socketSet, SDL_MAX_UINT32) > 0) {
 		if (SDLNet_SocketReady(masterSocket)) {
 			socket = SDLNet_TCP_Accept(masterSocket);
-			cout << "SE CONECTO ALGUIEN" << endl;
+			cout << "Conexion con el cliente hecha!" << endl;
 			SDLNet_TCP_AddSocket(socketSet, socket);
 			
 		}
