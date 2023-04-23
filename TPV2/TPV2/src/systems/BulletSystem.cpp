@@ -42,7 +42,9 @@ void BulletsSystem::receive(const Message& m)
 			//Vel
 			Vector2D(0.0f, -1.0f).rotate(enemyShipTransform->getRotation()) * (enemyShipTransform->getVel().magnitude() + 5.0f) * enemyShipGun->getBulletSpeed(),
 			//Width, Height
-			5, 20, _grp_ENEMY_BULLETS);
+			5, 20,
+			//Group
+			_grp_ENEMY_BULLETS);
 		break;
 	default:
 		break;
