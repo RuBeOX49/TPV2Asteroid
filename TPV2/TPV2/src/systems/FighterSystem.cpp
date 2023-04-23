@@ -224,10 +224,10 @@ void FighterSystem::setupMultiplayer(bool isHost)
 {
 
 	//Generar Fighter Izquierdo (host)
-	grpId_type leftFighter = isHost ? _grp_FIGHTER : _grp_ENEMY_FIGHTER;
+	Vector2D playerFighterPos = isHost ? Vector2D(0, WIN_HEIGHT / 2) : Vector2D(WIN_WIDTH - 40, WIN_HEIGHT / 2);
 	fighter = mngr_->addEntity();
-	fighter->setGroup(leftFighter);
-	fighterTransform = mngr_->addComponent<Transform>(fighter, Vector2D(0, WIN_HEIGHT / 2), Vector2D(), 40, 40, 90);
+	fighter->setGroup(_grp_FIGHTER);
+	fighterTransform = mngr_->addComponent<Transform>(fighter, playerFighterPos, Vector2D(), 40, 40, 90);
 	mngr_->addComponent<HealthComponent>(fighter);
 	deAccData = mngr_->addComponent<DeAcceleration>(fighter);
 	mngr_->addComponent<Gun>(fighter);
@@ -237,13 +237,15 @@ void FighterSystem::setupMultiplayer(bool isHost)
 	thrust->setVolume(10);
 
 	//Generar Fighter Derecho (cliente)
-	grpId_type rightFighter = !isHost ? _grp_FIGHTER : _grp_ENEMY_FIGHTER;
+	Vector2D enemyFighterPos = !isHost ? Vector2D(0, WIN_HEIGHT / 2) : Vector2D(WIN_WIDTH - 40, WIN_HEIGHT / 2);
     enemyFighter = mngr_->addEntity();
-	enemyFighter->setGroup(rightFighter);
-	fighterTransform = mngr_->addComponent<Transform>(enemyFighter, Vector2D(WIN_WIDTH - 40, WIN_HEIGHT / 2), Vector2D(), 40, 40, 270);
+	enemyFighter->setGroup(_grp_ENEMY_FIGHTER);
+	fighterTransform = mngr_->addComponent<Transform>(enemyFighter, enemyFighterPos, Vector2D(), 40, 40, 270);
 	mngr_->addComponent<HealthComponent>(enemyFighter);
 	deAccData = mngr_->addComponent<DeAcceleration>(enemyFighter);
 	mngr_->addComponent<Gun>(enemyFighter);
 	mngr_->addComponent<FramedImage>(enemyFighter, Game::getTexture("Ship"));
+
+	multiplayer = true;
 
 }
