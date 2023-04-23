@@ -225,12 +225,12 @@ void FighterSystem::setupMultiplayer(bool isHost)
 
 	//Generar Fighter Izquierdo (host)
 	Vector2D playerFighterPos = isHost ? Vector2D(0, WIN_HEIGHT / 2) : Vector2D(WIN_WIDTH - 40, WIN_HEIGHT / 2);
-
+	int rotation = isHost ? 90 : 270;
 
 
 	fighter = mngr_->addEntity();
 	fighter->setGroup(_grp_FIGHTER);
-	fighterTransform = mngr_->addComponent<Transform>(fighter, playerFighterPos, Vector2D(), 40, 40, 90);
+	fighterTransform = mngr_->addComponent<Transform>(fighter, playerFighterPos, Vector2D(), 40, 40, rotation);
 	mngr_->addComponent<HealthComponent>(fighter);
 	deAccData = mngr_->addComponent<DeAcceleration>(fighter);
 	mngr_->addComponent<Gun>(fighter);
@@ -241,9 +241,11 @@ void FighterSystem::setupMultiplayer(bool isHost)
 
 	//Generar Fighter Derecho (cliente)
 	Vector2D enemyFighterPos = !isHost ? Vector2D(0, WIN_HEIGHT / 2) : Vector2D(WIN_WIDTH - 40, WIN_HEIGHT / 2);
+	rotation = !isHost ? 90 : 270;
+
     enemyFighter = mngr_->addEntity();
 	enemyFighter->setGroup(_grp_ENEMY_FIGHTER);
-	fighterTransform = mngr_->addComponent<Transform>(enemyFighter, enemyFighterPos, Vector2D(), 40, 40, 270);
+	fighterTransform = mngr_->addComponent<Transform>(enemyFighter, enemyFighterPos, Vector2D(), 40, 40, rotation);
 	mngr_->addComponent<HealthComponent>(enemyFighter);
 	deAccData = mngr_->addComponent<DeAcceleration>(enemyFighter);
 	mngr_->addComponent<Gun>(enemyFighter);
