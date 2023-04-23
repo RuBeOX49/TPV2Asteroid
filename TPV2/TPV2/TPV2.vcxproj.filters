@@ -213,6 +213,15 @@
     <ClInclude Include="src\systems\NetSystem.h">
       <Filter>Header Files\src\systems</Filter>
     </ClInclude>
+    <ClInclude Include="src\game\MultiplayerVictoryState.h">
+      <Filter>Header Files\src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\MultiplayerDefeatState.h">
+      <Filter>Header Files\src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\DisconnectState.h">
+      <Filter>Header Files\src\game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\json\JSONValue.cpp">
@@ -316,6 +325,15 @@
     </ClCompile>
     <ClCompile Include="src\systems\NetSystem.cpp">
       <Filter>Source Files\src\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\DisconnectState.cpp">
+      <Filter>Source Files\src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\MultiplayerVictoryState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\MultiplayerDefeatState.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

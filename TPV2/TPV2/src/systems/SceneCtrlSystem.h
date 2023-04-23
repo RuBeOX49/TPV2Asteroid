@@ -30,6 +30,9 @@ private:
 	stateID state_; // El estado actual del juego (en lugar del componente State)
 
 	void setupMultiplayer(bool isHost);
+
+	void initDefeatState();
+	void initVictoryState();
 	//NOTAS:
 	//Como manejamos el cambio de escenas desde los mensajes, no necesitamos la variable winner_ para determinar la escena a la que cambiar
 };

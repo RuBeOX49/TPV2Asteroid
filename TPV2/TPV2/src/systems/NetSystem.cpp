@@ -67,8 +67,6 @@ void NetSystem::receive(const Message& m)
 		break;
 	case _m_DEFEAT:
 		sendNetMessage(_m_NET_NOTIFIY_VICTORY);
-		Message m;
-		m.id = _m_CHANGE_STATE;
 	default:
 		break;
 	}
