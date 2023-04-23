@@ -258,5 +258,7 @@ void NetSystem::endConnection()
 	if (isHost)
 		SDLNet_TCP_DelSocket(socketSet, masterSocket);
 
+	SDLNet_FreeSocketSet(socketSet);
+
 	connected = false;
 }
