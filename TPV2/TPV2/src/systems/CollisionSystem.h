@@ -26,6 +26,7 @@ private:
 		// Indica si el sistema está activo o no (modificar el valor en onRoundOver y
 		// onRoundStart, y en update no hacer nada si no está activo)
 		bool active_;
+		bool multiplayer=false;
 		SoundEffect* explosion;
 
 		void setupMultiplayer(bool isHost);
@@ -35,4 +36,7 @@ private:
 		
 		//Maneja las colisiones entre bala y asteroide
 		void handleBulletCollision(Entity* e, Entity* c);
+
+		//Maneja las colisiones entre bala enemiga y nave
+		void handleNetCollision(Entity* e, Entity* c);
 };

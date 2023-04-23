@@ -53,6 +53,15 @@ void CollisionsSystem::update()
 				}
 			}
 		}
+		if (multiplayer) {
+			if (e->getGroup() == _grp_ENEMY_BULLETS) {
+				for (auto c : mngr_->getEntities()) {
+					if (c->getGroup() == _grp_FIGHTER) {
+						handleNetCollision(e, c);
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -70,6 +79,7 @@ void CollisionsSystem::onRoundStart()
 
 void CollisionsSystem::setupMultiplayer(bool isHost)
 {
+	multiplayer = true;
 }
 
 //Si hay colision fighter-asteroide, manda el mensaje con referencia al asteroide y quita una vida
@@ -108,6 +118,20 @@ void CollisionsSystem::handleBulletCollision(Entity* e, Entity* c)
 		m.destroy_asteroid_data.e = e;
 		m.destroy_bullet_data.b = c;
 
+		Game::instance()->send(m);
+	}
+}
+
+void CollisionsSystem::handleNetCollision(Entity* e, Entity* c) {
+	Transform* eTr = mngr_->getComponent<Transform>(e);
+	Transform* cTr = mngr_->getComponent<Transform>(c);
+
+	if (Collisions::collidesWithRotation(eTr->getPos(), eTr->getWidth(), eTr->getHeight(), eTr->getRotation(),
+		cTr->getPos(), cTr->getWidth(), cTr->getHeight(), cTr->getRotation())) {
+
+		Message m;
+		m.id = _m_NET_OTHER_FIGHTER_WINS;
+		cout << "Victoria";
 		Game::instance()->send(m);
 	}
 }
