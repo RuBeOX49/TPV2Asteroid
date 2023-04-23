@@ -33,6 +33,7 @@ private:
 
 	void initDefeatState();
 	void initVictoryState();
+	void initDisconnectState();
 	//NOTAS:
 	//Como manejamos el cambio de escenas desde los mensajes, no necesitamos la variable winner_ para determinar la escena a la que cambiar
 };
