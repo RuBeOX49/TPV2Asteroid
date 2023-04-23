@@ -2,6 +2,7 @@
 #include "../game/constants.h"
 #include "../ecs/System.h"
 #include "../sdlutils/Texture.h"
+#include "../components/Transform.h"
 
 class RenderSystem : public System {
 public:
@@ -29,8 +30,16 @@ private:
 	
 	Texture* healthTexture;
 	int currHealth = STARTING_HEALTH;
+
+	Transform* fighterTransform;
+	Transform* enemyFighterTransform;
+
+	Texture* nameTexture;
+	Texture* enemyNameTexture;
+
 	
-	void setupMultiplayer(bool isHost);
+	void setupMultiplayer(string name, string nameRival, bool isHost);
+	bool multiplayer = false;
 
 	uint winner_; // 0 - None, 1 - Asteroid, 2- Fighter
 	uint state_; // El estado actual de juego (como en GameCtrlSystem)

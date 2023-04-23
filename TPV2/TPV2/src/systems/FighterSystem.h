@@ -50,12 +50,17 @@ private:
 	bool multiplayer = false;
 	bool active_;
 	SoundEffect* thrust;
+
 	Entity* fighter;
-	Transform* fighterTransform;
 	Entity* enemyFighter;
+
+	Transform* fighterTransform;
+
 	Transform* enemyFighterTransform;
+
 	Transform* nameTransform;
 	Transform* enemyNameTransform;
+
 	FighterCtrl* fighterCtrlData;
 	DeAcceleration* deAccData;
 

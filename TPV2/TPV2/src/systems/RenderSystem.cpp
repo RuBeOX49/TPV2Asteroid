@@ -24,7 +24,7 @@ void RenderSystem::receive(const Message& m) {
 		state_ = m.new_state_ID.state;
 		break;
 	case _m_SETUP_MULTIPLAYER:
-		setupMultiplayer(m.isHost);
+		setupMultiplayer(m.name, m.enemyName, m.isHost);
 		break;
 	default:
 		break;
@@ -81,6 +81,20 @@ void RenderSystem::render() const
 			healthTexture->render(rect);
 		}
 	}
+
+	if (multiplayer) {
+		//name
+		Vector2D pos = fighterTransform->getPos() + Vector2D(-nameTexture->width() / 2, fighterTransform->getHeight());
+		SDL_Rect rect = build_sdlrect(pos,nameTexture->width(),nameTexture->height());
+		nameTexture->render(rect);
+
+		//enemyName
+		
+		Vector2D enemypos = enemyFighterTransform->getPos() + Vector2D(-enemyNameTexture->width() / 2, enemyFighterTransform->getHeight());
+		SDL_Rect rect = build_sdlrect(pos, enemyNameTexture->width(), enemyNameTexture->height());
+		enemyNameTexture->render(rect);
+
+	}
 	
 
 }
@@ -89,8 +103,24 @@ void RenderSystem::onRoundStart()
 	currHealth = STARTING_HEALTH;
 }
 
-void RenderSystem::setupMultiplayer(bool isHost)
+void RenderSystem::setupMultiplayer(string name, string enemyName, bool isHost)
 {
+	//findFighters
+	for (auto var : mngr_->getEntities()) {
+		if (mngr_->groupId(var) == _grp_FIGHTER) {
+			fighterTransform = mngr_->getComponent<Transform>(var);
+		}
+		if (mngr_->groupId(var) == _grp_ENEMY_FIGHTER) {
+			enemyFighterTransform = mngr_->getComponent<Transform>(var);
+		}
+	}
+
+	//create textures
+	nameTexture = new Texture(SDLUtils::instance()->renderer(), name, *(Game::instance()->getGameFont()), build_sdlcolor("0x2020ffff"));
+	enemyNameTexture = new Texture(SDLUtils::instance()->renderer(), enemyName, *(Game::instance()->getGameFont()), build_sdlcolor("0x2020ffff"));
+
+	multiplayer = true;
+
 }
 
 
