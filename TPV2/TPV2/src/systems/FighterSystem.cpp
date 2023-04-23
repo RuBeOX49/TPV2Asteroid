@@ -49,6 +49,7 @@ void FighterSystem::receive(const Message& m)
 		spawnFighter();
 		break;
 	case _m_SETUP_MULTIPLAYER:
+		onRoundStart();
 		setupMultiplayer(m.isHost);
 		break;
 	case _m_NET_OTHER_FIGHTER_FORWARD:

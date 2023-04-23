@@ -29,6 +29,7 @@ void BulletsSystem::receive(const Message& m)
 		shipGun = mngr_->getComponent<Gun>(m.fighter_address.f);
 		break;
 	case _m_SETUP_MULTIPLAYER:
+		onRoundStart();
 		setupMultiplayer(m.isHost);
 		break;
 	default:

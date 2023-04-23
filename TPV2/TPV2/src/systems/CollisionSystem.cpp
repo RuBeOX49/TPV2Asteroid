@@ -14,6 +14,7 @@ void CollisionsSystem::receive(const Message& m)
 		else active_ = true;
 		break;
 	case _m_SETUP_MULTIPLAYER:
+		onRoundStart();
 		setupMultiplayer(m.isHost);
 		break;
 	default:
