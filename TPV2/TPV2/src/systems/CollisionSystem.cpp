@@ -140,7 +140,7 @@ void CollisionsSystem::handleNetCollision(Entity* e, Entity* c) {
 
 		Message m2(_m_DEFEAT);
 
-		Game::instance()->send(m2);
+		Game::instance()->send(m2, true);
 
 	}
 }
