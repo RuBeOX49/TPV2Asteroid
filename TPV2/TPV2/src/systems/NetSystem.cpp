@@ -76,10 +76,7 @@ void NetSystem::receive(const Message& m)
 	case m_DISCONNECT:
 		endConnection();
 		break;
-	case _m_CHANGE_STATE:
-		if (m.new_state_ID.state == state_MULTIPLAYER_DEFEAT
-			|| m.new_state_ID.state == state_MULTIPLAYER_VICTORY
-			|| m.new_state_ID.state == state_MULTIPLAYER_DISCONNECT)
+	case _m_NET_NOTIFIY_VICTORY:
 			endConnection();
 		break;
 	default:
