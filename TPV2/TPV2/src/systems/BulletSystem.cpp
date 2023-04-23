@@ -22,6 +22,7 @@ void BulletsSystem::receive(const Message& m)
 		mngr_->setAlive(m.destroy_bullet_data.b, false);
 		break;
 	case _m_BATTLE_RESTART:
+	case _m_FIND_FIGHTER:
 		findFighter();
 		break;
 	case _m_SEND_FIGHTER:
@@ -59,20 +60,14 @@ void BulletsSystem::initSystem()
 }
 
 void BulletsSystem::findFighter() {
-	bool foundFirst=true;
 	for (auto var : mngr_->getEntities()) {
-		if (foundFirst) {
-			if (mngr_->hasComponent<Gun>(var)) {
-				shipTransform = mngr_->getComponent<Transform>(var);
-				shipGun = mngr_->getComponent<Gun>(var);
-				foundFirst = false;
-			}
+		if (mngr_->hasComponent<Gun>(var) && mngr_->groupId(var) == _grp_FIGHTER) {
+			shipTransform = mngr_->getComponent<Transform>(var);
+			shipGun = mngr_->getComponent<Gun>(var);
 		}
-		else {
-			if (mngr_->hasComponent<Gun>(var)) {
-				enemyShipTransform = mngr_->getComponent<Transform>(var);
-				enemyShipGun = mngr_->getComponent<Gun>(var);
-			}
+		if (mngr_->hasComponent<Gun>(var) && mngr_->groupId(var) == _grp_ENEMY_FIGHTER) {
+			enemyShipTransform = mngr_->getComponent<Transform>(var);
+			enemyShipGun = mngr_->getComponent<Gun>(var);
 		}
 	}
 }

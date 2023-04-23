@@ -281,6 +281,10 @@ void FighterSystem::setupMultiplayer(bool isHost)
 	mngr_->addComponent<Gun>(enemyFighter);
 	mngr_->addComponent<FramedImage>(enemyFighter, Game::getTexture("Ship"));
 
+
+	Message m(_m_FIND_FIGHTER);
+	Game::instance()->send(m);
+
 	multiplayer = true;
 
 }
