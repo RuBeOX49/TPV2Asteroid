@@ -252,13 +252,10 @@ bool NetSystem::client()
 
 void NetSystem::endConnection()
 {
+	SDLNet_TCP_Close(masterSocket);
+	SDLNet_TCP_Close(socket);
 
-	SDLNet_TCP_DelSocket(socketSet, socket);
-
-	if (isHost)
-		SDLNet_TCP_DelSocket(socketSet, masterSocket);
 
 	SDLNet_FreeSocketSet(socketSet);
-
 	connected = false;
 }
