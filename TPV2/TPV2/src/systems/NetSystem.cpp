@@ -8,6 +8,9 @@ void NetSystem::initSystem() {
 
 void NetSystem::update()
 {
+	if (!connected)
+		return;
+
 	NetMessage m;
 	if ((SDLNet_CheckSockets(socketSet, 0) > 0)&& SDLNet_SocketReady(socket))
 	{
@@ -54,6 +57,8 @@ void NetSystem::setup()
 			break;
 		}
 	}
+
+	connected = true;
 
 	Message m;
 
@@ -253,4 +258,5 @@ void NetSystem::endConnection()
 	if (isHost)
 		SDLNet_TCP_DelSocket(socketSet, masterSocket);
 
+	connected = false;
 }
