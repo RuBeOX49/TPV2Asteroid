@@ -91,6 +91,9 @@ void NetSystem::receive(const Message& m)
 
 void NetSystem::sendNetMessage(msgId_type id)
 {
+	if (!connected)
+		return;
+
 	NetMessage m;
 	m.id = id;
 
@@ -98,7 +101,7 @@ void NetSystem::sendNetMessage(msgId_type id)
 	if (sentData != sizeof(m))
 	{
 		//Error, desconectando
-		Game::instance()->send(Message(m_DISCONNECT));
+		Game::instance()->send(Message(m_DISCONNECT), true);
 	}
 }
 
@@ -252,6 +255,8 @@ bool NetSystem::client()
 
 void NetSystem::endConnection()
 {
+
+
 	SDLNet_TCP_Close(masterSocket);
 	SDLNet_TCP_Close(socket);
 
