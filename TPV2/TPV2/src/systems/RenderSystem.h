@@ -22,6 +22,12 @@ public:
 
 	constexpr static sysId_type id = sys_RENDER;
 
+	~RenderSystem(){
+		delete nameTexture;
+		delete healthTexture;
+		delete enemyNameTexture;
+	}
+
 private:
 	// Para gestionar los mensajes correspondientes y actualizar los atributos
 	// winner_ y state_.

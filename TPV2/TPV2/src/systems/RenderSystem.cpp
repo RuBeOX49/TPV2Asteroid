@@ -91,8 +91,8 @@ void RenderSystem::render() const
 		//enemyName
 		
 		Vector2D enemypos = enemyFighterTransform->getPos() + Vector2D(-enemyNameTexture->width() / 2, enemyFighterTransform->getHeight());
-		SDL_Rect rect = build_sdlrect(pos, enemyNameTexture->width(), enemyNameTexture->height());
-		enemyNameTexture->render(rect);
+		SDL_Rect rect2 = build_sdlrect(enemypos, enemyNameTexture->width(), enemyNameTexture->height());
+		enemyNameTexture->render(rect2);
 
 	}
 	
@@ -113,6 +113,16 @@ void RenderSystem::setupMultiplayer(string name, string enemyName, bool isHost)
 		if (mngr_->groupId(var) == _grp_ENEMY_FIGHTER) {
 			enemyFighterTransform = mngr_->getComponent<Transform>(var);
 		}
+	}
+
+	if (nameTexture != nullptr) {
+		delete nameTexture;
+		nameTexture = nullptr;
+	}
+	
+	if (enemyNameTexture != nullptr) {
+		delete enemyNameTexture;
+		enemyNameTexture = nullptr;
 	}
 
 	//create textures
