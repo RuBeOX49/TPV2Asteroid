@@ -28,19 +28,21 @@ public:
 	string myName = "";
 	string hostName = "";
 
-	void initSystem() override;
-
+	
+	//Recoge los mensajes recibidos de la red y los convierte a mensajes internos para su tratamiento en los sistemas
 	void update() override;
-
+	//Realiza paso a paso la conexion entre cliente y host
 	void setup();
 
 	void receive(const Message& m) override;
-
+	//Envia un mensaje de red por el canal TCP
 	void sendNetMessage(msgId_type id);
-
+	//Parte de setup() especifica para el host
 	bool host();
 
+	//Parte de setup() especifica para el cliente
 	bool client();
-
+	
+	//Limpia los sockets y el socketSet para futuras conexiones
 	void endConnection();
 };

@@ -30,6 +30,7 @@ private:
 		bool isHost;
 		SoundEffect* explosion;
 
+		//Actualiza los valores necesarios para el multijugador
 		void setupMultiplayer(bool isHost);
 
 		//Maneja las colisiones entre fighter y asteroide

@@ -41,10 +41,13 @@ private:
 	// Indica si el sistema está activo o no (modificar el valor en onRoundOver y
 	// onRoundStart, y en update no hacer nada si no está activo)
 
-	void setupMultiplayer(string name, string nameEnemy, bool isHost);
+	//Crea los fighters y manda un mensaje al resto de sistemas para que actualizen sus referencias
+	void setupMultiplayer(bool isHost);
 
+	//Mueve el fighter enemigo hacia delante
 	void enemyForward();
 
+	//Rota el fighter enemigo
 	void enemyRotation(bool left);
 
 	bool multiplayer = false;

@@ -250,7 +250,7 @@ void FighterSystem::onRoundStart()
 	
 }
 
-void FighterSystem::setupMultiplayer(string name, string nameRival, bool isHost)
+void FighterSystem::setupMultiplayer(bool isHost)
 {
 
 	//Generar Fighter Izquierdo (host)

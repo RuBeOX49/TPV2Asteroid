@@ -42,7 +42,7 @@ private:
 	Texture* nameTexture;
 	Texture* enemyNameTexture;
 
-	
+	//Inicializa las texturas necesarias para el modo multijugador
 	void setupMultiplayer(string name, string nameRival, bool isHost);
 	bool multiplayer = false;
 

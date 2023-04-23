@@ -31,6 +31,7 @@ private:
 
 	void setupMultiplayer(bool isHost);
 
+	//Inician las escenas pertinentes al recibir un mensaje de red de control de escena
 	void initDefeatState();
 	void initVictoryState();
 	void initDisconnectState();
