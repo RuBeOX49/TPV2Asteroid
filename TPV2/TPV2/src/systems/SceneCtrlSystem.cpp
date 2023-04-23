@@ -35,8 +35,10 @@ void SceneCtrlSystem::receive(const Message& m)
 		break;
 	case _m_DEFEAT:
 		initDefeatState();
+		break;
 	case _m_NET_NOTIFIY_VICTORY:
 		initVictoryState();
+		break;
 	default:
 		break;
 	}
